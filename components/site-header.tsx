@@ -6,10 +6,10 @@ import { useCart } from "./cart-provider";
 import { BrandLogo } from "./brand-logo";
 
 const links = [
-  ["Ana Sayfa", "/"],
   ["V30", "/urun/v30"],
   ["OBD Park Kiti", "/urun/obd-park-kiti"],
   ["Özellikler", "/#ozellikler"],
+  ["Kurulum", "/#kurulum"],
   ["SSS", "/#sss"],
 ] as const;
 
@@ -18,16 +18,22 @@ export function SiteHeader() {
   const { itemCount } = useCart();
 
   return (
-    <header className="site-header">
+    <header className={open ? "site-header is-open" : "site-header"}>
       <div className="header-inner">
         <BrandLogo />
-        <button className="menu-button" aria-label="Menüyü aç veya kapat" aria-expanded={open} onClick={() => setOpen(!open)}>
-          <span /> <span />
-        </button>
-        <nav className={open ? "nav nav--open" : "nav"} aria-label="Ana navigasyon">
+        <nav className="nav" aria-label="Ana navigasyon">
           {links.map(([label, href]) => <Link key={label} href={href} onClick={() => setOpen(false)}>{label}</Link>)}
         </nav>
-        <Link className="cart-link" href="/sepet" aria-label={`Sepet, ${itemCount} ürün`}><i aria-hidden="true">⌑</i> Sepet <span>{itemCount}</span></Link>
+        <div className="header-actions">
+          <Link className="cart-link" href="/sepet" aria-label={`Sepet, ${itemCount} ürün`}>
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 8h14l-1.2 11.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8L5 8Z" fill="none" stroke="currentColor" strokeWidth="1.6" /><path d="M9 8V6.5a3 3 0 0 1 6 0V8" fill="none" stroke="currentColor" strokeWidth="1.6" /></svg>
+            <span className="cart-link__label">Sepet</span>
+            {itemCount > 0 && <span className="cart-count">{itemCount}</span>}
+          </Link>
+          <button className="menu-button" type="button" aria-label={open ? "Menüyü kapat" : "Menüyü aç"} aria-expanded={open} onClick={() => setOpen(!open)}>
+            <span /><span />
+          </button>
+        </div>
       </div>
     </header>
   );

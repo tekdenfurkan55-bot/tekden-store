@@ -35,14 +35,14 @@ export function AddToCartPanel({ compact = false, initial = "v30" }: { compact?:
         <strong>{formatPrice(selections[selectionId].price * quantity)}</strong>
       </div>
       <div className="buy-actions">
-        <button className="button button--primary" type="button" onClick={() => add(true)}>Hemen Satın Al</button>
-        <button className="button button--outline" type="button" onClick={() => add(false)}>{added ? "Sepete Eklendi" : "Sepete Ekle"}</button>
+        <button className="button button--primary" type="button" onClick={() => add(true)}>Hemen satın al</button>
+        <button className="button button--outline" type="button" onClick={() => add(false)}>{added ? "Sepete eklendi" : "Sepete ekle"}</button>
       </div>
     </div>
   );
 }
 
-export function SingleProductPurchase({ id, buyLabel = "Hemen Satın Al" }: { id: SelectionId; buyLabel?: string }) {
+export function SingleProductPurchase({ id, buyLabel = "Hemen satın al" }: { id: SelectionId; buyLabel?: string }) {
   const [quantity, setQuantity] = useState(1);
   const [added, setAdded] = useState(false);
   const { addItem } = useCart();
@@ -55,5 +55,5 @@ export function SingleProductPurchase({ id, buyLabel = "Hemen Satın Al" }: { id
     if (goToCheckout) router.push("/checkout");
   }
 
-  return <div className="buy-panel"><div className="purchase-row"><div className="quantity-control" aria-label="Adet seçimi"><button type="button" aria-label="Azalt" disabled={quantity === 1} onClick={() => setQuantity(Math.max(1, quantity - 1))}>−</button><span>{quantity}</span><button type="button" aria-label="Artır" onClick={() => setQuantity(quantity + 1)}>+</button></div><strong>{formatPrice(selection.price * quantity)}</strong></div><div className="buy-actions"><button className="button button--primary" onClick={() => add(true)} type="button">{buyLabel}</button><button className="button button--outline" onClick={() => add(false)} type="button">{added ? "Sepete Eklendi" : "Sepete Ekle"}</button></div></div>;
+  return <div className="buy-panel"><div className="purchase-row"><div className="quantity-control" aria-label="Adet seçimi"><button type="button" aria-label="Azalt" disabled={quantity === 1} onClick={() => setQuantity(Math.max(1, quantity - 1))}>−</button><span>{quantity}</span><button type="button" aria-label="Artır" onClick={() => setQuantity(quantity + 1)}>+</button></div><strong>{formatPrice(selection.price * quantity)}</strong></div><div className="buy-actions"><button className="button button--primary" onClick={() => add(true)} type="button">{buyLabel}</button><button className="button button--outline" onClick={() => add(false)} type="button">{added ? "Sepete eklendi" : "Sepete ekle"}</button></div></div>;
 }

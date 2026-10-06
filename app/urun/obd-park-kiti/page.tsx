@@ -20,5 +20,36 @@ const productSchema = { "@context": "https://schema.org", "@type": "Product", na
 const breadcrumbSchema = { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Ana Sayfa", item: absoluteUrl() }, { "@type": "ListItem", position: 2, name: "OBD Park Kiti", item: absoluteUrl("/urun/obd-park-kiti") }] };
 
 export default function ObdProductPage() {
-  return <><StructuredData data={[productSchema, breadcrumbSchema]} /><SiteHeader /><main className="product-page obd-page"><nav className="breadcrumbs" aria-label="Sayfa yolu"><Link href="/">Ana Sayfa</Link><span>/</span><span>OBD Park Kiti</span></nav><section className="product-main"><div className="product-gallery"><div className="gallery-primary"><ProductMedia label="OBD Type-C Park Kiti ürün görseli" /></div></div><div className="product-purchase"><p className="eyebrow">TEKDEN / PARK MODU</p><h1>{obdKit.name}</h1><strong className="product-price">{formatPrice(obdKit.price)}</strong><p className="product-lead">{obdKit.description}</p><dl className="obd-facts"><div><dt>Uyumluluk</dt><dd>{obdKit.compatibility}</dd></div><div><dt>Kullanım</dt><dd>24 saat park modu</dd></div><div><dt>Bağlantı</dt><dd>OBD / Type-C</dd></div></dl><SingleProductPurchase id="obd" /><div className="bundle-callout"><span>Birlikte alın</span><strong>V30 + OBD Park Kiti</strong><b>{formatPrice(selections["v30-obd"].price)}</b><Link className="text-link" href="/urun/v30#satinal">Paketi İncele <span>→</span></Link></div></div></section><section className="obd-explainer"><div><p className="eyebrow">PARK MODU BAĞLANTISI</p><h2>V30 park halindeyken de kayıt için hazır.</h2></div><p>OBD Type-C Park Kiti, V30&apos;a park halinde güç sağlayarak 24 saat park modu kullanımını mümkün kılar. Elektriksel değerler ve kablo uzunluğu gibi doğrulanmamış teknik bilgiler sunulmamaktadır.</p></section></main><SiteFooter /></>;
+  return (
+    <>
+      <StructuredData data={[productSchema, breadcrumbSchema]} />
+      <SiteHeader />
+      <main className="product-page obd-page">
+        <nav className="breadcrumbs" aria-label="Sayfa yolu"><Link href="/">Ana sayfa</Link><span>/</span><span>OBD Park Kiti</span></nav>
+        <section className="product-main">
+          <div className="product-gallery"><div className="gallery-primary"><ProductMedia src={obdKit.image} alt={obdKit.name} label="Ürün fotoğrafı" /></div></div>
+          <div className="product-purchase">
+            <h1>{obdKit.name}</h1>
+            <p className="product-category">V30 için 24 saat park modu</p>
+            <strong className="product-price">{formatPrice(obdKit.price)}</strong>
+            <p className="product-lead">{obdKit.description}</p>
+            <dl className="obd-facts"><div><dt>Uyumluluk</dt><dd>{obdKit.compatibility}</dd></div><div><dt>Kullanım</dt><dd>24 saat park modu</dd></div><div><dt>Bağlantı</dt><dd>OBD / Type-C</dd></div></dl>
+            <SingleProductPurchase id="obd" />
+            <div className="bundle-callout"><span>Henüz V30&apos;unuz yoksa</span><strong>V30 + OBD Park Kiti</strong><b>{formatPrice(selections["v30-obd"].price)}</b><Link className="text-link" href="/urun/v30#satinal">Paketi seç</Link></div>
+          </div>
+        </section>
+        <section className="obd-explainer">
+          <div>
+            <div><h2>Kontak kapansa da kayıt hazır.</h2><small>Elektriksel değerler ve kablo uzunluğu gibi doğrulanmamış teknik bilgiler sunulmamaktadır.</small></div>
+            <ol className="parking-timeline" aria-label="Park modu nasıl çalışır">
+              <li><span>Kontak kapanır</span><p>OBD kiti V30&apos;a güç vermeye devam eder.</p></li>
+              <li><span>Park modu başlar</span><p>Time-Lapse ile uzun süreyi az alanla kaydeder.</p></li>
+              <li><span>Darbe algılanır</span><p>G-Sensor ilgili kaydın korunmasına yardımcı olur.</p></li>
+            </ol>
+          </div>
+        </section>
+      </main>
+      <SiteFooter />
+    </>
+  );
 }

@@ -7,6 +7,7 @@ import { ProductMedia } from "@/components/product-media";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { StructuredData } from "@/components/structured-data";
+import { Viewfinder } from "@/components/viewfinder";
 import { faqs } from "@/lib/content";
 import { formatPrice, v30 } from "@/lib/product";
 import { absoluteUrl } from "@/lib/site";
@@ -23,5 +24,35 @@ const productSchema = { "@context": "https://schema.org", "@type": "Product", na
 const breadcrumbSchema = { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Ana Sayfa", item: absoluteUrl() }, { "@type": "ListItem", position: 2, name: "V30", item: absoluteUrl("/urun/v30") }] };
 
 export default function V30ProductPage() {
-  return <><StructuredData data={[productSchema, breadcrumbSchema]} /><SiteHeader /><main className="product-page"><nav className="breadcrumbs" aria-label="Sayfa yolu"><Link href="/">Ana Sayfa</Link><span>/</span><span>V30</span></nav><section className="product-main"><ProductGallery images={v30.images} /><div className="product-purchase" id="satinal"><p className="eyebrow">TEKDEN TECHNOLOGY</p><h1>TEKDEN <span className="model-mark">V30</span></h1><p className="product-category">4K Araç Kamerası</p><strong className="product-price">{formatPrice(v30.price)}</strong><p className="product-lead">4K ön kayıt, 1080P arka kamera ve akıllı sürüş kayıt özellikleri.</p><ul className="advantage-list">{v30.highlights.map((item) => <li key={item}>{item}</li>)}</ul><AddToCartPanel /><div className="trust-row"><span>Ön + Arka Kayıt</span><span>Kolay Kurulum</span><span>V30 Desteği</span></div></div></section><section className="product-story"><div><p className="eyebrow">DUAL CHANNEL</p><h2>Ön 4K.<br />Arka 1080P.</h2><p>Yolun önünü ve arkasını aynı anda kaydedin.</p></div><div className="product-story__visuals"><ProductMedia src={v30.images[0].src} alt={v30.images[0].alt} tone="dark" label="V30 ana kamera" /><ProductMedia src={v30.images[2].src} alt={v30.images[2].alt} tone="dark" compact label="V30 arka kamera" /></div></section><section className="product-specs"><div><p className="eyebrow">TEKNİK ÖZELLİKLER</p><h2>V30&apos;un donanımı.</h2></div><table className="spec-table"><tbody>{v30.specifications.map(([label, value]) => <tr key={label}><th scope="row">{label}</th><td>{value}</td></tr>)}</tbody></table></section><section className="faq-section"><div className="section-heading"><p className="eyebrow">SIK SORULAN SORULAR</p><h2>Satın almadan önce.</h2></div><Faq items={faqs} /></section></main><div className="mobile-buy-bar"><div><small>TEKDEN V30</small><strong>{formatPrice(v30.price)}</strong></div><a className="button button--primary" href="#satinal">Satın Al</a></div><SiteFooter /></>;
+  return (
+    <>
+      <StructuredData data={[productSchema, breadcrumbSchema]} />
+      <SiteHeader />
+      <main className="product-page">
+        <nav className="breadcrumbs" aria-label="Sayfa yolu"><Link href="/">Ana sayfa</Link><span>/</span><span>V30</span></nav>
+        <section className="product-main">
+          <ProductGallery images={v30.images} />
+          <div className="product-purchase" id="satinal">
+            <h1>TEKDEN <span className="model-mark">V30</span></h1>
+            <p className="product-category">4K araç kamerası, ön + arka</p>
+            <strong className="product-price">{formatPrice(v30.price)}</strong>
+            <ul className="advantage-list">{v30.highlights.map((item) => <li key={item}>{item}</li>)}</ul>
+            <AddToCartPanel />
+            <div className="trust-row"><span>Ön ve arka aynı anda kayıt</span><span>microSD kart dahil değildir, 512 GB&apos;a kadar desteklenir</span><span>24 saat park modu için OBD Park Kiti gerekir</span></div>
+          </div>
+        </section>
+        <section className="product-story">
+          <div><h2>Önde 4K. Arkada 1080P.</h2><p>Yolun önünü ve arkasını aynı anda kaydedin. GC4653 sensör ve HDR, ışık değiştiğinde görüntüyü dengeler.</p></div>
+          <div className="product-story__visuals">
+            <Viewfinder tone="dark" live={false} channel="ÖN 4K"><ProductMedia src={v30.images[0].src} alt={v30.images[0].alt} tone="dark" label="Ön kamera" /></Viewfinder>
+            <Viewfinder tone="dark" live={false} channel="ARKA 1080P"><ProductMedia src={v30.images[2].src} alt={v30.images[2].alt} tone="dark" label="Arka kamera" /></Viewfinder>
+          </div>
+        </section>
+        <section className="product-specs"><h2>Teknik özellikler</h2><table className="spec-table"><tbody>{v30.specifications.map(([label, value]) => <tr key={label}><th scope="row">{label}</th><td>{value}</td></tr>)}</tbody></table></section>
+        <section className="faq-section"><h2>Satın almadan önce</h2><Faq items={faqs} /></section>
+      </main>
+      <div className="mobile-buy-bar"><div><small>TEKDEN V30</small><strong>{formatPrice(v30.price)}</strong></div><a className="button button--primary" href="#satinal">Satın al</a></div>
+      <SiteFooter />
+    </>
+  );
 }

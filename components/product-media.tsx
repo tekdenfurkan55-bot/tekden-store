@@ -11,16 +11,18 @@ type ProductMediaProps = {
   compact?: boolean;
   priority?: boolean;
   contain?: boolean;
+  sizes?: string;
 };
 
 export function ProductMedia({
   src,
   alt = "TEKDEN V30 4K araç kamerası",
-  label = "V30 ürün görseli",
+  label = "V30",
   tone = "light",
   compact = false,
   priority = false,
   contain = true,
+  sizes,
 }: ProductMediaProps) {
   const [failed, setFailed] = useState(false);
   const showImage = src && !failed;
@@ -34,11 +36,14 @@ export function ProductMedia({
           alt={alt}
           fill
           priority={priority}
-          sizes={compact ? "(max-width: 900px) 75vw, 24vw" : "(max-width: 900px) 100vw, 55vw"}
+          sizes={sizes ?? (compact ? "(max-width: 900px) 40vw, 20vw" : "(max-width: 900px) 100vw, 60vw")}
           onError={() => setFailed(true)}
         />
       ) : (
-        <><div className="media-cross" aria-hidden="true" /><div className="media-label"><span>TEKDEN V30</span><small>{label} — özgün ürün fotoğrafı bekleniyor</small></div></>
+        <div className="media-fallback" role="img" aria-label={alt}>
+          <span>V30</span>
+          {!compact && <small>{label}</small>}
+        </div>
       )}
     </div>
   );

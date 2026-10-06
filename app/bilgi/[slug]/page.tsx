@@ -29,5 +29,5 @@ export default async function InfoPage({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const page = pages[slug as Slug];
   if (!page) notFound();
-  return <><SiteHeader /><main className="legal-page"><p className="eyebrow">TEKDEN TECHNOLOGY</p><h1>{page.title}</h1><p>{page.intro}</p>{slug !== "hakkimizda" && <aside>Bu sayfa taslak altyapıdır; doğrulanmamış şirket veya hukuk bilgisi içermez.</aside>}</main><SiteFooter /></>;
+  return <><SiteHeader /><main className="legal-page"><h1>{page.title}</h1><p>{page.intro}</p>{slug !== "hakkimizda" && <aside>Bu sayfa taslak altyapıdır; doğrulanmamış şirket veya hukuk bilgisi içermez.</aside>}</main><SiteFooter /></>;
 }

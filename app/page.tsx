@@ -6,8 +6,9 @@ import { ProductMedia } from "@/components/product-media";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { StructuredData } from "@/components/structured-data";
+import { Viewfinder } from "@/components/viewfinder";
 import { faqs } from "@/lib/content";
-import { formatPrice, v30 } from "@/lib/product";
+import { formatPrice, selections, v30 } from "@/lib/product";
 import { absoluteUrl, brandName } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -15,66 +16,143 @@ export const metadata: Metadata = {
   description: "TEKDEN V30; 4K ön, 1080P arka kamera, Wi-Fi, GPS, HDR ve OBD ile 24 saat park modu desteği sunan ön arka araç kamerası.",
   alternates: { canonical: "/" },
   openGraph: { title: "TEKDEN V30 4K Araç Kamerası", description: "4K ön, 1080P arka kamera. Wi-Fi, GPS, HDR ve park modu desteği.", url: "/", type: "website", images: [{ url: v30.image, alt: v30.images[0].alt }] },
-  twitter: { card: "summary_large_image", title: "TEKDEN V30 4K Araç Kamerası", description: "Yolun her detayını kaydedin.", images: [v30.image] },
+  twitter: { card: "summary_large_image", title: "TEKDEN V30 4K Araç Kamerası", description: "Yolun her detayı kayıtta.", images: [v30.image] },
 };
 
 const organizationSchema = { "@context": "https://schema.org", "@type": "Organization", name: brandName, url: absoluteUrl(), logo: absoluteUrl("/icon.svg") };
 const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqs.map((item) => ({ "@type": "Question", name: item.question, acceptedAnswer: { "@type": "Answer", text: item.answer } })) };
+
+const specRail = [
+  ["4K", "Ön kamera"],
+  ["1080P", "Arka kamera"],
+  ["GC4653", "Görüntü sensörü"],
+  ["512 GB", "microSD desteği"],
+  ["24 saat", "Park modu, OBD kit ile"],
+] as const;
+
+const capabilities = [
+  ["Wi-Fi", "Kayıtlarınıza telefonunuzdan ulaşın."],
+  ["GPS", "Konum bilgisi cihazın içinde. Ayrı bir aparat gerekmez."],
+  ["HDR", "Güneşe karşı ya da tünel çıkışında dengeli görüntü."],
+  ["G-Sensor", "Darbe algılandığında ilgili kaydın korunmasına yardımcı olur."],
+  ["Döngüsel kayıt", "Kart dolduğunda en eski normal kayıtların üzerine yazar."],
+  ["Time-Lapse", "Park halinde uzun süreyi daha az alanla kaydeder."],
+] as const;
 
 export default function HomePage() {
   return (
     <>
       <StructuredData data={[organizationSchema, faqSchema]} />
       <SiteHeader />
-      <main>
-        <section className="hero hero--v30">
+      <main className="home">
+        <section className="hero">
           <div className="hero-copy">
-            <p className="eyebrow">TEKDEN V30</p>
-            <h1>4K Araç Kamerası</h1>
-            <h2>Yolun her detayını kaydedin.</h2>
-            <p className="hero-subtitle">4K ön kayıt, 1080P arka kamera ve akıllı sürüş kayıt özellikleriyle yolculuğunuzun önemli anlarını kaydedin.</p>
-            <div className="hero-actions"><Link className="button button--primary" href="/urun/v30#satinal">Hemen Satın Al</Link><Link className="text-link" href="/urun/v30">V30&apos;u İncele <span>→</span></Link></div>
+            <p className="hero-model">TEKDEN <span className="model-mark">V30</span></p>
+            <h1>Yolun her detayı kayıtta.</h1>
+            <p className="hero-lead">4K ön ve 1080P arka kamera. Wi-Fi, GPS ve HDR tek cihazda.</p>
+            <div className="hero-buy">
+              <div className="hero-price"><strong>{formatPrice(v30.price)}</strong><span>OBD Park Kiti ile {formatPrice(selections["v30-obd"].price)}</span></div>
+              <div className="hero-actions">
+                <Link className="button button--primary" href="#satinal">Satın al</Link>
+                <Link className="button button--ghost" href="/urun/v30">Ürünü incele</Link>
+              </div>
+            </div>
           </div>
-          <div className="hero-visual"><ProductMedia src={v30.image} alt={v30.images[0].alt} priority label="Ana V30 ürün fotoğrafı" /></div>
-          <div className="hero-feature-row" aria-label="V30 öne çıkan özellikler">{[["4K UHD", "Ön Kamera"], ["1080P", "Arka Kamera"], ["Wi-Fi", "Bağlantı"], ["GPS", "Konum"], ["HDR", "Görüntü"]].map(([title, detail]) => <div key={title}><strong>{title}</strong><span>{detail}</span></div>)}</div>
+          <Viewfinder className="hero-visual">
+            <ProductMedia src={v30.image} alt={v30.images[0].alt} priority label="Ürün fotoğrafı" sizes="(max-width: 900px) 100vw, 62vw" />
+          </Viewfinder>
         </section>
 
-        <section className="trust-strip" aria-label="Temel ürün avantajları"><div><strong>4K + 1080P</strong><span>Ön ve arka kayıt</span></div><div><strong>512 GB</strong><span>microSD desteği</span></div><div><strong>Wi-Fi</strong><span>Telefondan erişim</span></div><div><strong>24 Saat</strong><span>OBD ile park modu</span></div></section>
-
-        <section className="quick-buy" id="satinal">
-          <div className="quick-buy__media"><ProductMedia src={v30.image} alt={v30.images[0].alt} label="V30 hızlı satın alma görseli" /></div>
-          <div className="quick-buy__content"><p className="eyebrow">HIZLI SATIN ALMA</p><h2>V30&apos;unuzu seçin.</h2><p>Tek kamera veya 24 saat park modu için OBD Park Kiti içeren paketi seçin.</p><AddToCartPanel compact /></div>
+        <section className="spec-rail" aria-label="Öne çıkan özellikler">
+          <dl>{specRail.map(([value, label]) => <div key={value}><dd>{value}</dd><dt>{label}</dt></div>)}</dl>
         </section>
 
-        <section className="statement" id="ozellikler"><p className="eyebrow">4K ÖN KAMERA</p><h2>Plakalar, tabelalar,<br />yolun detayları.</h2><p>4K ön kamera ile sürüş sırasında önemli yol detaylarını daha net kaydedin.</p></section>
+        <section className="chapter chapter--plate" id="ozellikler">
+          <div className="chapter-copy">
+            <h2>Plakayı okuyabileceğiniz netlik.</h2>
+            <p>Ön kamera 4K çözünürlükte kaydeder. Plakalar, tabelalar ve yolun detayları kayıtta daha net görünür.</p>
+          </div>
+          <Viewfinder tone="dark" live={false} className="plate-visual">
+            <div className="plate-scene" role="img" aria-label="Temsili görsel: kayıtta okunabilir plaka">
+              <div className="plate-zoom"><span className="plate"><b>TR</b>34 TKD 030</span></div>
+              <small>Temsili görsel</small>
+            </div>
+          </Viewfinder>
+        </section>
 
-        <section className="sensor-section"><div className="sensor-visual" aria-label="Temsili sensör teknoloji görseli"><span>GC</span><strong>4653</strong><small>Temsili teknoloji görseli</small></div><div><p className="eyebrow">GÖRÜNTÜ SENSÖRÜ</p><h2>Görüntünün merkezinde GalaxyCore GC4653.</h2><p>GalaxyCore GC4653 görüntü sensörü ve HDR desteğiyle farklı ışık koşullarında daha dengeli kayıt.</p><ul className="inline-specs"><li>GalaxyCore GC4653</li><li>HDR</li><li>4K</li><li>Düşük ışık desteği</li></ul></div></section>
+        <section className="chapter chapter--dual">
+          <div className="chapter-copy">
+            <h2>Önünüz ve arkanız, aynı anda.</h2>
+            <p>İki kanal birlikte kaydeder: önde 4K, arkada 1080P Full HD. Arkadan gelen bir çarpma da kayıt altında.</p>
+          </div>
+          <div className="dual-frames">
+            <figure><Viewfinder channel="ÖN 4K" live={false}><ProductMedia src={v30.images[1].src} alt={v30.images[1].alt} label="Ön kamera" /></Viewfinder><figcaption><strong>Ön kamera</strong><span>4K</span></figcaption></figure>
+            <figure><Viewfinder channel="ARKA 1080P" live={false}><ProductMedia src={v30.images[2].src} alt={v30.images[2].alt} label="Arka kamera" /></Viewfinder><figcaption><strong>Arka kamera</strong><span>1080P Full HD</span></figcaption></figure>
+          </div>
+        </section>
 
-        <section className="split-feature split-feature--dark"><div className="feature-visual night-visual"><span>HDR</span><small>Temsili düşük ışık sunumu</small></div><div className="feature-copy"><p className="eyebrow">HDR / DÜŞÜK IŞIK</p><h2>Işık değişse de detaylar kaybolmasın.</h2><p>HDR desteği, farklı ışık koşullarında daha dengeli kayıt oluşturmaya yardımcı olur.</p></div></section>
+        <section className="night">
+          <div className="night-inner">
+            <h2>Gece de, güneşe karşı da.</h2>
+            <p>GalaxyCore GC4653 sensör ve HDR, ışığın hızla değiştiği anlarda görüntüyü dengeler. Farklı ışık koşullarında daha dengeli kayıt.</p>
+            <dl className="night-specs">
+              <div><dt>Sensör</dt><dd>GalaxyCore GC4653</dd></div>
+              <div><dt>İşlemci</dt><dd>SA230D</dd></div>
+              <div><dt>Görüntü</dt><dd>HDR</dd></div>
+              <div><dt>Ekran</dt><dd>3.2&quot; IPS</dd></div>
+            </dl>
+          </div>
+        </section>
 
-        <section className="dual-camera-section"><div className="section-heading"><p className="eyebrow">ÖN + ARKA / DUAL CHANNEL</p><h2>Önünde ve arkanda olanı kayıtta tut.</h2></div><div className="dual-products"><div><ProductMedia src={v30.images[0].src} alt={v30.images[0].alt} label="V30 ana kamera" /><strong>4K</strong><span>Ön kamera</span></div><div><ProductMedia src={v30.images[2].src} alt={v30.images[2].alt} label="V30 arka kamera" /><strong>1080P Full HD</strong><span>Arka kamera</span></div></div></section>
+        <section className="capabilities">
+          <h2>Kayıt için gereken her şey içinde.</h2>
+          <dl>{capabilities.map(([title, text]) => <div key={title}><dt>{title}</dt><dd>{text}</dd></div>)}</dl>
+        </section>
 
-        <section className="connection-feature"><div className="connection-copy"><p className="eyebrow">WI-FI BAĞLANTISI</p><h2>Kayıtlarınıza telefonunuzdan ulaşın.</h2><p>Wi-Fi bağlantısıyla kayıtlarınıza telefonunuz üzerinden erişin.</p></div><div className="phone-placeholder"><span>Wi-Fi</span><small>Uygulama arayüzü gösterilmemektedir</small></div></section>
+        <section className="parking" id="obd">
+          <div className="parking-copy">
+            <h2>Park halindeyken de nöbette.</h2>
+            <p>OBD Type-C Park Kiti ile V30, aracınız kapalıyken 24 saat park modunda çalışır. G-Sensor, darbe anının kaydını korumaya yardımcı olur.</p>
+            <div className="parking-actions">
+              <Link className="button button--light" href="/urun/obd-park-kiti">OBD Park Kitini incele</Link>
+              <span>Paket fiyatı {formatPrice(selections["v30-obd"].price)}</span>
+            </div>
+          </div>
+          <ol className="parking-timeline" aria-label="Park modu nasıl çalışır">
+            <li><span>Kontak kapanır</span><p>OBD kiti V30&apos;a güç vermeye devam eder.</p></li>
+            <li><span>Park modu başlar</span><p>Time-Lapse ile uzun süreyi az alanla kaydeder.</p></li>
+            <li><span>Darbe algılanır</span><p>G-Sensor ilgili kaydın korunmasına yardımcı olur.</p></li>
+          </ol>
+        </section>
 
-        <section className="gps-section"><div><p className="eyebrow">GPS</p><h2>Rotanız kayıt altında.</h2><p>Konum ve sürüş bilgilerini kayıt deneyiminizin bir parçası haline getirin. Ayrı bir GPS aparatı gerekmez.</p></div><div className="route-map" aria-hidden="true"><i /><i /><i /></div></section>
+        <section className="buy-section" id="satinal">
+          <div className="buy-section__media"><ProductMedia src={v30.images[0].src} alt={v30.images[0].alt} label="Ürün fotoğrafı" /></div>
+          <div className="buy-section__panel">
+            <h2>Paketinizi seçin.</h2>
+            <p>Yalnızca kamera ya da 24 saat park modu için OBD Park Kiti ile birlikte.</p>
+            <AddToCartPanel compact />
+            <p className="buy-note">microSD kart kutuya dahil değildir. 512 GB&apos;a kadar kart desteklenir.</p>
+          </div>
+        </section>
 
-        <section className="parking" id="obd"><div className="parking-copy"><p className="eyebrow">24 SAAT PARK MODU</p><h2>Aracınız park halindeyken de kayıt devam etsin.</h2><p>24 saat park modu için TEKDEN OBD Type-C Park Kiti gereklidir.</p><Link className="text-link text-link--light" href="/urun/obd-park-kiti">OBD Park Kitini İncele <span>→</span></Link></div><div className="parking-features"><article><span>G</span><h3>G-Sensor</h3><p>Ani darbe algılandığında önemli kaydın korunmasına yardımcı olur.</p></article><article><span>T</span><h3>Time-Lapse</h3><p>Park halinde daha verimli uzun süreli kayıt sağlar.</p></article></div></section>
+        <section className="install" id="kurulum">
+          <h2>Üç adımda kurulum.</h2>
+          <ol>
+            <li><span>1</span><strong>Yerleştirin</strong><p>V30&apos;u ön cama, görüşünüzü kapatmayacak şekilde konumlandırın.</p></li>
+            <li><span>2</span><strong>Bağlayın</strong><p>Arka kamerayı ve güç kablosunu takın. Park modu için OBD kitini kullanın.</p></li>
+            <li><span>3</span><strong>Kayda başlayın</strong><p>microSD kartı takın ve kayda başlayın.</p></li>
+          </ol>
+        </section>
 
-        <section className="recording-pair"><article><p className="eyebrow">G-SENSOR</p><h2>Önemli anları koruyun.</h2><p>Darbe algılandığında ilgili kaydın korunmasına yardımcı olur.</p></article><article><p className="eyebrow">DÖNGÜSEL KAYIT</p><h2>Kayıt devam etsin.</h2><p>Depolama dolduğunda eski normal kayıtların üzerine yazarak kaydın sürmesini sağlar.</p></article></section>
+        <section className="specs" id="teknik">
+          <h2>Teknik özellikler</h2>
+          <table className="spec-table"><tbody>{v30.specifications.map(([label, value]) => <tr key={label}><th scope="row">{label}</th><td>{value}</td></tr>)}</tbody></table>
+        </section>
 
-        <section className="storage-feature"><div><p className="eyebrow">GENİŞ DEPOLAMA DESTEĞİ</p><h2>Uzun kayıtlar için daha fazla alan.</h2><p>512 GB&apos;a kadar microSD desteği. microSD kart kutuya dahil değildir.</p></div><div className="storage-number">512 <span>GB</span></div></section>
-
-        <section className="install-section" id="kurulum"><div className="section-heading"><p className="eyebrow">KOLAY KURULUM</p><h2>Konumlandırın. Bağlayın. Kayda başlayın.</h2></div><ol className="steps"><li><span>01</span><strong>Kamerayı konumlandırın</strong><p>V30&apos;u ön cama uygun biçimde yerleştirin.</p></li><li><span>02</span><strong>Bağlantıları yapın</strong><p>Arka kamera ve güç bağlantısını yapın.</p></li><li><span>03</span><strong>Kayda başlayın</strong><p>microSD kartı takın ve kayda başlayın.</p></li></ol></section>
-
-        <section className="why-section"><div className="section-heading"><p className="eyebrow">NEDEN TEKDEN V30?</p><h2>Her yolculukta daha fazla kontrol.</h2></div><dl>{[["Net Görüntü", "4K + HDR"], ["Ön + Arka Kayıt", "4K + 1080P"], ["Kolay Erişim", "Wi-Fi"], ["Konum Bilgisi", "GPS"], ["Kayıt Koruması", "G-Sensor"], ["Park Koruması", "OBD ile 24 saat"]].map(([title, value], i) => <div key={title}><dt>{String(i + 1).padStart(2, "0")} · {title}</dt><dd>{value}</dd></div>)}</dl></section>
-
-        <section className="specs-section"><div className="section-heading"><p className="eyebrow">TEKNİK ÖZELLİKLER</p><h2>Bilmeniz gerekenler.</h2></div><table className="spec-table"><tbody>{v30.specifications.map(([label, value]) => <tr key={label}><th scope="row">{label}</th><td>{value}</td></tr>)}</tbody></table></section>
-
-        <section className="reviews" id="yorumlar"><div className="section-heading section-heading--center"><p className="eyebrow">KULLANICI DENEYİMLERİ</p><h2>Doğrulanmış yorumlar burada yer alacak.</h2><p>Gerçek kullanıcı yorumları satışlar başladıktan sonra yayımlanacaktır.</p></div><div className="review-placeholder"><span>Henüz yorum bulunmuyor</span><small>Yorum altyapısı hazır</small></div></section>
-
-        <section className="faq-section" id="sss"><div className="section-heading"><p className="eyebrow">SIK SORULAN SORULAR</p><h2>V30 hakkında.</h2></div><Faq items={faqs} /></section>
-
-        <section className="final-product-cta"><div><p className="eyebrow">TEKDEN V30</p><h2>Yola daha net bakın.</h2><p>4K Araç Kamerası</p><strong>{formatPrice(v30.price)}</strong><div><Link className="button button--light" href="/urun/v30#satinal">V30&apos;u Satın Al</Link><a className="text-link text-link--light" href="#ozellikler">Özellikleri İncele <span>↑</span></a></div></div><ProductMedia src={v30.image} alt={v30.images[0].alt} tone="dark" label="V30 final ürün görseli" /></section>
+        <section className="faq-section" id="sss">
+          <h2>Sık sorulan sorular</h2>
+          <Faq items={faqs} />
+        </section>
       </main>
       <SiteFooter />
     </>
