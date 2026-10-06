@@ -2,46 +2,58 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import type { PackageSize } from "@/lib/product";
-import { obdKit, x30 } from "@/lib/product";
+import { formatPrice, selections, type SelectionId } from "@/lib/product";
 import { useCart } from "./cart-provider";
 
-export function AddToCartPanel({ compact = false }: { compact?: boolean }) {
-  const [packageSize, setPackageSize] = useState<PackageSize>(1);
-  const [withObd, setWithObd] = useState(false);
+export function AddToCartPanel({ compact = false, initial = "v30" }: { compact?: boolean; initial?: "v30" | "v30-obd" }) {
+  const [selectionId, setSelectionId] = useState<"v30" | "v30-obd">(initial);
+  const [quantity, setQuantity] = useState(1);
   const [added, setAdded] = useState(false);
   const { addItem } = useCart();
   const router = useRouter();
 
-  function add(goToCart = false) {
-    addItem(packageSize, withObd);
+  function add(goToCheckout = false) {
+    addItem(selectionId, quantity);
     setAdded(true);
-    if (goToCart) router.push("/sepet");
+    if (goToCheckout) router.push("/checkout");
   }
 
   return (
     <div id="mobile-buy-panel" className={compact ? "buy-panel buy-panel--compact" : "buy-panel"}>
-      <div className="price-status"><span>Fiyat</span><strong>Yakında açıklanacak</strong></div>
-      <fieldset className="package-fieldset">
+      <fieldset className="bundle-fieldset">
         <legend>Paket seçimi</legend>
-        <div className="package-options">
-          {x30.packages.map((size) => (
-            <button key={size} type="button" className={packageSize === size ? "package-option is-selected" : "package-option"} onClick={() => setPackageSize(size)} aria-pressed={packageSize === size}>
-              <strong>{size}</strong><span>adet X30</span>
-            </button>
-          ))}
+        <div className="bundle-options">
+          {(["v30", "v30-obd"] as const).map((id) => {
+            const option = selections[id];
+            return <button key={id} type="button" className={selectionId === id ? "bundle-option is-selected" : "bundle-option"} onClick={() => setSelectionId(id)} aria-pressed={selectionId === id}><span><strong>{option.name}</strong><small>{option.detail}</small></span><b>{formatPrice(option.price)}</b></button>;
+          })}
         </div>
       </fieldset>
-      <label className={withObd ? "upsell is-selected" : "upsell"}>
-        <input type="checkbox" checked={withObd} onChange={(event) => setWithObd(event.target.checked)} />
-        <span><strong>{obdKit.name} Ekle</strong><small>{obdKit.description}</small></span>
-        <b>{withObd ? "Eklendi" : "+"}</b>
-      </label>
-      <div className="buy-actions">
-        <button className="button button--primary" type="button" onClick={() => add(false)}>{added ? "Sepete Eklendi" : "Sepete Ekle"}</button>
-        <button className="button button--outline" type="button" onClick={() => add(true)}>Hemen Satın Al</button>
+      <p className="obd-note">24 saat park modu kullanımı için OBD Park Kiti gereklidir.</p>
+      <div className="purchase-row">
+        <div className="quantity-control" aria-label="Adet seçimi"><button type="button" aria-label="Azalt" onClick={() => setQuantity(Math.max(1, quantity - 1))} disabled={quantity === 1}>−</button><span>{quantity}</span><button type="button" aria-label="Artır" onClick={() => setQuantity(quantity + 1)}>+</button></div>
+        <strong>{formatPrice(selections[selectionId].price * quantity)}</strong>
       </div>
-      <p className="availability-note">Fiyatlar açıklanana kadar ödeme adımı aktif değildir.</p>
+      <div className="buy-actions">
+        <button className="button button--primary" type="button" onClick={() => add(true)}>Hemen Satın Al</button>
+        <button className="button button--outline" type="button" onClick={() => add(false)}>{added ? "Sepete Eklendi" : "Sepete Ekle"}</button>
+      </div>
     </div>
   );
+}
+
+export function SingleProductPurchase({ id, buyLabel = "Hemen Satın Al" }: { id: SelectionId; buyLabel?: string }) {
+  const [quantity, setQuantity] = useState(1);
+  const [added, setAdded] = useState(false);
+  const { addItem } = useCart();
+  const router = useRouter();
+  const selection = selections[id];
+
+  function add(goToCheckout: boolean) {
+    addItem(id, quantity);
+    setAdded(true);
+    if (goToCheckout) router.push("/checkout");
+  }
+
+  return <div className="buy-panel"><div className="purchase-row"><div className="quantity-control" aria-label="Adet seçimi"><button type="button" aria-label="Azalt" disabled={quantity === 1} onClick={() => setQuantity(Math.max(1, quantity - 1))}>−</button><span>{quantity}</span><button type="button" aria-label="Artır" onClick={() => setQuantity(quantity + 1)}>+</button></div><strong>{formatPrice(selection.price * quantity)}</strong></div><div className="buy-actions"><button className="button button--primary" onClick={() => add(true)} type="button">{buyLabel}</button><button className="button button--outline" onClick={() => add(false)} type="button">{added ? "Sepete Eklendi" : "Sepete Ekle"}</button></div></div>;
 }

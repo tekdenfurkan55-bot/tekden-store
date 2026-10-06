@@ -9,13 +9,13 @@
 
 ## Marka ve ürün
 - Marka: TEKDEN
-- Ana ürün: TEKDEN X30 Araç Kamerası
+- Ana ürün: TEKDEN V30 Araç Kamerası
 - Ek ürün: OBD Type-C Park Kiti
 - Site ileride başka otomotiv/mobilite teknoloji ürünleri eklenebilecek şekilde geliştirilebilir olmalıdır.
 
-## X30 doğrulanmış özellikleri
+## V30 doğrulanmış özellikleri
 - Gerçek 4K ön kamera
-- 2K arka kamera
+- 1080P Full HD arka kamera
 - GalaxyCore GC4653 sensör
 - SA230D işlemci
 - 3.2 inç IPS ekran
@@ -32,13 +32,11 @@
 ## Kritik ürün kuralları
 - GPS ayrı fiziksel aksesuar/modül gibi gösterilmemelidir.
 - Gerçekte olmayan aksesuar, sensör, kamera veya teknik özellik uydurulmamalıdır.
-- Ürün görsellerinde gerçek X30 fiziksel tasarımı korunmalıdır.
+- Ürün görsellerinde gerçek V30 fiziksel tasarımı korunmalıdır.
 
 ## Logo
-- TEKDEN final logosu henüz verilmemiştir.
-- Şimdilik yalnızca sade TEKDEN metin placeholder kullanılmalıdır.
-- Yeni amblem, ikon veya marka sembolü tasarlanmamalıdır.
-- X30 model yazısında X koyu/siyah; 30 mavi/metallic/gradient, kalın ve sportif olabilir. Bu TEKDEN marka logosu değildir.
+- TEKDEN yazı logosunda TEK ve EN siyah, D harfi TEKDEN mavisidir; altında TECHNOLOGY yer alır.
+- V30 model adı tamamen siyah kullanılmalıdır.
 
 ## Tasarım yönü
 - Site sıradan bir AI landing page gibi görünmemelidir.
@@ -49,8 +47,8 @@
 - Mobil deneyim ayrı olarak optimize edilmelidir.
 
 ## E-ticaret kapsamı
-- X30 ürün sayfası
-- 1 / 2 / 3 adet X30 paket seçimi
+- V30 ürün sayfası
+- V30 ve V30 + OBD paket seçimi
 - OBD Park Kiti upsell
 - Sepet
 - Adet artırma/azaltma ve ürün silme

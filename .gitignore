@@ -7,5 +7,6 @@ out
 .vercel
 .DS_Store
 npm-debug.log*
+*.tsbuildinfo
 yarn-debug.log*
 pnpm-debug.log*

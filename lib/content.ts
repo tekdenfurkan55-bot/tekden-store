@@ -1,0 +1,13 @@
+export const faqs = [
+  { question: "V30 hangi çözünürlükte kayıt yapar?", answer: "TEKDEN V30'un ön kamerası 4K çözünürlükte kayıt yapar." },
+  { question: "Arka kamera hangi çözünürlükte kayıt yapar?", answer: "Arka kamera 1080P Full HD çözünürlükte kayıt yapar." },
+  { question: "24 saat park modu nasıl çalışır?", answer: "Park modu, araç park halindeyken kayıt özelliklerinin kullanılmasını sağlar. Bu kullanım için TEKDEN OBD Type-C Park Kiti gereklidir." },
+  { question: "Park modu için OBD kit gerekli mi?", answer: "Evet. V30'da 24 saat park modu kullanımı için TEKDEN OBD Type-C Park Kiti gereklidir." },
+  { question: "V30 Wi-Fi destekliyor mu?", answer: "Evet. V30, kayıtlara telefon üzerinden erişmek için Wi-Fi bağlantısını destekler." },
+  { question: "GPS özelliği var mı?", answer: "Evet. TEKDEN V30 GPS özelliğine sahiptir." },
+  { question: "GPS için ayrı aparat gerekli mi?", answer: "Hayır. GPS cihazın özelliğidir; ayrı bir GPS aparatı veya modülü gerekmez." },
+  { question: "Hangi kapasitede microSD kart destekler?", answer: "V30, 512 GB'a kadar microSD kartları destekler. microSD kart ürünle birlikte sunulmaz." },
+  { question: "Döngüsel kayıt nedir?", answer: "Depolama dolduğunda eski normal kayıtların üzerine yazarak kaydın devam etmesini sağlayan kayıt yöntemidir." },
+  { question: "G-Sensor ne işe yarar?", answer: "Darbe algılandığında ilgili kaydın korunmasına yardımcı olur." },
+  { question: "Telefon üzerinden kayıtlara ulaşabilir miyim?", answer: "Evet. Wi-Fi bağlantısı üzerinden kayıtlara telefonunuzdan erişebilirsiniz." },
+] as const;
