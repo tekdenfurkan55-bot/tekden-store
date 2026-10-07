@@ -9,8 +9,8 @@ const links = [
   ["V30 4K Araç Kamerası", "/urun/v30"],
   ["OBD Park Kiti", "/urun/obd-park-kiti"],
   ["Özellikler", "/#ozellikler"],
-  ["Kurulum", "/#kurulum"],
-  ["SSS", "/#sss"],
+  ["Kurulum", "/kurulum"],
+  ["SSS", "/sss"],
 ] as const;
 
 export function SiteHeader() {

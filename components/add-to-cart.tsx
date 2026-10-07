@@ -6,6 +6,7 @@ import { formatPrice, selections, type SelectionId } from "@/lib/product";
 import { useCart } from "./cart-provider";
 import { SelectionThumb } from "./selection-thumb";
 import { PriceTag } from "./price-tag";
+import { ParkingIcon } from "./icons";
 
 export function AddToCartPanel({ compact = false, initial = "v30" }: { compact?: boolean; initial?: "v30" | "v30-obd" }) {
   const [selectionId, setSelectionId] = useState<"v30" | "v30-obd">(initial);
@@ -27,7 +28,7 @@ export function AddToCartPanel({ compact = false, initial = "v30" }: { compact?:
         <div className="bundle-options">
           {(["v30", "v30-obd"] as const).map((id) => {
             const option = selections[id];
-            return <button key={id} type="button" className={selectionId === id ? "bundle-option is-selected" : "bundle-option"} onClick={() => setSelectionId(id)} aria-pressed={selectionId === id}><SelectionThumb parts={option.parts} /><span className="bundle-option__text"><strong>{option.name}</strong><small>{option.detail}</small></span><PriceTag price={option.price} compareAt={option.compareAt} size="sm" className="bundle-option__price" /></button>;
+            return <button key={id} type="button" className={selectionId === id ? "bundle-option is-selected" : "bundle-option"} onClick={() => setSelectionId(id)} aria-pressed={selectionId === id}><SelectionThumb parts={option.parts} /><span className="bundle-option__text"><strong>{option.name}</strong><small>{option.detail}</small>{option.includesObd && <span className="bundle-tag"><ParkingIcon size={16} />24 saat park modu</span>}</span><PriceTag price={option.price} compareAt={option.compareAt} size="sm" className="bundle-option__price" /></button>;
           })}
         </div>
       </fieldset>

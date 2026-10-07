@@ -12,7 +12,7 @@ import { TrustBadges } from "@/components/trust-badges";
 import { LoopBadge, ParkBadge } from "@/components/feature-art";
 import { ParkingIcon, ShieldCheckIcon } from "@/components/icons";
 import { obdKit, selections } from "@/lib/product";
-import { absoluteUrl } from "@/lib/site";
+import { breadcrumb, obdProductSchema } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "TEKDEN OBD Type-C Park Kiti | 24 Saat Park Modu",
@@ -22,8 +22,6 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image", title: obdKit.name, description: obdKit.description, images: [obdKit.image] },
 };
 
-const productSchema = { "@context": "https://schema.org", "@type": "Product", name: obdKit.name, image: obdKit.images.map((item) => absoluteUrl(item.src)), description: obdKit.description, sku: obdKit.sku, brand: { "@type": "Brand", name: "TEKDEN" }, offers: { "@type": "Offer", url: absoluteUrl("/urun/obd-park-kiti"), priceCurrency: "TRY", price: "1199", availability: "https://schema.org/InStock" } };
-const breadcrumbSchema = { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Ana Sayfa", item: absoluteUrl() }, { "@type": "ListItem", position: 2, name: "OBD Park Kiti", item: absoluteUrl("/urun/obd-park-kiti") }] };
 
 function PlugIcon() {
   return <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M7 3v5M13 3v5" /><path d="M4.5 8h11v3a5.5 5.5 0 0 1-11 0z" /><path d="M10 16.5V21" stroke="var(--blue)" /></svg>;
@@ -62,7 +60,7 @@ export default function ObdProductPage() {
   const bundle = selections["v30-obd"];
   return (
     <>
-      <StructuredData data={[productSchema, breadcrumbSchema]} />
+      <StructuredData data={[obdProductSchema, breadcrumb([["OBD Park Kiti", "/urun/obd-park-kiti"]])]} />
       <SiteHeader />
       <main className="product-page obd-page">
         <nav className="breadcrumbs" aria-label="Sayfa yolu"><Link href="/">Ana sayfa</Link><span>/</span><span>OBD Park Kiti</span></nav>

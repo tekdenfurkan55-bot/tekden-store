@@ -833,3 +833,153 @@ h2 { font-size: clamp(36px, 5.2vw, 76px); }
   .bundle-option { padding: 12px; }
 }
 .install-card__text { height: 46%; min-height: 0; align-content: start; padding-top: 34px; }
+
+/* =====================================================================
+   Revizyon 4 — tur 3 notları
+   ===================================================================== */
+
+/* 2 — Okunurluk: yazı ve rakamlar bir kademe büyük */
+body { font-size: 17px; }
+.chapter-copy p, .wifi-copy p, .screen-feature p, .turkish p, .storage-copy p, .parking-copy > p, .sensor-head p, .product-lead, .obd-intro p { font-size: 18.5px; line-height: 1.55; }
+.share-lead { font-size: 16px !important; }
+.share-row li { font-size: 15px; }
+.bundle-fieldset legend { font-size: 16px; }
+.bundle-option strong { font-size: 19px; }
+.bundle-option small { font-size: 15px; }
+.price-tag--sm .price-tag__now { font-size: 22px; }
+.price-tag--sm .price-tag__was { font-size: 15px; }
+.price-tag--sm .price-tag__badge { padding: 4px 9px; font-size: 13px; }
+.price-tag--md .price-tag__now { font-size: 32px; }
+.price-tag--md .price-tag__was { font-size: 17px; }
+.price-tag--md .price-tag__badge { font-size: 14px; }
+.price-tag--lg .price-tag__now { font-size: clamp(38px, 3.6vw, 48px); }
+.price-tag--lg .price-tag__was { font-size: 20px; }
+.price-tag--lg .price-tag__badge { font-size: 15px; padding: 6px 12px; }
+.obd-note, .buy-note, .product-fineprint { font-size: 15px !important; }
+.quantity-control { height: 50px; }
+.quantity-control button { width: 48px; height: 48px; font-size: 20px; }
+.quantity-control span { font-size: 18px; min-width: 32px; }
+.button { min-height: 56px; font-size: 16px; }
+.trust-badges li { font-size: 15px; }
+.key-features li { font-size: 16px; }
+.key-features__title { font-size: 18px; }
+.spec-table { font-size: 16px; }
+.faq-list summary { font-size: 17px; }
+.faq-list details p { font-size: 16px; }
+.cap-grid h3 { font-size: 20px; }
+.cap-grid p { font-size: 16px; }
+.capabilities dd, .install-card__text p { font-size: 16px; }
+.obd-benefits p, .obd-steps p { font-size: 16px; }
+.obd-facts dt { font-size: 14px; } .obd-facts dd { font-size: 16px; }
+.cart-line-info p, .cart-line-info span { font-size: 16px; }
+.order-summary > div, .checkout-item { font-size: 16px; }
+.form-grid label { font-size: 15px; }
+.footer-columns div { font-size: 15px; }
+.breadcrumbs { font-size: 15px; }
+.spec-rail li > span:last-child { font-size: 15px; }
+.banner__title p { font-size: 16px; }
+
+/* 4 — Hero banner (tam görsel + tıklanabilir alan) */
+.banner__media { position: relative; display: block; background: #07090d; }
+.banner__media img { display: block; width: 100%; max-width: 1920px; margin: 0 auto; height: auto; }
+.banner__hotspot { position: absolute; left: 5.8%; top: 81.3%; width: 20.7%; height: 9.5%; border-radius: 12px; }
+.banner__media:focus-visible { outline: none; }
+.banner__media:focus-visible .banner__hotspot { outline: 3px solid #fff; outline-offset: 3px; }
+.banner__slogan { font-size: 26px; font-weight: 800; font-stretch: 84%; line-height: 1.1; }
+.banner__slogan span { color: #4f86ff; }
+.banner__chips { list-style: none; margin: 6px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; width: 100%; }
+.banner__chips li { display: grid; justify-items: center; gap: 6px; padding: 10px 4px; border: 1px solid rgba(79,134,255,.45); border-radius: 10px; background: rgba(21,70,216,.12); font-size: 12.5px; font-weight: 600; text-align: center; line-height: 1.2; color: #fff; }
+.banner__chips svg { color: #fff; }
+
+/* 1 — Wi-Fi telefonu: yükseklik yazı bloğuyla eşit */
+.wifi { align-items: stretch; }
+.wifi-copy { align-self: center; }
+.wifi-phone { position: relative; width: 100%; min-height: 360px; justify-self: center; margin: 0; }
+.wifi-phone img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 26px 34px rgba(10,20,40,.16)); }
+
+/* 5 — Öne çıkan özellikler iki sütun + paket etiketi */
+.key-features { grid-template-columns: 1fr 1fr; column-gap: 18px; row-gap: 6px; }
+.key-features li { align-items: center; padding: 4px 0; line-height: 1.3; }
+.bundle-tag { margin-top: 6px; display: inline-flex; align-items: center; gap: 6px; width: max-content; padding: 4px 10px 4px 6px; border-radius: 999px; background: #e8efff; color: var(--blue-ink); font-size: 13px; font-weight: 700; }
+.bundle-tag svg { color: var(--blue-ink); }
+
+/* 6 — SSS iki sütun */
+.faq-cols { margin-top: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
+.home > .faq-section > *, .product-page > .faq-section > * { max-width: var(--max); }
+.faq-cols .faq-list { margin-top: 0 !important; }
+
+/* 7 — Galeri kare (1:1) */
+.gallery-primary > .product-media { aspect-ratio: 1 / 1; min-height: 0 !important; height: auto; }
+.gallery-primary .product-media__image--contain { padding: 4%; }
+.gallery-thumbs .product-media { aspect-ratio: 1 / 1; }
+.lightbox__stage { width: min(86vh, 100%, 900px); height: auto; aspect-ratio: 1 / 1; }
+.product-gallery { top: calc(var(--header) + 16px); }
+
+/* 8 — Kurulum / SSS sayfaları */
+.install--page { padding-top: 24px; }
+.page-lead { margin: 14px auto 0 !important; max-width: 56ch !important; text-align: center; font-size: 18px; color: var(--ink-2); }
+.page-cta { padding-top: 48px; padding-bottom: 96px; text-align: center; }
+.product-page > .page-cta > * { margin: 0 auto; }
+
+/* Mobil */
+@media (max-width: 1080px) {
+  .key-features li { font-size: 15px; }
+}
+@media (max-width: 860px) {
+  body { font-size: 16px; }
+  .chapter-copy p, .wifi-copy p, .screen-feature p, .turkish p, .storage-copy p, .parking-copy > p, .sensor-head p, .product-lead, .obd-intro p { font-size: 17px; }
+  .banner__hotspot { display: none; }
+  .banner__mobile-copy { gap: 8px; padding-bottom: 18px; }
+  .banner__claim { font-size: 26px; }
+  .banner__sub { font-size: 15px; }
+  .wifi-phone { min-height: 0; width: min(300px, 74%); }
+  .wifi-phone img { position: static; height: auto; }
+  .faq-cols { grid-template-columns: 1fr; gap: 0; }
+  .faq-cols .faq-list:first-child { border-bottom-left-radius: 0; border-bottom-right-radius: 0; padding-bottom: 0; }
+  .faq-cols .faq-list:last-child { border-top-left-radius: 0; border-top-right-radius: 0; padding-top: 0; }
+  .faq-cols .faq-list:last-child details:first-child { border-top: 1px solid var(--line); }
+  .faq-list summary { font-size: 16px; min-height: 56px; }
+  .key-features { column-gap: 12px; }
+  .key-features li { font-size: 14.5px; gap: 10px; }
+  .key-features__icon { width: 34px; height: 34px; }
+  .bundle-option strong { font-size: 17px; }
+  .bundle-option small { font-size: 14px; }
+  .price-tag--sm .price-tag__now { font-size: 20px; }
+  .price-tag--sm .price-tag__was { font-size: 14px; }
+  .price-tag--sm .price-tag__badge { font-size: 12px; }
+  .price-tag--md .price-tag__now { font-size: 28px; }
+  .price-tag--lg .price-tag__now { font-size: 36px; }
+  .trust-badges li { font-size: 14px; }
+  .spec-table { font-size: 15px; }
+  .cap-grid p { font-size: 14.5px; }
+  .cap-grid h3 { font-size: 17px; }
+  .lightbox__stage { width: 100%; }
+  .mobile-buy-bar .price-tag__was, .mobile-buy-bar .price-tag__badge { display: none; }
+}
+@media (max-width: 380px) {
+  .key-features { grid-template-columns: 1fr; }
+  .banner__chips li { font-size: 11.5px; }
+  .buy-actions { grid-template-columns: 1fr; }
+}
+
+/* 3 — Mobil düzeltmeler */
+.bundle-options, .buy-panel, .bundle-fieldset { min-width: 0; }
+@media (max-width: 860px) {
+  .bundle-option { display: grid; grid-template-columns: auto 1fr; column-gap: 12px; row-gap: 8px; align-items: center; text-align: left; }
+  .bundle-option__price { grid-column: 2; flex-direction: row !important; align-items: center !important; justify-content: flex-start; flex-wrap: wrap; text-align: left; }
+  .bundle-option__text { min-width: 0; }
+  .footer-columns a { padding: 9px 0; }
+  .footer-columns div { gap: 0; }
+  .footer-columns strong { margin-bottom: 6px; }
+  .cart-line-info button { padding: 10px 0; }
+  .cart-content > .text-link { padding: 10px 0; }
+  .breadcrumbs a { padding: 8px 0; }
+  .breadcrumbs { align-items: center; padding-top: 10px; }
+  .gallery-nav { width: 42px; height: 42px; }
+  .purchase-row { flex-wrap: wrap; gap: 12px; }
+}
+@media (max-width: 860px) {
+  .install-card { aspect-ratio: auto; min-height: 300px; flex-direction: column; }
+  .install-scene { position: relative; inset: auto; width: 100%; height: 170px; margin-top: 16px; }
+  .install-card__text { height: auto; margin-top: 0; padding: 12px 22px 24px; background: none; }
+}

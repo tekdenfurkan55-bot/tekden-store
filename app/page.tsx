@@ -9,26 +9,26 @@ import { SiteHeader } from "@/components/site-header";
 import { StructuredData } from "@/components/structured-data";
 import { Viewfinder } from "@/components/viewfinder";
 import { V30Mark } from "@/components/brand-logo";
-import { ImpactScene, InstallScene, MicroSD, NightLot, RoadScene, SensorChip, TimelapseStrip } from "@/components/illustrations";
+import { ImpactScene, MicroSD, NightLot, RoadScene, SensorChip, TimelapseStrip } from "@/components/illustrations";
 import { GoldBadge, GpsTileIcon, LiveScreen, LoopBadge, ParkBadge, ShareRow, StorageBadge, TurkishTileIcon } from "@/components/feature-art";
 import { PriceTag } from "@/components/price-tag";
+import { GpsIcon, HdrIcon, ParkingIcon, WifiIcon } from "@/components/icons";
 import { SelectionThumb } from "@/components/selection-thumb";
 import { SpecTable } from "@/components/spec-table";
+import { InstallSteps } from "@/components/install-steps";
 import { TrustBadges } from "@/components/trust-badges";
 import { faqs } from "@/lib/content";
 import { formatPrice, selections, v30 } from "@/lib/product";
-import { absoluteUrl, brandName } from "@/lib/site";
+import { faqSchema, organizationSchema, v30ProductSchema, websiteSchema } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "TEKDEN V30 4K Araç Kamerası | Ön + Arka Kamera",
+  title: { absolute: "TEKDEN V30 4K Araç Kamerası | Ön ve Arka Kamera, Wi-Fi, GPS" },
   description: "TEKDEN V30; 4K ön, 1080P arka kamera, Wi-Fi, GPS, HDR ve OBD ile 24 saat park modu desteği sunan ön arka araç kamerası.",
   alternates: { canonical: "/" },
-  openGraph: { title: "TEKDEN V30 4K Araç Kamerası", description: "4K ön, 1080P arka kamera. Wi-Fi, GPS, HDR ve park modu desteği.", url: "/", type: "website", images: [{ url: v30.image, alt: v30.images[0].alt }] },
-  twitter: { card: "summary_large_image", title: "TEKDEN V30 4K Araç Kamerası", description: "Yolun her detayı kayıtta.", images: [v30.image] },
+  openGraph: { title: "TEKDEN V30 4K Araç Kamerası", description: "Gerçek 4K ön, Full HD arka kamera. Wi-Fi, GPS, HDR ve 24 saat park modu.", url: "/", type: "website", images: [{ url: "/media/og-v30.jpg", width: 1200, height: 630, alt: "TEKDEN V30 4K Araç Kamerası" }] },
+  twitter: { card: "summary_large_image", title: "TEKDEN V30 4K Araç Kamerası", description: "Yola daha net bakın.", images: ["/media/og-v30.jpg"] },
 };
 
-const organizationSchema = { "@context": "https://schema.org", "@type": "Organization", name: brandName, url: absoluteUrl(), logo: absoluteUrl("/icon.svg") };
-const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqs.map((item) => ({ "@type": "Question", name: item.question, acceptedAnswer: { "@type": "Answer", text: item.answer } })) };
 
 const capabilities = [
   { icon: "/icons/wifi.png", title: "Wi-Fi", text: "Viidure uygulaması ile kayıtlarınıza telefonunuzdan ulaşın." },
@@ -46,21 +46,29 @@ const v30Offer = selections.v30;
 export default function HomePage() {
   return (
     <>
-      <StructuredData data={[organizationSchema, faqSchema]} />
+      <StructuredData data={[organizationSchema, websiteSchema, v30ProductSchema, faqSchema(faqs)]} />
       <SiteHeader />
       <main className="home">
         <section className="banner" aria-labelledby="hero-title">
-          <div className="banner__media">
+          <Link className="banner__media" href="/urun/v30" aria-label="TEKDEN V30 4K Araç Kamerası ürün sayfası">
             <picture>
-              <source media="(max-width: 860px)" srcSet="/media/hero-banner-mobile.webp" />
-              <img src="/media/hero-banner.webp" alt="TEKDEN V30 4K araç kamerası ve 1080P arka kamera, araç torpidosu üzerinde" width={2171} height={540} fetchPriority="high" />
+              <source media="(max-width: 860px)" srcSet="/media/hero-v30-mobile.webp" />
+              <img src="/media/hero-v30.webp" alt="TEKDEN V30 4K araç kamerası ön cama monteli. Gerçek 4K ön kamera, Full HD arka kamera. Yola daha net bakın." width={1672} height={941} fetchPriority="high" />
             </picture>
-          </div>
+            <span className="banner__hotspot" aria-hidden="true" />
+          </Link>
           <div className="banner__mobile-copy">
             <Image src="/brand/tekden-logo-white.webp" alt="TEKDEN Technology" width={800} height={193} className="banner__logo" />
             <V30Mark light className="banner__v30" />
-            <p className="banner__claim">Gerçek 4K ön kamera<br />Full HD arka kamera</p>
-            <p className="banner__sub">Daha net kayıt, daha güvenli sürüş</p>
+            <p className="banner__claim">4K Araç Kamerası</p>
+            <p className="banner__sub">Gerçek 4K ön kamera · Full HD arka kamera</p>
+            <p className="banner__slogan">Yola <span>daha net</span> bakın.</p>
+            <ul className="banner__chips">
+              <li><WifiIcon size={22} />Wi-Fi</li>
+              <li><GpsIcon size={22} />GPS</li>
+              <li><HdrIcon size={22} />HDR</li>
+              <li><ParkingIcon size={22} />24 Saat Park Modu</li>
+            </ul>
           </div>
           <div className="banner__buy">
             <div className="banner__buy-inner">
@@ -140,10 +148,9 @@ export default function HomePage() {
             <p className="share-lead">Kayıtları galeriye kaydedin, WhatsApp, Instagram ve YouTube&apos;da kolayca paylaşın.</p>
             <ShareRow />
           </div>
-          <figure className="wifi-phone">
-            <Image src="/media/viidure-phone.webp" alt="Telefonda canlı kamera görüntüsü ve GPS rota kaydı" width={449} height={844} sizes="(max-width: 860px) 70vw, 380px" />
-            <figcaption>Temsili görsel</figcaption>
-          </figure>
+          <div className="wifi-phone">
+            <Image src="/media/viidure-phone.webp" alt="Viidure uygulamasında canlı kamera görüntüsü ve GPS rota kaydı" width={389} height={814} sizes="(max-width: 860px) 60vw, 320px" />
+          </div>
         </section>
 
         <section className="screen-feature">
@@ -234,18 +241,7 @@ export default function HomePage() {
 
         <section className="install" id="kurulum">
           <h2 className="section-title">Üç adımda kurulum</h2>
-          <ol>
-            {([
-              [1, "Yerleştirin", "V30\u2019u ön cama, görüşünüzü kapatmayacak şekilde konumlandırın."],
-              [2, "Bağlayın", "Arka kamerayı ve güç kablosunu takın. Park modu için OBD kitini kullanın."],
-              [3, "Kayda başlayın", "microSD kartı takın ve kayda başlayın."],
-            ] as const).map(([step, title, text]) => (
-              <li key={step} className="install-card">
-                <InstallScene step={step} />
-                <div className="install-card__text"><span>{step}</span><strong>{title}</strong><p>{text}</p></div>
-              </li>
-            ))}
-          </ol>
+          <InstallSteps />
         </section>
 
         <section className="specs" id="teknik">

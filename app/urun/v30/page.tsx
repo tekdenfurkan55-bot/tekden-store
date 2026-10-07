@@ -8,25 +8,23 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { StructuredData } from "@/components/structured-data";
 import { Viewfinder } from "@/components/viewfinder";
-import { CameraFrontIcon, CameraRearIcon, GpsIcon, HdrIcon, LanguageIcon, MicIcon, ParkingIcon, ScreenIcon, WifiIcon } from "@/components/icons";
+import { CameraFrontIcon, CameraRearIcon, GpsIcon, HdrIcon, LanguageIcon, MicIcon, ScreenIcon, WifiIcon } from "@/components/icons";
 import { LiveScreen } from "@/components/feature-art";
 import { PriceTag } from "@/components/price-tag";
 import { SpecTable } from "@/components/spec-table";
 import { TrustBadges } from "@/components/trust-badges";
 import { faqs } from "@/lib/content";
 import { v30 } from "@/lib/product";
-import { absoluteUrl } from "@/lib/site";
+import { breadcrumb, faqSchema, v30ProductSchema } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "TEKDEN V30 4K Araç Kamerası | Wi-Fi, GPS, HDR",
-  description: "TEKDEN V30 4K araç kamerası; 1080P arka kamera, Wi-Fi, GPS, HDR, G-Sensor ve OBD ile 24 saat park modu desteği.",
+  title: "TEKDEN V30 4K Ön ve Arka Araç Kamerası | Wi-Fi, GPS, HDR",
+  description: "TEKDEN V30: gerçek 4K ön, 1080P arka kamera, 3.2 inç IPS ekran, Wi-Fi (Viidure), dahili GPS, HDR, ses kaydı ve OBD ile 24 saat park modu. 4.499 TL, ücretsiz kargo.",
   alternates: { canonical: "/urun/v30" },
   openGraph: { title: "TEKDEN V30 4K Araç Kamerası", description: v30.tagline, url: "/urun/v30", type: "website", images: [{ url: v30.image, alt: v30.images[0].alt }] },
   twitter: { card: "summary_large_image", title: "TEKDEN V30 4K Araç Kamerası", description: v30.tagline, images: [v30.image] },
 };
 
-const productSchema = { "@context": "https://schema.org", "@type": "Product", name: v30.name, image: v30.images.map((item) => absoluteUrl(item.src)), description: v30.tagline, sku: v30.sku, model: "V30", brand: { "@type": "Brand", name: "TEKDEN" }, offers: { "@type": "Offer", url: absoluteUrl("/urun/v30"), priceCurrency: "TRY", price: "4499", availability: "https://schema.org/InStock" } };
-const breadcrumbSchema = { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Ana Sayfa", item: absoluteUrl() }, { "@type": "ListItem", position: 2, name: "V30", item: absoluteUrl("/urun/v30") }] };
 
 const keyFeatures = [
   [CameraFrontIcon, "4K ön kamera, GalaxyCore GC4653 sensör"],
@@ -37,13 +35,12 @@ const keyFeatures = [
   [HdrIcon, "HDR ile dengeli görüntü"],
   [MicIcon, "Sesli kayıt"],
   [LanguageIcon, "Türkçe dil desteği"],
-  [ParkingIcon, "24 saat park modu (OBD Park Kiti ile)"],
 ] as const;
 
 export default function V30ProductPage() {
   return (
     <>
-      <StructuredData data={[productSchema, breadcrumbSchema]} />
+      <StructuredData data={[v30ProductSchema, breadcrumb([["V30 4K Araç Kamerası", "/urun/v30"]]), faqSchema(faqs)]} />
       <SiteHeader />
       <main className="product-page">
         <nav className="breadcrumbs" aria-label="Sayfa yolu"><Link href="/">Ana sayfa</Link><span>/</span><span>V30</span></nav>
