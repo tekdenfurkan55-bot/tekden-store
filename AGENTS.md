@@ -28,11 +28,27 @@
 - 512 GB'a kadar microSD desteği
 - Döngüsel kayıt
 - Ön + arka çift kanal kayıt
+- Ses kaydı (dahili mikrofon)
+- Türkçe dil desteği
+- Telefon uygulaması: Viidure (Wi-Fi ile bağlanır)
+
+## OBD Type-C Park Kiti (kullanıcı tarafından doğrulandı)
+- OBD portuna tak-çalıştır bağlanır, Type-C ile kameraya güç iletir.
+- Uyumluluk: Type-C güç girişli araç kameraları (kullanıcı beyanı: tüm kameralarla çalışır).
+- Park modu, G-Sensor destekli park kaydı ve Time-Lapse park kaydı için sürekli güç sağlar.
+- Kablo tavan döşemesi ve A sütunu boyunca gizlenir; sigorta kutusu bağlantısı gerekmez.
+
+## Fiyatlar (Ekim 2026)
+- TEKDEN V30: 4.499 TL (önceki fiyat 5.999 TL)
+- V30 + OBD Park Kiti: 5.199 TL (önceki fiyat 7.500 TL)
+- OBD Park Kiti: 1.199 TL
+- Not: Üstü çizili önceki fiyat, İndirimli Satış Yönetmeliği gereği son 30 günde uygulanmış en düşük fiyat olmalıdır.
 
 ## Kritik ürün kuralları
 - GPS ayrı fiziksel aksesuar/modül gibi gösterilmemelidir.
 - Gerçekte olmayan aksesuar, sensör, kamera veya teknik özellik uydurulmamalıdır.
 - Ürün görsellerinde gerçek V30 fiziksel tasarımı korunmalıdır.
+- "X30" model adı geçen eski görseller yayımlanmaz.
 
 ## Logo
 - TEKDEN yazı logosunda TEK ve EN siyah, D harfi TEKDEN mavisidir; altında TECHNOLOGY yer alır.

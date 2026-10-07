@@ -9,5 +9,9 @@ export const faqs = [
   { question: "Hangi kapasitede microSD kart destekler?", answer: "V30, 512 GB'a kadar microSD kartları destekler. microSD kart ürünle birlikte sunulmaz." },
   { question: "Döngüsel kayıt nedir?", answer: "Depolama dolduğunda eski normal kayıtların üzerine yazarak kaydın devam etmesini sağlayan kayıt yöntemidir." },
   { question: "G-Sensor ne işe yarar?", answer: "Darbe algılandığında ilgili kaydın korunmasına yardımcı olur." },
-  { question: "Telefon üzerinden kayıtlara ulaşabilir miyim?", answer: "Evet. Wi-Fi bağlantısı üzerinden kayıtlara telefonunuzdan erişebilirsiniz." },
+  { question: "Telefon üzerinden kayıtlara ulaşabilir miyim?", answer: "Evet. Wi-Fi bağlantısı ve Viidure uygulaması ile kayıtlarınızı telefonunuzdan izleyebilir, galeriye kaydedebilirsiniz." },
+  { question: "Hangi uygulama ile bağlanır?", answer: "V30, Viidure uygulaması ile Wi-Fi üzerinden telefonunuza bağlanır." },
+  { question: "Ses kaydı yapıyor mu?", answer: "Evet. V30 görüntüyle birlikte sesi de kaydeder." },
+  { question: "Türkçe dil desteği var mı?", answer: "Evet. TEKDEN V30 Türkçe dil desteğine sahiptir." },
+  { question: "Ekran boyutu nedir?", answer: "V30, kayıtları anında izleyebileceğiniz 3.2 inç IPS ekrana sahiptir." },
 ] as const;

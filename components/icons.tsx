@@ -49,3 +49,12 @@ export function ChevronDownIcon({ size = 14, className }: IconProps) {
 export function PadlockSolid({ size = 22, className }: IconProps) {
   return <svg width={size} height={size} viewBox="0 0 24 24" className={className} aria-hidden="true"><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" /><rect x="5" y="10" width="14" height="10.5" rx="2.2" fill="currentColor" /></svg>;
 }
+export function MicIcon({ size = 24, className }: IconProps) {
+  return <svg {...base(size, className)}><rect x="9" y="3" width="6" height="11" rx="3" /><path d="M5.5 11a6.5 6.5 0 0 0 13 0" /><path d="M12 17.5V21M8.5 21h7" /><path d="M3 8.5v4M21 8.5v4" stroke={ACCENT} /></svg>;
+}
+export function ScreenIcon({ size = 24, className }: IconProps) {
+  return <svg {...base(size, className)}><rect x="2.5" y="6" width="19" height="12" rx="2" /><path d="M6 14.5 9.5 11l3 3 2-2 3.5 3" stroke={ACCENT} /></svg>;
+}
+export function LanguageIcon({ size = 24, className }: IconProps) {
+  return <svg {...base(size, className)}><path d="M4 5h11a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H9l-4 3.5V15H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z" /><path d="M7 9h5M9.5 9v4" stroke={ACCENT} /><path d="M19 9h1a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-1v2.5L16 18h-3" /></svg>;
+}

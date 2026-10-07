@@ -10,8 +10,10 @@
   --paper: #f3f4f5;
   --panel: #e8eaed;
   --white: #fff;
-  --blue: #0b63ce;
-  --blue-ink: #084a9b;
+  --blue: #1546d8;
+  --blue-ink: #0b2fa8;
+  --navy: #0a2a8c;
+  --price: #0b2fa8;
   --asphalt: #16181b;
   --asphalt-2: #23262b;
   --asphalt-line: #34383e;
@@ -239,14 +241,9 @@ h2 { font-size: clamp(36px, 5.2vw, 76px); }
 .product-gallery { position: sticky; top: calc(var(--header) + 20px); display: grid; gap: 12px; }
 .gallery-primary { position: relative; display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; text-align: left; }
 .gallery-primary .viewfinder, .gallery-primary > .product-media { min-height: clamp(380px, 48vw, 640px); }
-.gallery-primary > span { position: absolute; right: 16px; top: 50%; translate: 0 -50%; padding: 8px 12px; font-size: 13px; font-weight: 600; background: var(--white); border-radius: 999px; opacity: 0; transition: opacity 0.15s; z-index: 3; }
-.gallery-primary:hover > span, .gallery-primary:focus-visible > span { opacity: 1; }
 .gallery-thumbs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
 .gallery-thumbs button { padding: 0; border: 1px solid transparent; border-radius: 6px; overflow: hidden; background: none; cursor: pointer; }
 .gallery-thumbs button.is-active { border-color: var(--blue); box-shadow: inset 0 0 0 1px var(--blue); }
-.lightbox { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 64px var(--gutter) var(--gutter); background: rgba(255, 255, 255, 0.98); }
-.lightbox .product-media { width: min(1100px, 100%); height: min(78vh, 800px); }
-.lightbox button { position: absolute; top: 18px; right: var(--gutter); padding: 10px 16px; border: 1px solid var(--line); border-radius: 999px; background: var(--white); font-size: 14px; font-weight: 600; cursor: pointer; }
 .product-purchase { padding-top: 8px; }
 .product-purchase h1 { font-size: clamp(44px, 5vw, 72px); font-stretch: 76%; }
 .product-category { margin-top: 10px; font-size: 19px; color: var(--ink-2); }
@@ -270,11 +267,6 @@ h2 { font-size: clamp(36px, 5.2vw, 76px); }
 .obd-facts > div { padding: 16px 16px 0 0; }
 .obd-facts dt { font-size: 13px; color: var(--steel); }
 .obd-facts dd { margin: 4px 0 0; font-weight: 600; }
-.bundle-callout { margin-top: 28px; padding: 22px; border: 1px solid var(--line); border-radius: 10px; display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; align-items: center; }
-.bundle-callout span { grid-column: 1 / -1; font-size: 13px; color: var(--blue); font-weight: 600; }
-.bundle-callout strong { font-size: 19px; font-weight: 650; }
-.bundle-callout b { font-size: 19px; font-weight: 650; }
-.bundle-callout .text-link { grid-column: 1 / -1; margin-top: 8px; }
 .obd-explainer { margin-top: clamp(80px, 10vw, 150px); padding-top: clamp(72px, 9vw, 130px); padding-bottom: clamp(72px, 9vw, 130px); background: var(--asphalt); color: var(--on-dark); }
 .obd-explainer > div { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 96px); align-items: start; }
 .obd-explainer .parking-timeline { margin-top: 6px; }
@@ -620,3 +612,224 @@ h2 { font-size: clamp(36px, 5.2vw, 76px); }
 .product-media--compact .media-fallback { opacity: 0.4; }
 .install-card__text { min-height: 46%; align-content: end; }
 .parking-bg { opacity: 0.75; }
+
+/* =====================================================================
+   Revizyon 3 — tur 2 notları (1–17)
+   ===================================================================== */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+/* 4/6 — Lacivert birincil buton */
+.button--primary { background: linear-gradient(180deg, #2459f0 0%, #1243d4 55%, #0b2fa8 100%); color: #fff; box-shadow: inset 0 1px 0 rgba(255,255,255,.22), 0 6px 18px -8px rgba(13,52,190,.7); }
+.button--primary:hover { background: linear-gradient(180deg, #2c62f6 0%, #1546d8 55%, #0a2a96 100%); }
+.button--wide { min-width: 280px; }
+.button--ghost-light { background: transparent; border-color: rgba(255,255,255,.55); color: #fff; }
+.button--ghost-light:hover { background: #fff; color: var(--ink); }
+
+/* 1/5 — Logo ve menü */
+.brand-logo img { width: 168px; }
+.site-footer .brand-logo img { width: 220px; }
+.footer-brand p { font-size: 15px; }
+:root { --header: 76px; }
+.nav { gap: 28px; font-size: 16px; }
+.cart-link { height: 44px; font-size: 15px; }
+
+/* 3 — Fiyat etiketi */
+.price-tag { display: inline-flex; align-items: center; flex-wrap: wrap; gap: 6px 12px; }
+.price-tag__now { color: var(--price); font-weight: 750; font-stretch: 86%; letter-spacing: -0.01em; line-height: 1; }
+.price-tag__was { color: var(--steel); font-weight: 500; text-decoration-thickness: 1.5px; }
+.price-tag__badge { padding: 5px 10px; border-radius: 6px; background: linear-gradient(180deg, #2459f0, #0b2fa8); color: #fff; font-size: 13px; font-weight: 700; letter-spacing: .01em; white-space: nowrap; }
+.price-tag--sm .price-tag__now { font-size: 18px; }
+.price-tag--sm .price-tag__was { font-size: 13px; }
+.price-tag--sm .price-tag__badge { padding: 3px 7px; font-size: 11px; }
+.price-tag--sm { gap: 2px 8px; }
+.price-tag--md .price-tag__now { font-size: 28px; }
+.price-tag--md .price-tag__was { font-size: 16px; }
+.price-tag--lg .price-tag__now { font-size: clamp(34px, 3.4vw, 44px); }
+.price-tag--lg .price-tag__was { font-size: 18px; }
+.price-tag--dark .price-tag__now { color: #fff; }
+.price-tag--dark .price-tag__was { color: rgba(255,255,255,.6); }
+.product-price.price-tag { display: flex; margin-top: 18px; }
+.bundle-option__price { flex-direction: column; align-items: flex-end; text-align: right; flex-shrink: 0; }
+.bundle-option.is-selected { border-color: var(--blue); box-shadow: inset 0 0 0 1px var(--blue), 0 8px 24px -14px rgba(13,52,190,.6); }
+.purchase-row .price-tag { justify-content: flex-end; }
+.mobile-buy-bar .price-tag { flex-direction: row; }
+
+/* 15-B / 6 — Hero banner */
+.banner { background: #07090d; color: #fff; padding: 0 !important; }
+.home > .banner > * { max-width: none; margin: 0; }
+.banner__media img { display: block; width: 100%; height: auto; }
+.banner__mobile-copy { display: none; }
+.banner__buy { background: linear-gradient(180deg, #07090d 0%, #0b1330 100%); border-top: 1px solid rgba(255,255,255,.08); padding: 22px var(--gutter); }
+.banner__buy-inner { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 1fr auto auto; gap: 20px 40px; align-items: center; }
+.banner__title h1 { font-size: clamp(26px, 2.4vw, 34px); font-stretch: 86%; letter-spacing: -0.01em; line-height: 1.05; }
+.banner__title p { margin-top: 6px; font-size: 15px; color: rgba(255,255,255,.7); }
+.banner__actions { display: flex; gap: 10px; }
+
+/* 7 — Özellik şeridi */
+.spec-rail { border-bottom: 1px solid var(--line); border-top: 0; }
+.spec-rail ul { list-style: none; margin: 0 auto; padding: 26px 0; display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
+.spec-rail li { display: grid; justify-items: center; align-content: start; gap: 10px; text-align: center; padding: 4px 8px; }
+.spec-rail li + li { border-left: 1px solid var(--line); }
+.spec-rail li > span:last-child { font-size: 14px; font-weight: 600; color: var(--ink-2); }
+.gold-badge { width: 96px; height: 66px; filter: drop-shadow(0 4px 8px rgba(0,0,0,.18)); }
+.rail-art { width: 70px; height: 66px; }
+.rail-gc { height: 66px; display: grid; place-content: center; justify-items: center; gap: 6px; }
+.rail-gc img { width: 130px; height: auto; }
+.rail-gc b { font-size: 22px; font-weight: 800; font-stretch: 84%; letter-spacing: .02em; }
+
+/* 11 — İkonlu yetenek kartları */
+.cap-grid { list-style: none; margin: clamp(36px, 5vw, 56px) auto 0 !important; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.cap-grid li { padding: 26px 22px 24px; border-radius: 16px; background: var(--paper); display: grid; gap: 8px; align-content: start; }
+.cap-icon-wrap { width: 64px; height: 64px; margin-bottom: 8px; display: grid; place-items: center; border-radius: 16px; background: #fff; box-shadow: 0 6px 16px -10px rgba(10,20,50,.35); }
+.cap-icon { width: 42px; height: 42px; object-fit: contain; }
+.cap-grid h3 { font-size: 19px; font-weight: 700; font-stretch: 90%; letter-spacing: 0; }
+.cap-grid p { font-size: 15px; color: var(--ink-2); }
+
+/* 12 — Wi-Fi + Viidure + paylaşım */
+.wifi-copy strong { font-weight: 700; color: var(--blue-ink); }
+.share-title { margin-top: 32px; font-size: 18px; font-weight: 700; font-stretch: 95%; letter-spacing: 0; }
+.share-lead { margin-top: 6px !important; font-size: 15px !important; }
+.share-row { list-style: none; margin: 16px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.share-row li { display: flex; align-items: center; gap: 10px; padding: 8px 14px 8px 8px; border: 1px solid var(--line); border-radius: 999px; font-size: 14px; font-weight: 600; }
+.share-row__icon { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 50%; background: var(--paper); }
+.share-row__icon--gallery { color: var(--ink); }
+.wifi-phone { margin: 0; justify-self: center; width: min(380px, 80%); }
+.wifi-phone img { width: 100%; height: auto; display: block; filter: drop-shadow(0 30px 40px rgba(10,20,40,.18)); }
+.wifi-phone figcaption { margin-top: 10px; text-align: center; font-size: 12px; color: var(--steel); }
+
+/* 14 — Ekran bölümü */
+.screen-feature { padding-top: clamp(80px, 10vw, 140px); display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(32px, 5vw, 80px); align-items: center; max-width: calc(var(--max) + 2 * var(--gutter)); margin: 0 auto; }
+.home > .screen-feature > *, .product-page > .screen-feature > * { max-width: none; margin: 0; }
+.screen-feature h2 { font-size: clamp(38px, 4.8vw, 68px); }
+.screen-feature p { margin-top: 18px; max-width: 38ch; font-size: 18px; color: var(--ink-2); }
+.live-screen { position: relative; }
+.live-screen img { display: block; width: 100%; height: auto; }
+.live-screen__display { position: absolute; left: 6.9%; top: 54.6%; width: 80.6%; height: 34.4%; border-radius: 1.6% / 4.6%; overflow: hidden; background: #000; }
+.live-screen__display > svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.live-screen__display::after { content: ""; position: absolute; inset: 0; background: linear-gradient(115deg, rgba(255,255,255,.16) 0%, rgba(255,255,255,0) 38%); pointer-events: none; }
+.live-screen__osd { position: absolute; z-index: 1; display: flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: clamp(9px, 1vw, 13px); font-weight: 600; color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,.5); }
+.live-screen__osd--tl { top: 8%; left: 3%; }
+.live-screen__osd--tr { top: 8%; right: 3%; }
+.device-menu { position: absolute; inset: 0; background: linear-gradient(180deg, #10172a, #0a0f1c); color: #e8ecf4; font-size: clamp(9px, 1.05vw, 14px); display: grid; grid-template-rows: auto 1fr; }
+.device-menu__head { display: flex; justify-content: space-between; padding: 3% 4%; background: var(--blue); font-weight: 700; }
+.device-menu ul { list-style: none; margin: 0; padding: 1% 0; display: grid; }
+.device-menu li { display: flex; justify-content: space-between; align-items: center; padding: 0 4%; border-bottom: 1px solid rgba(255,255,255,.08); }
+.device-menu li.is-active { background: rgba(21,70,216,.35); }
+.device-menu li b { color: #9fb6ff; font-weight: 700; }
+
+/* 9 — Türkçe */
+.turkish { margin-top: clamp(80px, 10vw, 140px); padding-top: clamp(56px, 7vw, 96px); padding-bottom: clamp(56px, 7vw, 96px); background: var(--paper); display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(32px, 5vw, 80px); align-items: center; }
+.home > .turkish > * { max-width: calc(var(--max) * 0.56); margin: 0; }
+.home > .turkish > :first-child { justify-self: end; width: 100%; }
+.turkish__chip { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px 6px 6px; border-radius: 999px; background: #fff; font-size: 14px; font-weight: 700; color: var(--blue-ink); }
+.turkish__chip .cap-icon { width: 30px; height: 30px; }
+.turkish h2 { margin-top: 18px; font-size: clamp(36px, 4.4vw, 62px); }
+.turkish p { margin-top: 16px; max-width: 38ch; font-size: 18px; color: var(--ink-2); }
+
+/* 2 — Galeri okları + lightbox */
+.gallery-stage { position: relative; border-radius: 10px; overflow: hidden; background: #fff; border: 1px solid var(--line); }
+.gallery-primary > .product-media { min-height: clamp(380px, 46vw, 620px); }
+.gallery-zoom-hint { position: absolute; right: 14px; bottom: 14px; padding: 7px 12px; font-size: 13px; font-weight: 600; background: rgba(255,255,255,.92); border: 1px solid var(--line); border-radius: 999px; z-index: 3; }
+.gallery-nav { position: absolute; top: 50%; translate: 0 -50%; z-index: 4; width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; background: rgba(255,255,255,.95); color: var(--ink); cursor: pointer; box-shadow: 0 4px 14px -6px rgba(0,0,0,.25); transition: background .15s, color .15s; }
+.gallery-nav:hover { background: var(--blue); color: #fff; border-color: var(--blue); }
+.gallery-nav--prev { left: 12px; } .gallery-nav--next { right: 12px; }
+.gallery-count { position: absolute; left: 14px; bottom: 14px; z-index: 3; padding: 5px 10px; border-radius: 999px; background: rgba(0,0,0,.6); color: #fff; font-family: var(--mono); font-size: 12px; }
+.gallery-thumbs { display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 6px; scrollbar-width: thin; }
+.gallery-thumbs button { flex: 0 0 calc((100% - 40px) / 5); scroll-snap-align: start; background: #fff; border: 1px solid var(--line); }
+.gallery-thumbs .product-media { background: #fff; }
+.lightbox { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 72px 88px 56px; background: rgba(8,10,16,.94); }
+.lightbox__stage { width: min(1200px, 100%); height: min(82vh, 860px); border-radius: 12px; overflow: hidden; background: #fff; }
+.lightbox__stage .product-media { min-height: 0; height: 100%; }
+.lightbox__close { position: absolute; top: 18px; right: 18px; width: 48px; height: 48px; display: grid; place-items: center; border: 0; border-radius: 50%; background: #fff; color: var(--ink); cursor: pointer; padding: 0; }
+.lightbox__close:hover { background: var(--blue); color: #fff; }
+.lightbox__nav { position: absolute; top: 50%; translate: 0 -50%; width: 56px; height: 56px; display: grid; place-items: center; border: 0; border-radius: 50%; background: rgba(255,255,255,.12); color: #fff; cursor: pointer; }
+.lightbox__nav:hover { background: var(--blue); }
+.lightbox__nav--prev { left: 18px; } .lightbox__nav--next { right: 18px; }
+.lightbox__count { position: absolute; bottom: 18px; left: 50%; translate: -50% 0; color: rgba(255,255,255,.8); font-family: var(--mono); font-size: 13px; }
+
+/* 5 — paket görseli beyaz zemin */
+.selection-thumb__item { background: #fff; border: 1px solid var(--line); }
+
+/* 13 — OBD sayfası */
+.obd-page .product-category { margin-top: 10px; }
+.bundle-callout { margin-top: 24px; padding: 14px 16px; display: flex; align-items: center; gap: 14px; border: 1px solid var(--line); border-radius: 12px; transition: border-color .15s; }
+.bundle-callout:hover { border-color: var(--blue); }
+.bundle-callout__text { flex: 1; display: grid; gap: 2px; }
+.bundle-callout__text small { font-size: 13px; font-weight: 600; color: var(--blue-ink); }
+.bundle-callout__text strong { font-size: 17px; font-weight: 650; }
+.bundle-callout .price-tag { flex-direction: column; align-items: flex-end; }
+.obd-intro, .obd-benefits, .obd-steps, .obd-notes { padding-top: clamp(64px, 8vw, 110px); }
+.product-page > .obd-intro > * { max-width: 760px; }
+.obd-intro p { margin-top: 18px !important; font-size: 18px; color: var(--ink-2); text-align: center; }
+.obd-benefits ul { list-style: none; margin: 36px auto 0 !important; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.obd-benefits li { padding: 26px 22px; border-radius: 16px; background: var(--paper); display: grid; gap: 8px; align-content: start; }
+.obd-benefits__icon { width: 64px; height: 64px; display: grid; place-items: center; border-radius: 16px; background: #fff; margin-bottom: 8px; color: var(--ink); }
+.obd-benefits__icon .rail-art { width: 44px; height: 44px; }
+.obd-benefits h3 { font-size: 19px; font-weight: 700; font-stretch: 90%; letter-spacing: 0; }
+.obd-benefits p { font-size: 15px; color: var(--ink-2); }
+.obd-steps ol { list-style: none; margin: 36px auto 0 !important; padding: 0; max-width: 860px !important; display: grid; gap: 0; counter-reset: s; }
+.obd-steps li { display: grid; grid-template-columns: 48px 1fr; gap: 18px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+.obd-steps li:first-child { border-top: 1px solid var(--ink); }
+.obd-steps li > span { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 50%; background: linear-gradient(180deg, #2459f0, #0b2fa8); color: #fff; font-weight: 700; }
+.obd-steps strong { font-size: 18px; font-weight: 650; }
+.obd-steps p { margin-top: 4px; color: var(--ink-2); }
+.obd-notes { padding-bottom: clamp(64px, 8vw, 110px); }
+.obd-notes__box { max-width: 860px !important; padding: 26px 30px; border-radius: 16px; background: #fff7e6; border: 1px solid #f1d9a6; }
+.obd-notes__box h2 { display: flex; align-items: center; gap: 10px; font-size: 22px; font-stretch: 90%; color: #7a4b00; letter-spacing: 0; }
+.obd-notes__box ul { margin: 14px 0 0; padding-left: 20px; display: grid; gap: 8px; color: #4a3a1a; }
+
+@media (max-width: 1180px) {
+  .nav { gap: 18px; font-size: 15px; }
+  .brand-logo img { width: 148px; }
+}
+@media (max-width: 1080px) {
+  .spec-rail ul { grid-template-columns: repeat(3, 1fr); row-gap: 24px; }
+  .spec-rail li:nth-child(4) { border-left: 0; }
+  .cap-grid { grid-template-columns: repeat(2, 1fr); }
+  .banner__buy-inner { grid-template-columns: 1fr auto; }
+  .banner__actions { grid-column: 1 / -1; }
+  .obd-benefits ul { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 960px) {
+  :root { --header: 64px; }
+  .menu-button { display: block; }
+  .cart-link__label { display: none; }
+  .nav { position: fixed; top: var(--header); left: 0; right: 0; bottom: 0; margin: 0; padding: 24px var(--gutter); background: var(--white); flex-direction: column; align-items: stretch; gap: 0; font-size: 24px; font-weight: 600; font-stretch: 85%; visibility: hidden; opacity: 0; transition: opacity .2s, visibility .2s; }
+  .nav a { padding: 16px 0; border-bottom: 1px solid var(--line); color: var(--ink); }
+  .is-open .nav { visibility: visible; opacity: 1; }
+  .header-actions { margin-left: auto; }
+}
+@media (max-width: 860px) {
+  .brand-logo img { width: 132px; }
+  .site-footer .brand-logo img { width: 180px; }
+  .banner__mobile-copy { display: grid; justify-items: start; gap: 10px; padding: 22px var(--gutter) 6px; background: #07090d; }
+  .banner__logo { width: 120px; height: auto; }
+  .banner__v30 { width: min(240px, 62vw); height: auto; }
+  .banner__claim { font-size: 22px; font-weight: 800; font-stretch: 84%; line-height: 1.1; text-transform: none; }
+  .banner__sub { font-size: 15px; color: rgba(255,255,255,.75); }
+  .banner__buy-inner { grid-template-columns: 1fr; gap: 16px; }
+  .banner__title p { display: none; }
+  .banner__title h1 { font-size: 20px; }
+  .banner__actions .button { flex: 1; min-width: 0; }
+  .spec-rail ul { grid-template-columns: repeat(2, 1fr); padding: 20px 0; }
+  .spec-rail li, .spec-rail li + li { border-left: 0; }
+  .spec-rail li:nth-child(even) { border-left: 1px solid var(--line); }
+  .cap-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .cap-grid li { padding: 18px 14px; }
+  .cap-grid h3 { font-size: 16px; }
+  .cap-grid p { font-size: 13px; }
+  .screen-feature, .turkish { grid-template-columns: 1fr; }
+  .home > .turkish > * { max-width: none; }
+  .turkish .live-screen { order: 1; }
+  .wifi-phone { width: min(300px, 76%); }
+  .gallery-thumbs button { flex-basis: calc((100% - 30px) / 4); }
+  .gallery-nav { width: 38px; height: 38px; }
+  .lightbox { padding: 64px 8px 48px; }
+  .lightbox__nav { width: 44px; height: 44px; top: auto; bottom: 8px; translate: none; }
+  .lightbox__nav--prev { left: 20%; } .lightbox__nav--next { right: 20%; }
+  .lightbox__count { bottom: 22px; }
+  .obd-benefits ul { grid-template-columns: 1fr; }
+  .obd-notes__box { padding: 20px; }
+  .bundle-option { padding: 12px; }
+}
+.install-card__text { height: 46%; min-height: 0; align-content: start; padding-top: 34px; }
