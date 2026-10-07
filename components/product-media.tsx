@@ -12,6 +12,7 @@ type ProductMediaProps = {
   priority?: boolean;
   contain?: boolean;
   sizes?: string;
+  fallback?: string;
 };
 
 export function ProductMedia({
@@ -23,6 +24,7 @@ export function ProductMedia({
   priority = false,
   contain = true,
   sizes,
+  fallback = "V30",
 }: ProductMediaProps) {
   const [failed, setFailed] = useState(false);
   const showImage = src && !failed;
@@ -41,7 +43,7 @@ export function ProductMedia({
         />
       ) : (
         <div className="media-fallback" role="img" aria-label={alt}>
-          <span>V30</span>
+          <span>{fallback}</span>
           {!compact && <small>{label}</small>}
         </div>
       )}

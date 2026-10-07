@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { formatPrice, selections, type SelectionId } from "@/lib/product";
 import { useCart } from "./cart-provider";
+import { SelectionThumb } from "./selection-thumb";
 
 export function AddToCartPanel({ compact = false, initial = "v30" }: { compact?: boolean; initial?: "v30" | "v30-obd" }) {
   const [selectionId, setSelectionId] = useState<"v30" | "v30-obd">(initial);
@@ -25,7 +26,7 @@ export function AddToCartPanel({ compact = false, initial = "v30" }: { compact?:
         <div className="bundle-options">
           {(["v30", "v30-obd"] as const).map((id) => {
             const option = selections[id];
-            return <button key={id} type="button" className={selectionId === id ? "bundle-option is-selected" : "bundle-option"} onClick={() => setSelectionId(id)} aria-pressed={selectionId === id}><span><strong>{option.name}</strong><small>{option.detail}</small></span><b>{formatPrice(option.price)}</b></button>;
+            return <button key={id} type="button" className={selectionId === id ? "bundle-option is-selected" : "bundle-option"} onClick={() => setSelectionId(id)} aria-pressed={selectionId === id}><SelectionThumb parts={option.parts} /><span className="bundle-option__text"><strong>{option.name}</strong><small>{option.detail}</small></span><b>{formatPrice(option.price)}</b></button>;
           })}
         </div>
       </fieldset>

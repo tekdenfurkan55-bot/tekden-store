@@ -8,6 +8,9 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { StructuredData } from "@/components/structured-data";
 import { Viewfinder } from "@/components/viewfinder";
+import { CameraFrontIcon, CameraRearIcon, GpsIcon, HdrIcon, ParkingIcon, WifiIcon } from "@/components/icons";
+import { SpecTable } from "@/components/spec-table";
+import { TrustBadges } from "@/components/trust-badges";
 import { faqs } from "@/lib/content";
 import { formatPrice, v30 } from "@/lib/product";
 import { absoluteUrl } from "@/lib/site";
@@ -23,6 +26,15 @@ export const metadata: Metadata = {
 const productSchema = { "@context": "https://schema.org", "@type": "Product", name: v30.name, image: v30.images.map((item) => absoluteUrl(item.src)), description: v30.tagline, sku: v30.sku, model: "V30", brand: { "@type": "Brand", name: "TEKDEN" }, offers: { "@type": "Offer", url: absoluteUrl("/urun/v30"), priceCurrency: "TRY", price: "4500", availability: "https://schema.org/InStock" } };
 const breadcrumbSchema = { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Ana Sayfa", item: absoluteUrl() }, { "@type": "ListItem", position: 2, name: "V30", item: absoluteUrl("/urun/v30") }] };
 
+const keyFeatures = [
+  [CameraFrontIcon, "4K ön kamera, GalaxyCore GC4653 sensör"],
+  [CameraRearIcon, "1080P Full HD arka kamera"],
+  [WifiIcon, "Wi-Fi ile kayıtlara telefondan erişim"],
+  [GpsIcon, "Dahili GPS, ayrı aparat gerekmez"],
+  [HdrIcon, "HDR ile dengeli görüntü"],
+  [ParkingIcon, "24 saat park modu (OBD Park Kiti ile)"],
+] as const;
+
 export default function V30ProductPage() {
   return (
     <>
@@ -33,12 +45,15 @@ export default function V30ProductPage() {
         <section className="product-main">
           <ProductGallery images={v30.images} />
           <div className="product-purchase" id="satinal">
-            <h1>TEKDEN <span className="model-mark">V30</span></h1>
-            <p className="product-category">4K araç kamerası, ön + arka</p>
+            <h1 className="product-title">TEKDEN V30 4K Ön ve Arka Araç Kamerası</h1>
             <strong className="product-price">{formatPrice(v30.price)}</strong>
-            <ul className="advantage-list">{v30.highlights.map((item) => <li key={item}>{item}</li>)}</ul>
+            <h2 className="key-features__title">Öne çıkan özellikler</h2>
+            <ul className="key-features">
+              {keyFeatures.map(([Icon, text]) => <li key={text}><span className="key-features__icon"><Icon size={22} /></span>{text}</li>)}
+            </ul>
             <AddToCartPanel />
-            <div className="trust-row"><span>Ön ve arka aynı anda kayıt</span><span>microSD kart dahil değildir, 512 GB&apos;a kadar desteklenir</span><span>24 saat park modu için OBD Park Kiti gerekir</span></div>
+            <TrustBadges />
+            <p className="product-fineprint">microSD kart kutuya dahil değildir, 512 GB&apos;a kadar desteklenir.</p>
           </div>
         </section>
         <section className="product-story">
@@ -48,8 +63,8 @@ export default function V30ProductPage() {
             <Viewfinder tone="dark" live={false} channel="ARKA 1080P"><ProductMedia src={v30.images[2].src} alt={v30.images[2].alt} tone="dark" label="Arka kamera" /></Viewfinder>
           </div>
         </section>
-        <section className="product-specs"><h2>Teknik özellikler</h2><table className="spec-table"><tbody>{v30.specifications.map(([label, value]) => <tr key={label}><th scope="row">{label}</th><td>{value}</td></tr>)}</tbody></table></section>
-        <section className="faq-section"><h2>Satın almadan önce</h2><Faq items={faqs} /></section>
+        <section className="product-specs"><h2 className="section-title">Teknik özellikler</h2><SpecTable rows={v30.specifications} /></section>
+        <section className="faq-section"><h2 className="section-title">Sık sorulan sorular</h2><Faq items={faqs} /></section>
       </main>
       <div className="mobile-buy-bar"><div><small>TEKDEN V30</small><strong>{formatPrice(v30.price)}</strong></div><a className="button button--primary" href="#satinal">Satın al</a></div>
       <SiteFooter />

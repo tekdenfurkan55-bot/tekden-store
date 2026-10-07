@@ -7,6 +7,11 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { StructuredData } from "@/components/structured-data";
 import { Viewfinder } from "@/components/viewfinder";
+import { V30Mark } from "@/components/brand-logo";
+import { ImpactScene, InstallScene, MicroSD, NightLot, PhoneApp, RoadScene, SensorChip, TimelapseStrip } from "@/components/illustrations";
+import { SelectionThumb } from "@/components/selection-thumb";
+import { SpecTable } from "@/components/spec-table";
+import { TrustBadges } from "@/components/trust-badges";
 import { faqs } from "@/lib/content";
 import { formatPrice, selections, v30 } from "@/lib/product";
 import { absoluteUrl, brandName } from "@/lib/site";
@@ -47,7 +52,7 @@ export default function HomePage() {
       <main className="home">
         <section className="hero">
           <div className="hero-copy">
-            <p className="hero-model">TEKDEN <span className="model-mark">V30</span></p>
+            <p className="hero-model"><span>TEKDEN</span><V30Mark /></p>
             <h1>Yolun her detayı kayıtta.</h1>
             <p className="hero-lead">4K ön ve 1080P arka kamera. Wi-Fi, GPS ve HDR tek cihazda.</p>
             <div className="hero-buy">
@@ -91,17 +96,32 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="night">
-          <div className="night-inner">
-            <h2>Gece de, güneşe karşı da.</h2>
-            <p>GalaxyCore GC4653 sensör ve HDR, ışığın hızla değiştiği anlarda görüntüyü dengeler. Farklı ışık koşullarında daha dengeli kayıt.</p>
-            <dl className="night-specs">
-              <div><dt>Sensör</dt><dd>GalaxyCore GC4653</dd></div>
-              <div><dt>İşlemci</dt><dd>SA230D</dd></div>
-              <div><dt>Görüntü</dt><dd>HDR</dd></div>
-              <div><dt>Ekran</dt><dd>3.2&quot; IPS</dd></div>
+        <section className="sensor">
+          <div className="sensor-head">
+            <h2>Gelişmiş görüntü performansı</h2>
+            <p>GalaxyCore GC4653 sensör ve HDR ile farklı ışık koşullarında daha dengeli kayıt.</p>
+          </div>
+          <div className="sensor-body">
+            <SensorChip />
+            <dl className="sensor-stats">
+              <div><dt>4K</dt><dd>Ön kamera kaydı</dd></div>
+              <div><dt>HDR</dt><dd>Parlak ve karanlık alanlarda dengeli görüntü</dd></div>
+              <div><dt>SA230D</dt><dd>Görüntü işlemcisi</dd></div>
             </dl>
           </div>
+          <div className="sensor-scene">
+            <RoadScene mood="night" plate />
+            <span className="sensor-badge"><b className="vf-rec" />Ön <strong>4K</strong> HDR</span>
+            <small>Temsili görsel</small>
+          </div>
+        </section>
+
+        <section className="wifi">
+          <div className="wifi-copy">
+            <h2>Kayıtlarınıza telefonunuzdan ulaşın.</h2>
+            <p>Wi-Fi bağlantısıyla kayıtları telefonunuzda izleyin. Dahili GPS ile rotanız da kayıtta.</p>
+          </div>
+          <PhoneApp />
         </section>
 
         <section className="capabilities">
@@ -109,20 +129,49 @@ export default function HomePage() {
           <dl>{capabilities.map(([title, text]) => <div key={title}><dt>{title}</dt><dd>{text}</dd></div>)}</dl>
         </section>
 
+        <section className="storage">
+          <div className="storage-copy">
+            <span className="storage-tag">Opsiyonel</span>
+            <h2>512 GB&apos;a kadar destek</h2>
+            <p>Döngüsel kayıt sayesinde kart dolduğunda kayıt kesintisiz devam eder. En iyi sonuç için yüksek dayanıklı microSD kart önerilir.</p>
+            <p className="storage-note">* microSD kart kutuya dahil değildir.</p>
+          </div>
+          <div className="storage-visual">
+            <div className="storage-product"><ProductMedia src={v30.images[1].src} alt={v30.images[1].alt} label="Ürün fotoğrafı" /></div>
+            <div className="storage-cards">
+              {["64 GB", "128 GB", "256 GB", "512 GB"].map((size) => <div key={size}><strong>{size}</strong><MicroSD size={size.replace(" ", "")} /></div>)}
+            </div>
+            <div className="storage-bar" aria-hidden="true"><i /><i /><i /><i /></div>
+            <small>Desteklenen microSD kapasiteleri</small>
+          </div>
+        </section>
+
         <section className="parking" id="obd">
-          <div className="parking-copy">
-            <h2>Park halindeyken de nöbette.</h2>
-            <p>OBD Type-C Park Kiti ile V30, aracınız kapalıyken 24 saat park modunda çalışır. G-Sensor, darbe anının kaydını korumaya yardımcı olur.</p>
-            <div className="parking-actions">
-              <Link className="button button--light" href="/urun/obd-park-kiti">OBD Park Kitini incele</Link>
-              <span>Paket fiyatı {formatPrice(selections["v30-obd"].price)}</span>
+          <NightLot className="parking-bg" />
+          <div className="parking-inner">
+            <div className="parking-copy">
+              <h2>Park halindeyken de nöbette.</h2>
+              <p>OBD Type-C Park Kiti ile V30, aracınız kapalıyken 24 saat park modunda çalışır.</p>
+              <div className="parking-kit">
+                <SelectionThumb parts={["obd"]} />
+                <div><strong>OBD Park Kiti gerekir</strong><span>24 saat park modu ve kesintisiz güç için</span></div>
+              </div>
+              <div className="parking-actions">
+                <Link className="button button--light" href="/urun/obd-park-kiti">OBD Park Kitini incele</Link>
+                <span>Paket fiyatı {formatPrice(selections["v30-obd"].price)}</span>
+              </div>
+            </div>
+            <div className="parking-cards">
+              <article className="park-card">
+                <header><h3>G-Sensor modu</h3><p>Darbe algılandığında ilgili kaydın korunmasına yardımcı olur.</p></header>
+                <ImpactScene />
+              </article>
+              <article className="park-card">
+                <header><h3>Time-Lapse modu</h3><p>Park halinde uzun süreyi daha az alanla kaydeder.</p></header>
+                <TimelapseStrip />
+              </article>
             </div>
           </div>
-          <ol className="parking-timeline" aria-label="Park modu nasıl çalışır">
-            <li><span>Kontak kapanır</span><p>OBD kiti V30&apos;a güç vermeye devam eder.</p></li>
-            <li><span>Park modu başlar</span><p>Time-Lapse ile uzun süreyi az alanla kaydeder.</p></li>
-            <li><span>Darbe algılanır</span><p>G-Sensor ilgili kaydın korunmasına yardımcı olur.</p></li>
-          </ol>
         </section>
 
         <section className="buy-section" id="satinal">
@@ -131,26 +180,34 @@ export default function HomePage() {
             <h2>Paketinizi seçin.</h2>
             <p>Yalnızca kamera ya da 24 saat park modu için OBD Park Kiti ile birlikte.</p>
             <AddToCartPanel compact />
+            <TrustBadges />
             <p className="buy-note">microSD kart kutuya dahil değildir. 512 GB&apos;a kadar kart desteklenir.</p>
           </div>
         </section>
 
         <section className="install" id="kurulum">
-          <h2>Üç adımda kurulum.</h2>
+          <h2 className="section-title">Üç adımda kurulum</h2>
           <ol>
-            <li><span>1</span><strong>Yerleştirin</strong><p>V30&apos;u ön cama, görüşünüzü kapatmayacak şekilde konumlandırın.</p></li>
-            <li><span>2</span><strong>Bağlayın</strong><p>Arka kamerayı ve güç kablosunu takın. Park modu için OBD kitini kullanın.</p></li>
-            <li><span>3</span><strong>Kayda başlayın</strong><p>microSD kartı takın ve kayda başlayın.</p></li>
+            {([
+              [1, "Yerleştirin", "V30\u2019u ön cama, görüşünüzü kapatmayacak şekilde konumlandırın."],
+              [2, "Bağlayın", "Arka kamerayı ve güç kablosunu takın. Park modu için OBD kitini kullanın."],
+              [3, "Kayda başlayın", "microSD kartı takın ve kayda başlayın."],
+            ] as const).map(([step, title, text]) => (
+              <li key={step} className="install-card">
+                <InstallScene step={step} />
+                <div className="install-card__text"><span>{step}</span><strong>{title}</strong><p>{text}</p></div>
+              </li>
+            ))}
           </ol>
         </section>
 
         <section className="specs" id="teknik">
-          <h2>Teknik özellikler</h2>
-          <table className="spec-table"><tbody>{v30.specifications.map(([label, value]) => <tr key={label}><th scope="row">{label}</th><td>{value}</td></tr>)}</tbody></table>
+          <h2 className="section-title">Teknik özellikler</h2>
+          <SpecTable rows={v30.specifications} />
         </section>
 
         <section className="faq-section" id="sss">
-          <h2>Sık sorulan sorular</h2>
+          <h2 className="section-title">Sık sorulan sorular</h2>
           <Faq items={faqs} />
         </section>
       </main>

@@ -5,6 +5,7 @@ import { ProductMedia } from "@/components/product-media";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { StructuredData } from "@/components/structured-data";
+import { TrustBadges } from "@/components/trust-badges";
 import { formatPrice, obdKit, selections } from "@/lib/product";
 import { absoluteUrl } from "@/lib/site";
 
@@ -27,7 +28,7 @@ export default function ObdProductPage() {
       <main className="product-page obd-page">
         <nav className="breadcrumbs" aria-label="Sayfa yolu"><Link href="/">Ana sayfa</Link><span>/</span><span>OBD Park Kiti</span></nav>
         <section className="product-main">
-          <div className="product-gallery"><div className="gallery-primary"><ProductMedia src={obdKit.image} alt={obdKit.name} label="Ürün fotoğrafı" /></div></div>
+          <div className="product-gallery"><div className="gallery-primary"><ProductMedia src={obdKit.image} alt={obdKit.name} label="Ürün fotoğrafı" fallback="OBD" /></div></div>
           <div className="product-purchase">
             <h1>{obdKit.name}</h1>
             <p className="product-category">V30 için 24 saat park modu</p>
@@ -35,6 +36,7 @@ export default function ObdProductPage() {
             <p className="product-lead">{obdKit.description}</p>
             <dl className="obd-facts"><div><dt>Uyumluluk</dt><dd>{obdKit.compatibility}</dd></div><div><dt>Kullanım</dt><dd>24 saat park modu</dd></div><div><dt>Bağlantı</dt><dd>OBD / Type-C</dd></div></dl>
             <SingleProductPurchase id="obd" />
+            <TrustBadges />
             <div className="bundle-callout"><span>Henüz V30&apos;unuz yoksa</span><strong>V30 + OBD Park Kiti</strong><b>{formatPrice(selections["v30-obd"].price)}</b><Link className="text-link" href="/urun/v30#satinal">Paketi seç</Link></div>
           </div>
         </section>

@@ -42,10 +42,12 @@ export const obdKit = {
   compatibility: "TEKDEN V30",
 } as const;
 
+export type ThumbPart = "v30" | "obd";
+
 export const selections = {
-  v30: { id: "v30", name: "TEKDEN V30", detail: "4K Araç Kamerası", price: v30.price, image: v30.image, includesObd: false },
-  "v30-obd": { id: "v30-obd", name: "V30 + OBD Park Kiti", detail: "24 saat park modu paketi", price: 520000, image: v30.image, includesObd: true },
-  obd: { id: "obd", name: obdKit.name, detail: "V30 ile uyumlu", price: obdKit.price, image: obdKit.image, includesObd: true },
+  v30: { id: "v30", name: "TEKDEN V30", detail: "4K Araç Kamerası", price: v30.price, image: v30.image, parts: ["v30"] as ThumbPart[], includesObd: false },
+  "v30-obd": { id: "v30-obd", name: "V30 + OBD Park Kiti", detail: "24 saat park modu paketi", price: 520000, image: v30.image, parts: ["v30", "obd"] as ThumbPart[], includesObd: true },
+  obd: { id: "obd", name: obdKit.name, detail: "V30 ile uyumlu", price: obdKit.price, image: obdKit.image, parts: ["obd"] as ThumbPart[], includesObd: true },
 } as const;
 
 export type SelectionId = keyof typeof selections;
