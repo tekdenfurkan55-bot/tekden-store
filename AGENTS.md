@@ -81,3 +81,12 @@
 ## Yayın
 - Proje Vercel'e uygun tutulmalıdır.
 - Secret ve API anahtarları koda gömülmemelidir.
+
+## Devam notları (yeni sohbet için)
+- Tasarım çalışması `tasarim-yenileme` dalında yapılır; her push Vercel önizlemesi üretir. `main` (canlı site) yalnızca kullanıcı "canlıya al" deyince güncellenir.
+- Çalışma düzeni: kullanıcı maddeleri tek tek yazar, her biri kısaca "X. madde not edildi" diye onaylanır ve listeye eklenir; kullanıcı "uygula" deyince hepsi birlikte yapılır, build + masaüstü/mobil kontrol + push, ardından önizleme linki verilir.
+- Sitede emoji kullanılmaz; kurumsal görünüm (RedTiger düzeni, TEKDEN markası). Yazılar ve butonlar büyük ve okunur olmalı.
+- Görsellerde yollar Türkiye (İstanbul), plakalar gerçek Türk plakası (mavi TR şeridi). Gemini görselleri kullanıcı üretir; promptları biz yazarız.
+- Gece görüntüsü için "gece görüşü / ultra gece görüş" denmez (kızılötesi yok); "Gece de net görüntü" kullanılır.
+- Tamamlanan son tur: Revizyon 6 (gündüz/gece plaka bölümü, park kartları, gerçek ekran görüntüsü, görselli sipariş özeti).
+- Bekleyen konular: CE belgesi (banner'dan CE/işaretler silindi), OBD fotoğrafında giriş Type-C değil micro-USB gibi görünüyor (Type-C fotoğraf istenecek), "Kutu içeriği" bölümü önerisi, canlıya alma onayı, PayTR bilgileri.
