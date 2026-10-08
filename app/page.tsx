@@ -7,7 +7,7 @@ import { ProductMedia } from "@/components/product-media";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { StructuredData } from "@/components/structured-data";
-import { Viewfinder } from "@/components/viewfinder";
+import { PlateCams } from "@/components/plate-cams";
 import { V30Mark } from "@/components/brand-logo";
 import { ImpactScene, MicroSD, RoadScene, SensorChip, TimelapseStrip } from "@/components/illustrations";
 import { GoldBadge, GpsTileIcon, LiveScreen, LoopBadge, ParkBadge, ShareRow, StorageBadge, TurkishTileIcon } from "@/components/feature-art";
@@ -95,28 +95,12 @@ export default function HomePage() {
           </ul>
         </section>
 
-        <section className="chapter chapter--plate" id="ozellikler">
-          <div className="chapter-copy">
-            <h2>Plakayı okuyabileceğiniz netlik.</h2>
-            <p>Ön kamera 4K çözünürlükte kaydeder. Plakalar, tabelalar ve yolun detayları kayıtta daha net görünür.</p>
+        <section className="cams" id="ozellikler" aria-labelledby="cams-title">
+          <div className="cams-head">
+            <h2 id="cams-title">Plakayı gündüz de gece de okuyun.</h2>
+            <p>Önde 4K, arkada 1080P Full HD kayıt. GC4653 sensör ve HDR, farlar ve sokak ışıklarında da dengeli görüntü sağlar.</p>
           </div>
-          <Viewfinder tone="dark" live={false} className="plate-visual">
-            <div className="plate-scene" role="img" aria-label="Temsili görsel: kayıtta okunabilir plaka">
-              <div className="plate-zoom"><span className="plate"><b>TR</b>34 TKD 030</span></div>
-              <small>Temsili görsel</small>
-            </div>
-          </Viewfinder>
-        </section>
-
-        <section className="chapter chapter--dual">
-          <div className="chapter-copy">
-            <h2>Önünüz ve arkanız, aynı anda.</h2>
-            <p>İki kanal birlikte kaydeder: önde 4K, arkada 1080P Full HD. Arkadan gelen bir çarpma da kayıt altında.</p>
-          </div>
-          <div className="dual-frames">
-            <figure><Viewfinder channel="ÖN 4K" live={false}><ProductMedia src="/products/v30-front.webp" alt="TEKDEN V30 ön kamera" label="Ön kamera" /></Viewfinder><figcaption><strong>Ön kamera</strong><span>4K</span></figcaption></figure>
-            <figure><Viewfinder channel="ARKA 1080P" live={false}><ProductMedia src="/products/v30-rear.webp" alt="TEKDEN V30 1080P arka kamera" label="Arka kamera" /></Viewfinder><figcaption><strong>Arka kamera</strong><span>1080P Full HD</span></figcaption></figure>
-          </div>
+          <PlateCams />
         </section>
 
         <section className="sensor">

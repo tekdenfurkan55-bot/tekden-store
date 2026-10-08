@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { siInstagram, siWhatsapp, siYoutube } from "simple-icons";
-import { RoadScene } from "./illustrations";
 
 /* ---------- Altın rozetler (vektör, keskin) ---------- */
 export function GoldBadge({ big, line1, line2 }: { big: string; line1: string; line2?: string }) {
@@ -100,7 +99,7 @@ export function LiveScreen({ menu = false }: { menu?: boolean }) {
           </div>
         ) : (
           <>
-            <RoadScene mood="day" />
+            <Image className="live-screen__shot" src="/media/ekran-yol.webp" alt="" fill sizes="(max-width: 860px) 80vw, 45vw" />
             <span className="live-screen__osd live-screen__osd--tl"><b className="vf-rec" />REC</span>
             <span className="live-screen__osd live-screen__osd--tr">4K</span>
           </>
