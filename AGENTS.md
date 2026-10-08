@@ -31,6 +31,12 @@
 - Ses kaydı (dahili mikrofon)
 - Türkçe dil desteği
 - Telefon uygulaması: Viidure (Wi-Fi ile bağlanır)
+- Kutu içeriği: çakmaklık güç kablosu (OBD kullanılmazsa güç için)
+
+## Kurulum akışı (kullanıcı tarafından doğrulandı)
+1. Ana kamera ön cama yerleştirilir.
+2. Arka kamera kablosu ana kameraya takılır; güç için OBD Park Kiti ya da kutudaki çakmaklık kablosu ana kameraya bağlanır.
+3. microSD kart takılır, kayıt başlar.
 
 ## OBD Type-C Park Kiti (kullanıcı tarafından doğrulandı)
 - OBD portuna tak-çalıştır bağlanır, Type-C ile kameraya güç iletir.

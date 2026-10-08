@@ -51,6 +51,7 @@ export const obdKit = {
   images: [
     { src: "/products/obd-1.webp", alt: "TEKDEN OBD Type-C Park Kiti, kablo ve OBD fişi" },
     { src: "/products/obd-2.webp", alt: "TEKDEN OBD Type-C Park Kiti, OBD fişi yakın görünüm" },
+    { src: "/products/obd-afis-park-modu.webp", alt: "TEKDEN OBD Type-C Park Kiti ile 24 saat park modu: darbe algılama ve Time-Lapse park kaydı" },
   ],
   description: "Araç kameralarına park halindeyken de sürekli güç sağlayarak park modu özelliklerinin kullanılmasına yardımcı olan OBD güç bağlantı kitidir. Araç içerisindeki OBD portuna bağlanır ve Type-C bağlantısı üzerinden kameraya güç iletir.",
   compatibility: "Type-C güç girişli tüm araç kameraları",

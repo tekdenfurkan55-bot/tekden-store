@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useId } from "react";
 import { PadlockSolid } from "./icons";
 
@@ -128,28 +129,11 @@ export function SensorChip() {
   );
 }
 
-/** Park modu: G-Sensor kartı sahnesi. */
+/** Park modu: G-Sensor kartı (gerçekçi sahne + REC, kilit, oynatma çubuğu). */
 export function ImpactScene() {
   return (
     <div className="impact">
-      <svg viewBox="0 0 400 220" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-        <rect width="400" height="220" fill="#1a1d23" />
-        <rect y="150" width="400" height="70" fill="#22262d" />
-        <g stroke="#d9d9d6" strokeWidth="3" opacity="0.5"><path d="M40 210 L70 160" /><path d="M330 210 L300 160" /></g>
-        <g transform="translate(40 92)">
-          <path d="M0 58 Q2 34 26 30 L60 10 Q78 2 108 2 L150 2 Q178 4 196 26 L222 32 Q236 36 236 58 Z" fill="#b9bec6" />
-          <path d="M66 14 L104 8 L104 30 L52 30 Z M112 8 L148 8 Q168 12 184 30 L112 30 Z" fill="#3b4250" />
-          <circle cx="50" cy="62" r="18" fill="#111" /><circle cx="50" cy="62" r="8" fill="#888" />
-          <circle cx="190" cy="62" r="18" fill="#111" /><circle cx="190" cy="62" r="8" fill="#888" />
-        </g>
-        <g transform="translate(250 100)">
-          <path d="M0 50 Q0 30 18 26 L40 10 Q54 2 80 2 L150 2 L150 50 Z" fill="#2c3a55" />
-          <path d="M44 12 L80 8 L80 26 L30 26 Z" fill="#141a26" />
-          <rect x="-4" y="34" width="14" height="6" rx="2" fill="#ffd27a" />
-          <circle cx="40" cy="54" r="17" fill="#111" /><circle cx="40" cy="54" r="7" fill="#777" />
-        </g>
-        <g stroke="#ffd27a" strokeWidth="2" opacity="0.8"><path d="M262 118 l-12 -10" /><path d="M262 132 l-16 2" /><path d="M262 146 l-12 10" /></g>
-      </svg>
+      <Image src="/media/park/g-sensor.webp" alt="Park halindeki araca hafif çarpma anı" fill sizes="(max-width: 860px) 90vw, 420px" />
       <span className="impact__lock"><PadlockSolid size={26} /></span>
       <span className="impact__rec"><b className="vf-rec" />REC</span>
       <div className="impact__player"><span>00:14 / 02:07</span><i><b /></i></div>
@@ -157,13 +141,13 @@ export function ImpactScene() {
   );
 }
 
-/** Park modu: Time-Lapse kartı. */
+/** Park modu: Time-Lapse kartı (aynı kadraj, dört saat). */
 export function TimelapseStrip() {
-  const frames: [Mood, string][] = [["dawn", "06:00"], ["day", "12:00"], ["dusk", "18:00"], ["night", "24:00"]];
+  const frames = [["06:00", 1], ["12:00", 2], ["18:00", 3], ["24:00", 4]] as const;
   return (
     <div className="timelapse">
-      <div className="timelapse__ruler" aria-hidden="true">{frames.map(([, time]) => <span key={time}>{time}</span>)}</div>
-      <div className="timelapse__frames">{frames.map(([mood, time]) => <RoadScene key={time} mood={mood} />)}</div>
+      <div className="timelapse__ruler" aria-hidden="true">{frames.map(([time]) => <span key={time}>{time}</span>)}</div>
+      <div className="timelapse__frames">{frames.map(([time, i]) => <span key={time} className="timelapse__frame"><Image src={`/media/park/timelapse-${i}.webp`} alt={`Park kaydı, saat ${time}`} fill sizes="120px" /></span>)}</div>
       <div className="timelapse__bar"><span>Time-Lapse ile park kaydı</span><i><b /></i></div>
     </div>
   );

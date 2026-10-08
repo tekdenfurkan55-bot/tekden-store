@@ -9,7 +9,7 @@ import { SiteHeader } from "@/components/site-header";
 import { StructuredData } from "@/components/structured-data";
 import { Viewfinder } from "@/components/viewfinder";
 import { V30Mark } from "@/components/brand-logo";
-import { ImpactScene, MicroSD, NightLot, RoadScene, SensorChip, TimelapseStrip } from "@/components/illustrations";
+import { ImpactScene, MicroSD, RoadScene, SensorChip, TimelapseStrip } from "@/components/illustrations";
 import { GoldBadge, GpsTileIcon, LiveScreen, LoopBadge, ParkBadge, ShareRow, StorageBadge, TurkishTileIcon } from "@/components/feature-art";
 import { PriceTag } from "@/components/price-tag";
 import { GpsIcon, HdrIcon, ParkingIcon, WifiIcon } from "@/components/icons";
@@ -53,9 +53,8 @@ export default function HomePage() {
           <Link className="banner__media" href="/urun/v30" aria-label="TEKDEN V30 4K Araç Kamerası ürün sayfası">
             <picture>
               <source media="(max-width: 860px)" srcSet="/media/hero-v30-mobile.webp" />
-              <img src="/media/hero-v30.webp" alt="TEKDEN V30 4K araç kamerası ön cama monteli. Gerçek 4K ön kamera, Full HD arka kamera. Yola daha net bakın." width={1672} height={941} fetchPriority="high" />
+              <img src="/media/hero-v30.webp" alt="TEKDEN V30 4K araç kamerası ön cama monteli. Gerçek 4K ön kamera, Full HD arka kamera. Yola daha net bakın." width={1672} height={750} fetchPriority="high" />
             </picture>
-            <span className="banner__hotspot" aria-hidden="true" />
           </Link>
           <div className="banner__mobile-copy">
             <Image src="/brand/tekden-logo-white.webp" alt="TEKDEN Technology" width={800} height={193} className="banner__logo" />
@@ -201,7 +200,7 @@ export default function HomePage() {
         </section>
 
         <section className="parking" id="obd">
-          <NightLot className="parking-bg" />
+          <Image className="parking-bg" src="/media/park/arka-plan.webp" alt="" fill sizes="100vw" />
           <div className="parking-inner">
             <div className="parking-copy">
               <h2>Park halindeyken de nöbette.</h2>

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { InstallSteps } from "@/components/install-steps";
+import { InstallSteps, installSteps } from "@/components/install-steps";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { StructuredData } from "@/components/structured-data";
@@ -9,7 +9,7 @@ import { absoluteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "TEKDEN V30 Kurulum | Araç Kamerası Nasıl Takılır?",
-  description: "TEKDEN V30 araç kamerası üç adımda kurulur: ön cama yerleştirin, arka kamera ve güç kablosunu bağlayın, microSD kartı takıp kayda başlayın. 24 saat park modu için OBD Park Kiti.",
+  description: "TEKDEN V30 üç adımda kurulur: ön cama yerleştirin, arka kamera ve güç kablosunu (OBD Park Kiti ya da çakmaklık kablosu) ana kameraya bağlayın, microSD kartı takın ve kayda başlayın.",
   alternates: { canonical: "/kurulum" },
   openGraph: { title: "TEKDEN V30 Kurulum", url: "/kurulum" },
 };
@@ -19,9 +19,7 @@ const howTo = {
   "@type": "HowTo",
   name: "TEKDEN V30 araç kamerası kurulumu",
   step: [
-    { "@type": "HowToStep", position: 1, name: "Yerleştirin", text: "V30'u ön cama, görüşünüzü kapatmayacak şekilde konumlandırın.", url: absoluteUrl("/kurulum") },
-    { "@type": "HowToStep", position: 2, name: "Bağlayın", text: "Arka kamerayı ve güç kablosunu takın. Park modu için OBD kitini kullanın.", url: absoluteUrl("/kurulum") },
-    { "@type": "HowToStep", position: 3, name: "Kayda başlayın", text: "microSD kartı takın ve kayda başlayın.", url: absoluteUrl("/kurulum") },
+    ...installSteps.map(([position, name, text]) => ({ "@type": "HowToStep", position, name, text, image: absoluteUrl(`/media/kurulum/kurulum-${position}.webp`), url: absoluteUrl("/kurulum") })),
   ],
 };
 
