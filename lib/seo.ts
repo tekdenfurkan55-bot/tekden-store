@@ -81,7 +81,7 @@ export const obdProductSchema = {
   sku: obdKit.sku,
   category: "Araç Kamerası Aksesuarı",
   brand: { "@type": "Brand", name: "TEKDEN" },
-  offers: offer("/urun/obd-park-kiti", obdKit.price),
+  offers: offer("/urun/obd-park-kiti", obdKit.price, obdKit.compareAt),
 };
 
 export const bundleOffer = selections["v30-obd"];

@@ -69,7 +69,7 @@ export default function ObdProductPage() {
           <div className="product-purchase" id="satinal">
             <h1 className="product-title">{obdKit.name}</h1>
             <p className="product-category">Araç kameraları için 24 saat park modu</p>
-            <PriceTag price={obdKit.price} size="lg" className="product-price" />
+            <PriceTag price={obdKit.price} compareAt={obdKit.compareAt} size="lg" className="product-price" />
             <p className="product-lead">{obdKit.description}</p>
             <dl className="obd-facts"><div><dt>Uyumluluk</dt><dd>{obdKit.compatibility}</dd></div><div><dt>Kullanım</dt><dd>24 saat park modu</dd></div><div><dt>Bağlantı</dt><dd>OBD / Type-C</dd></div></dl>
             <SingleProductPurchase id="obd" />
@@ -107,7 +107,7 @@ export default function ObdProductPage() {
           </div>
         </section>
       </main>
-      <div className="mobile-buy-bar"><div><small>OBD Park Kiti</small><PriceTag price={obdKit.price} size="sm" /></div><a className="button button--primary" href="#satinal">Satın al</a></div>
+      <div className="mobile-buy-bar"><div><small>OBD Park Kiti</small><PriceTag price={obdKit.price} compareAt={obdKit.compareAt} size="sm" /></div><a className="button button--primary" href="#satinal">Satın al</a></div>
       <SiteFooter />
     </>
   );

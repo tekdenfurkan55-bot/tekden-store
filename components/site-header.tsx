@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useCart } from "./cart-provider";
 import { BrandLogo } from "./brand-logo";
+import { PromoTicker } from "./promo-ticker";
 
 const links = [
   ["V30 4K Araç Kamerası", "/urun/v30"],
@@ -18,6 +19,7 @@ export function SiteHeader() {
   const { itemCount } = useCart();
 
   return (
+    <>
     <header className={open ? "site-header is-open" : "site-header"}>
       <div className="header-inner">
         <BrandLogo />
@@ -36,5 +38,7 @@ export function SiteHeader() {
         </div>
       </div>
     </header>
+    <PromoTicker />
+    </>
   );
 }

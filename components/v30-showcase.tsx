@@ -118,7 +118,7 @@ export function V30Showcase() {
             <div className="memory__copy">
               <span className="memory__tag">512 GB&apos;a kadar destek</span>
               <h2 id="memory-title"><span>512 GB</span> microSD<br />kart desteği</h2>
-              <p>Yüksek kapasiteli hafıza kartıyla yolculuklarınızı kesintisiz kaydedin. Döngüsel kayıt sayesinde kart dolduğunda en eski kayıtların üzerine otomatik olarak yeni görüntüler kaydedilir.</p>
+              <p>Yolculuklarınızı kesintisiz kaydedin. Kart dolduğunda döngüsel kayıt en eski görüntülerin üzerine otomatik yazar.</p>
             </div>
             <div className="memory__product">
               <Image src="/products/v30-side-ports.webp" alt="TEKDEN V30 araç kamerası, yan tarafta microSD kart yuvası" width={1216} height={1010} sizes="(max-width: 860px) 86vw, 46vw" />

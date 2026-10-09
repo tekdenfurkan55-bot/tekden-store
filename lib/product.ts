@@ -47,6 +47,7 @@ export const obdKit = {
   name: "TEKDEN OBD Type-C Park Kiti",
   shortName: "OBD Type-C Park Kiti",
   price: 119900,
+  compareAt: 169900,
   image: "/products/obd-1.webp",
   images: [
     { src: "/products/obd-1.webp", alt: "TEKDEN OBD Type-C Park Kiti, kablo ve OBD fişi" },
@@ -73,7 +74,7 @@ export type ThumbPart = "v30" | "obd";
 export const selections = {
   v30: { id: "v30", name: "TEKDEN V30", detail: "4K Araç Kamerası", price: v30.price, compareAt: v30.compareAt as number | undefined, image: v30.image, parts: ["v30"] as ThumbPart[], includesObd: false },
   "v30-obd": { id: "v30-obd", name: "V30 + OBD Park Kiti", detail: "24 saat park modu paketi", price: 519900, compareAt: 750000 as number | undefined, image: v30.image, parts: ["v30", "obd"] as ThumbPart[], includesObd: true },
-  obd: { id: "obd", name: obdKit.name, detail: "Type-C girişli araç kameraları için", price: obdKit.price, compareAt: undefined as number | undefined, image: obdKit.image, parts: ["obd"] as ThumbPart[], includesObd: true },
+  obd: { id: "obd", name: obdKit.name, detail: "Type-C girişli araç kameraları için", price: obdKit.price, compareAt: obdKit.compareAt as number | undefined, image: obdKit.image, parts: ["obd"] as ThumbPart[], includesObd: true },
 } as const;
 
 export type SelectionId = keyof typeof selections;

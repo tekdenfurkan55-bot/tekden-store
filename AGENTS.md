@@ -47,7 +47,7 @@
 ## Fiyatlar (Ekim 2026)
 - TEKDEN V30: 4.499 TL (önceki fiyat 5.999 TL)
 - V30 + OBD Park Kiti: 5.199 TL (önceki fiyat 7.500 TL)
-- OBD Park Kiti: 1.199 TL
+- OBD Park Kiti: 1.199 TL (önceki fiyat 1.699 TL)
 - Not: Üstü çizili önceki fiyat, İndirimli Satış Yönetmeliği gereği son 30 günde uygulanmış en düşük fiyat olmalıdır.
 
 ## Kritik ürün kuralları
@@ -89,6 +89,8 @@
 - Görsellerde yollar Türkiye (İstanbul), plakalar gerçek Türk plakası (mavi TR şeridi). Gemini görselleri kullanıcı üretir; promptları biz yazarız.
 - Gece görüntüsü için "gece görüşü / ultra gece görüş" denmez (kızılötesi yok); "Gece de net görüntü" kullanılır.
 - Tamamlanan son tur: Revizyon 7 (indirim etiketi REC kırmızısı; tanıtım bölümleri components/v30-showcase.tsx içinde, ana sayfa ve /urun/v30 ortak kullanır; sıra: plaka → park modu → sade görüntü performansı → Viidure → hafıza (64/128/256/512 GB, yaklaşık 2,5/5/10/20 saat) → 3.2 inç ekran + Türkçe yan yana → 8 özellik).
+- Revizyon 8: kısa hafıza bölümü, menü altında kayan duyuru şeridi (components/promo-ticker.tsx), alt kısım (sadece logo; Ürünler/Kurumsal/Yasal/İletişim; firma unvanı + vergi bilgisi; Visa/Mastercard/Troy), /bilgi/iletisim ve /bilgi/hakkimizda ayrı sayfalar, sözleşmeler content/legal/*.md (X30→V30 düzeltildi). Firma bilgileri lib/company.ts.
+- Sözleşmelerde açık konu: iade gönderim süresi (iade metni 10 gün, mesafeli satış 14 gün) ve para iadesi başlangıcı farklı; kullanıcı kararı bekleniyor.
 - Tur 6'dan bekleyen: 3.2 inç ekran görüntüsünde plakalar okunur olacak; kullanıcı Gemini'den yeni media/ekran-yol görseli üretecek.
-- Alan adı: kullanıcı tekdentech.com (veya tekdenteknoloji.com) alacak; alınca Vercel'e bağlanacak.
+- Alan adı: kullanıcı GoDaddy'den tekdenteknoloji.com aldı; Vercel'e bağlanacak (DNS: A @ ve CNAME www). info@tekdenteknoloji.com için e-posta hizmeti henüz yok.
 - Bekleyen konular: CE belgesi (banner'dan CE/işaretler silindi), OBD fotoğrafında giriş Type-C değil micro-USB gibi görünüyor (Type-C fotoğraf istenecek), "Kutu içeriği" bölümü önerisi, canlıya alma onayı, PayTR bilgileri.
