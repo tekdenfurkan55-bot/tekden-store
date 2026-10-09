@@ -93,8 +93,8 @@
 - Sözleşmelerde açık konu: iade gönderim süresi (iade metni 10 gün, mesafeli satış 14 gün) ve para iadesi başlangıcı farklı; kullanıcı kararı bekleniyor.
 - Revizyon 9 (canlıya alma): kayan şerit kaldırıldı; alt satırda yalnızca © 2026 TEKDEN Teknoloji; kullanılmayan kod, görsel ve CSS temizlendi.
 - Tur 6'dan bekleyen: 3.2 inç ekran görüntüsünde plakalar okunur olacak; kullanıcı Gemini'den yeni media/ekran-yol görseli üretecek.
-- Alan adı: kullanıcı GoDaddy'den tekdenteknoloji.com aldı; Vercel'e bağlanacak (DNS: A @ ve CNAME www). info@tekdenteknoloji.com için e-posta hizmeti henüz yok.
-- Bekleyen konular: CE belgesi (banner'dan CE/işaretler silindi), OBD fotoğrafında giriş Type-C değil micro-USB gibi görünüyor (Type-C fotoğraf istenecek), "Kutu içeriği" bölümü önerisi, canlıya alma onayı, PayTR bilgileri.
+- Alan adı: tekdenteknoloji.com Vercel projesine bağlandı (GoDaddy DNS: A @ 76.76.21.21, CNAME www cname.vercel-dns.com; www → ana adrese 308 yönlendirme). Canonical adres lib/site.ts. info@tekdenteknoloji.com için e-posta hizmeti henüz yok.
+- Bekleyen konular: CE belgesi (banner'dan CE/işaretler silindi), OBD fotoğrafında giriş Type-C değil micro-USB gibi görünüyor (Type-C fotoğraf istenecek), "Kutu içeriği" bölümü önerisi, PayTR bilgileri, e-posta hizmeti.
 
 ## Teknik notlar
 - Önizleme linki: `gh api repos/tekdenfurkan55-bot/tekden-store/deployments?sha=<commit>` → statuses → environment_url.
