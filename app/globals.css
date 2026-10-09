@@ -1154,3 +1154,35 @@ body { font-size: 17px; }
   .footer-columns { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .footer-contact { grid-column: 1 / -1; }
 }
+
+/* ============ Revizyon 10 — mobil düzeltmeler ============ */
+@media (max-width: 860px) {
+  /* Menü: düz beyaz panel, sayfanın tamamını kaplar */
+  .site-header.is-open { background: #fff; backdrop-filter: none; -webkit-backdrop-filter: none; }
+  .nav { bottom: auto; height: calc(100dvh - var(--header)); overflow-y: auto; overscroll-behavior: contain; touch-action: pan-y; background: #fff; z-index: 60; padding-top: 8px; }
+  .nav a { display: flex; align-items: center; min-height: 64px; padding: 0; font-size: 24px; }
+  .nav a:active { color: var(--blue); }
+
+  /* Gündüz/Gece düğmeleri: daha rahat dokunma */
+  .day-night button { min-height: 42px; }
+
+  /* Ödeme adımları okunur */
+  .checkout-steps span { font-size: 13px; }
+
+  /* Türkçe menü ekranı: daha az satır, daha büyük yazı */
+  .display-duo .device-menu { font-size: 2.45vw; }
+  .display-duo .device-menu li:nth-child(2) { display: none; }
+
+  /* Sepet satırı: görseller yazının üstüne binmesin */
+  .cart-line { grid-template-columns: 100px minmax(0, 1fr); }
+  .cart-line-media .selection-thumb--1 .selection-thumb__item { width: 96px; height: 96px; }
+  .cart-line-media .selection-thumb--2 .selection-thumb__item { width: 46px; height: 46px; }
+
+  /* OBD sayfası paket kutusu: fiyat alta */
+  .bundle-callout { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 8px 14px; }
+  .bundle-callout .price-tag { grid-column: 2; flex-direction: row; align-items: baseline; flex-wrap: wrap; gap: 8px; }
+}
+@media (max-width: 380px) {
+  .banner__chips li { font-size: 12.5px; }
+}
+.cart-free { color: #13834a; }

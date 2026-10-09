@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { formatPrice, selections, type SelectionId } from "@/lib/product";
+import { selections, type SelectionId } from "@/lib/product";
 import { useCart } from "./cart-provider";
 import { SelectionThumb } from "./selection-thumb";
 import { PriceTag } from "./price-tag";
@@ -58,5 +58,5 @@ export function SingleProductPurchase({ id, buyLabel = "Hemen satın al" }: { id
     if (goToCheckout) router.push("/checkout");
   }
 
-  return <div className="buy-panel"><div className="purchase-row"><div className="quantity-control" aria-label="Adet seçimi"><button type="button" aria-label="Azalt" disabled={quantity === 1} onClick={() => setQuantity(Math.max(1, quantity - 1))}>−</button><span>{quantity}</span><button type="button" aria-label="Artır" onClick={() => setQuantity(quantity + 1)}>+</button></div><strong>{formatPrice(selection.price * quantity)}</strong></div><div className="buy-actions"><button className="button button--primary" onClick={() => add(true)} type="button">{buyLabel}</button><button className="button button--outline" onClick={() => add(false)} type="button">{added ? "Sepete eklendi" : "Sepete ekle"}</button></div></div>;
+  return <div className="buy-panel"><div className="purchase-row"><div className="quantity-control" aria-label="Adet seçimi"><button type="button" aria-label="Azalt" disabled={quantity === 1} onClick={() => setQuantity(Math.max(1, quantity - 1))}>−</button><span>{quantity}</span><button type="button" aria-label="Artır" onClick={() => setQuantity(quantity + 1)}>+</button></div><PriceTag price={selection.price * quantity} compareAt={selection.compareAt ? selection.compareAt * quantity : undefined} size="md" /></div><div className="buy-actions"><button className="button button--primary" onClick={() => add(true)} type="button">{buyLabel}</button><button className="button button--outline" onClick={() => add(false)} type="button">{added ? "Sepete eklendi" : "Sepete ekle"}</button></div></div>;
 }

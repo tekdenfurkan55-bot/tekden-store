@@ -92,7 +92,8 @@
 - Revizyon 8: kısa hafıza bölümü, alt kısım (sadece logo; Ürünler/Kurumsal/Yasal/İletişim; firma unvanı + vergi bilgisi; Visa/Mastercard/Troy), /bilgi/iletisim ve /bilgi/hakkimizda ayrı sayfalar, sözleşmeler content/legal/*.md (X30→V30 düzeltildi). Firma bilgileri lib/company.ts.
 - Sözleşmelerde açık konu: iade gönderim süresi (iade metni 10 gün, mesafeli satış 14 gün) ve para iadesi başlangıcı farklı; kullanıcı kararı bekleniyor.
 - Revizyon 9 (canlıya alma): kayan şerit kaldırıldı; alt satırda yalnızca © 2026 TEKDEN Teknoloji; kullanılmayan kod, görsel ve CSS temizlendi.
-- Tur 6'dan bekleyen: 3.2 inç ekran görüntüsünde plakalar okunur olacak; kullanıcı Gemini'den yeni media/ekran-yol görseli üretecek.
+- Revizyon 10 (mobil): menü düz beyaz tam ekran panel (header backdrop-filter açıkken kapatılır), Gündüz/Gece 42px, ödeme adımları 13px, Türkçe menü ekranında mobilde 4 satır, sepet satırı görselleri düzeltildi, sepette kargo "Ücretsiz", 512 GB rozeti, OBD satın alma satırında indirimli fiyat, OBD paket kutusu mobilde alt alta, OBD tekniklerinden "Önerilen Kullanım" (V30 önerisi) kaldırıldı.
+- Tur 6.dan bekleyen: 3.2 inç ekran görüntüsünde plakalar okunur olacak; kullanıcı Gemini'den yeni media/ekran-yol görseli üretecek.
 - Alan adı: tekdenteknoloji.com Vercel projesine bağlandı (GoDaddy DNS: A @ 76.76.21.21, CNAME www cname.vercel-dns.com; www → ana adrese 308 yönlendirme). Canonical adres lib/site.ts. info@tekdenteknoloji.com için e-posta hizmeti henüz yok.
 - Bekleyen konular: CE belgesi (banner'dan CE/işaretler silindi), OBD fotoğrafında giriş Type-C değil micro-USB gibi görünüyor (Type-C fotoğraf istenecek), "Kutu içeriği" bölümü önerisi, PayTR bilgileri, e-posta hizmeti.
 

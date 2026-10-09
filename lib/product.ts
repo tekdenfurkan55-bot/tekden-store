@@ -65,7 +65,6 @@ export const obdKit = {
     ["Desteklenen Özellikler", "Park modu, G-Sensor destekli park kaydı, Time-Lapse park kaydı"],
     ["Kurulum Tipi", "OBD portuna tak-çalıştır bağlantı"],
     ["Kablo Yerleşimi", "Tavan döşemesi ve A sütunu boyunca gizli kurulum"],
-    ["Önerilen Kullanım", "TEKDEN V30 ve Type-C güç girişli araç kameraları"],
   ],
 } as const;
 

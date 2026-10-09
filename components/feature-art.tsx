@@ -28,8 +28,7 @@ export function StorageBadge() {
       <path d="M26 58h64v28a4 4 0 0 1-4 4H30a4 4 0 0 1-4-4z" fill="var(--blue)" />
       <g fill="#c9a24a">{[36, 44, 52, 60, 68].map((x) => <rect key={x} x={x} y="13" width="5" height="12" rx="1.2" />)}</g>
       <text x="58" y="46" textAnchor="middle" fill="#fff" fontFamily="var(--font)" fontWeight="600" fontSize="10">microSD</text>
-      <text x="58" y="80" textAnchor="middle" fill="#fff" fontFamily="var(--font)" fontWeight="800" fontSize="17">512</text>
-      <text x="100" y="80" textAnchor="middle" fill="var(--blue)" fontFamily="var(--font)" fontWeight="800" fontSize="15">GB</text>
+      <text x="58" y="79" textAnchor="middle" fill="#fff" fontFamily="var(--font)" fontWeight="800" fontSize="15">512 GB</text>
     </svg>
   );
 }

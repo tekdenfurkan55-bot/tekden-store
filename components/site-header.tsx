@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useCart } from "./cart-provider";
 import { BrandLogo } from "./brand-logo";
 
@@ -16,6 +16,14 @@ const links = [
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const { itemCount } = useCart();
+
+  // Menü Esc ile kapansın. (Menü paneli ekranı tamamen kaplar ve kendi içinde kayar.)
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setOpen(false); };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
 
   return (
     <header className={open ? "site-header is-open" : "site-header"}>
