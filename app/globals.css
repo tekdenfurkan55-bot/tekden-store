@@ -1162,3 +1162,102 @@ body { font-size: 17px; }
   .day-night { padding: 3px; }
   .day-night button { min-height: 38px; padding: 0 12px; font-size: 13.5px; gap: 5px; }
 }
+
+/* ============ Revizyon 7 ============ */
+
+/* 7.1 — İndirim etiketi: REC kırmızısı, beyaz yazı */
+.price-tag__badge { background: var(--rec); color: #fff; }
+
+/* 7.2 — Park modu plaka bölümünün hemen altında */
+.cams + .parking { margin-top: clamp(64px, 8vw, 112px); }
+
+/* 7.3 — Sade görüntü performansı satırı */
+.sensor-lite { padding-top: clamp(64px, 8vw, 112px); }
+.sensor-lite__inner { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: clamp(24px, 4vw, 64px); align-items: center; padding: clamp(24px, 3vw, 40px) 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.sensor-lite .chip { width: clamp(120px, 11vw, 160px); }
+.sensor-lite .chip__die small { font-size: clamp(10px, 0.9vw, 12px); }
+.sensor-lite .chip__die strong { font-size: clamp(22px, 2.2vw, 30px); }
+.sensor-lite__copy h2 { font-size: clamp(30px, 3.2vw, 46px); }
+.sensor-lite__copy p { margin-top: 12px; max-width: 40ch; font-size: 18px; line-height: 1.5; color: var(--ink-2); }
+.sensor-lite__stats { margin: 0; display: flex; }
+.sensor-lite__stats > div { padding: 0 clamp(18px, 2.2vw, 34px); border-left: 1px solid var(--line); }
+.sensor-lite__stats > div:first-child { border-left: 0; padding-left: 0; }
+.sensor-lite__stats dt { font-size: clamp(32px, 3.4vw, 48px); font-weight: 750; font-stretch: 78%; line-height: 1; }
+.sensor-lite__stats dd { margin: 8px 0 0; font-size: 15.5px; color: var(--steel); white-space: nowrap; }
+@media (max-width: 1100px) {
+  .sensor-lite__inner { grid-template-columns: auto minmax(0, 1fr); }
+  .sensor-lite__stats { grid-column: 1 / -1; }
+}
+@media (max-width: 860px) {
+  .sensor-lite__inner { grid-template-columns: auto minmax(0, 1fr); gap: 18px 20px; }
+  .sensor-lite .chip { width: 96px; }
+  .sensor-lite .chip__die small { font-size: 8.5px; }
+  .sensor-lite .chip__die strong { font-size: 19px; }
+  .sensor-lite__copy h2 { font-size: 26px; }
+  .sensor-lite__copy p { font-size: 16px; }
+  .sensor-lite__stats { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .sensor-lite__stats > div { padding: 0 12px; }
+  .sensor-lite__stats dt { font-size: 30px; }
+  .sensor-lite__stats dd { font-size: 13.5px; white-space: normal; }
+}
+
+/* 7.4 — Hafıza: 512 GB microSD, kayıt süreli çubuk */
+.memory { margin-top: clamp(80px, 10vw, 140px); padding-top: clamp(56px, 7vw, 96px); padding-bottom: clamp(48px, 6vw, 80px); background: linear-gradient(135deg, #f7f9fd 0%, #eef3fc 45%, #dbe6fb 100%); overflow: hidden; }
+.memory__top { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 64px); align-items: center; }
+.memory__tag { display: inline-block; padding: 8px 18px; border: 2px solid var(--blue); border-radius: 10px; background: #fff; color: var(--blue-ink); font-size: 17px; font-weight: 800; letter-spacing: .02em; text-transform: uppercase; }
+.memory__copy h2 { margin-top: 22px; font-size: clamp(44px, 5.4vw, 82px); line-height: 0.98; }
+.memory__copy h2 span { color: var(--blue); }
+.memory__copy p { margin-top: 22px; max-width: 42ch; font-size: clamp(18px, 1.5vw, 21px); line-height: 1.5; color: var(--ink-2); }
+.memory__product { position: relative; }
+.memory__product img { display: block; width: 100%; max-width: 620px; height: auto; margin: 0 auto; filter: drop-shadow(0 24px 28px rgba(10, 30, 80, .18)); }
+.memory__plans { list-style: none; margin: clamp(28px, 4vw, 48px) 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); }
+.memory__plans li { display: grid; justify-items: center; gap: 10px; }
+.memory__gb { font-size: clamp(30px, 3.2vw, 46px); font-weight: 800; font-stretch: 84%; line-height: 1; color: var(--blue); }
+.memory__gb small, .memory__hours small { font-size: 0.6em; font-weight: 800; }
+.sd-card { width: clamp(104px, 9.5vw, 140px); height: auto; filter: drop-shadow(0 8px 12px rgba(10, 20, 40, .22)); }
+.memory__arrow { width: 0; height: 0; border-left: 9px solid transparent; border-right: 9px solid transparent; border-top: 11px solid var(--blue); }
+.memory__hours { justify-self: stretch; display: block; padding: 12px 8px; text-align: center; color: #fff; font-size: clamp(24px, 2.4vw, 34px); font-weight: 800; font-stretch: 86%; line-height: 1.1; text-transform: uppercase; }
+.memory__plans li:nth-child(1) .memory__hours { background: #6fa0f2; border-radius: 999px 0 0 999px; }
+.memory__plans li:nth-child(2) .memory__hours { background: #3f7fee; }
+.memory__plans li:nth-child(3) .memory__hours { background: var(--blue); }
+.memory__plans li:nth-child(4) .memory__hours { background: var(--blue-ink); border-radius: 0 999px 999px 0; }
+.memory__plans li + li .memory__hours { box-shadow: inset 1px 0 0 rgba(255,255,255,.35); }
+.memory__notes { margin-top: 20px; display: flex; justify-content: space-between; gap: 24px 48px; align-items: flex-start; }
+.memory__legend, .memory__info { margin: 0; display: flex; gap: 10px; align-items: flex-start; color: var(--ink-2); }
+.memory__legend { font-size: 17px; font-weight: 600; align-items: center; }
+.memory__legend svg, .memory__info svg { flex: none; color: var(--steel); }
+.memory__info { max-width: 52ch; font-size: 14.5px; line-height: 1.5; color: var(--steel); }
+@media (max-width: 860px) {
+  .memory__top { grid-template-columns: 1fr; }
+  .memory__tag { font-size: 14px; padding: 6px 12px; }
+  .memory__copy h2 { font-size: 40px; }
+  .memory__copy p { font-size: 17px; }
+  .memory__product img { max-width: 360px; }
+  .memory__plans { grid-template-columns: 1fr 1fr; gap: 28px 12px; }
+  .memory__plans li .memory__hours { border-radius: 999px !important; box-shadow: none !important; padding: 10px 8px; font-size: 24px; }
+  .memory__gb { font-size: 32px; }
+  .sd-card { width: 112px; }
+  .memory__notes { flex-direction: column; gap: 14px; }
+  .memory__legend { font-size: 15.5px; }
+  .memory__info { font-size: 14px; }
+}
+
+/* 7.5 — 3.2 inç ekran ve Türkçe dil yan yana */
+.display-duo { margin-top: clamp(80px, 10vw, 140px); }
+.display-duo__inner { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(16px, 2vw, 28px); }
+.display-duo__item { display: grid; grid-template-rows: auto 1fr; gap: clamp(16px, 2vw, 28px); padding: clamp(28px, 3.4vw, 52px) clamp(24px, 3vw, 44px) clamp(20px, 2.4vw, 36px); border-radius: 20px; background: var(--paper); }
+.display-duo__copy h2 { font-size: clamp(32px, 3.4vw, 52px); }
+.display-duo__copy p { margin-top: 14px; max-width: 40ch; font-size: 18px; line-height: 1.5; color: var(--ink-2); }
+.display-duo .live-screen { align-self: end; }
+.display-duo .live-screen__osd { font-size: clamp(9px, 0.7vw, 12px); }
+.display-duo .device-menu { font-size: clamp(8px, 0.8vw, 12.5px); }
+@media (max-width: 860px) {
+  .display-duo__inner { grid-template-columns: 1fr; }
+  .display-duo__item { padding: 26px 18px 16px; border-radius: 16px; }
+  .display-duo__copy h2 { font-size: 30px; }
+  .display-duo__copy p { font-size: 16.5px; }
+  .display-duo .live-screen__osd { font-size: 9px; }
+  .display-duo .device-menu { font-size: 2vw; }
+  .display-duo .device-menu__head { padding: 2% 4%; }
+  .display-duo .device-menu ul { padding: 0; }
+}

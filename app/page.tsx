@@ -7,18 +7,16 @@ import { ProductMedia } from "@/components/product-media";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { StructuredData } from "@/components/structured-data";
-import { PlateCams } from "@/components/plate-cams";
+import { V30Showcase } from "@/components/v30-showcase";
 import { V30Mark } from "@/components/brand-logo";
-import { ImpactScene, MicroSD, RoadScene, SensorChip, TimelapseStrip } from "@/components/illustrations";
-import { GoldBadge, GpsTileIcon, LiveScreen, LoopBadge, ParkBadge, ShareRow, StorageBadge, TurkishTileIcon } from "@/components/feature-art";
+import { GoldBadge, LoopBadge, ParkBadge, StorageBadge } from "@/components/feature-art";
 import { PriceTag } from "@/components/price-tag";
 import { GpsIcon, HdrIcon, ParkingIcon, WifiIcon } from "@/components/icons";
-import { SelectionThumb } from "@/components/selection-thumb";
 import { SpecTable } from "@/components/spec-table";
 import { InstallSteps } from "@/components/install-steps";
 import { TrustBadges } from "@/components/trust-badges";
 import { faqs } from "@/lib/content";
-import { formatPrice, selections, v30 } from "@/lib/product";
+import { selections, v30 } from "@/lib/product";
 import { faqSchema, organizationSchema, v30ProductSchema, websiteSchema } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -29,17 +27,6 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image", title: "TEKDEN V30 4K Araç Kamerası", description: "Yola daha net bakın.", images: ["/media/og-v30.jpg"] },
 };
 
-
-const capabilities = [
-  { icon: "/icons/wifi.png", title: "Wi-Fi", text: "Viidure uygulaması ile kayıtlarınıza telefonunuzdan ulaşın." },
-  { icon: null, title: "GPS", text: "Konum bilgisi cihazın içinde. Ayrı bir aparat gerekmez." },
-  { icon: "/icons/hdr.png", title: "HDR", text: "Güneşe karşı ya da tünel çıkışında dengeli görüntü." },
-  { icon: "/icons/ses-kaydi.png", title: "Sesli kayıt", text: "Görüntüyle birlikte ses de kaydedilir." },
-  { icon: "/icons/g-sensor.png", title: "G-Sensor", text: "Darbe algılandığında ilgili kaydın korunmasına yardımcı olur." },
-  { icon: "/icons/dongusel-kayit.png", title: "Döngüsel kayıt", text: "Kart dolduğunda en eski normal kayıtların üzerine yazar." },
-  { icon: "/icons/time-lapse.png", title: "Time-Lapse", text: "Park halinde uzun süreyi daha az alanla kaydeder." },
-  { icon: "tr", title: "Türkçe dil desteği", text: "Menüler Türkçe, kurulum ve kullanım kolay." },
-] as const;
 
 const v30Offer = selections.v30;
 
@@ -95,121 +82,7 @@ export default function HomePage() {
           </ul>
         </section>
 
-        <section className="cams" id="ozellikler" aria-labelledby="cams-title">
-          <div className="cams-head">
-            <h2 id="cams-title">Plakayı gündüz de gece de okuyun.</h2>
-            <p>Önde 4K, arkada 1080P Full HD kayıt. GC4653 sensör ve HDR, farlar ve sokak ışıklarında da dengeli görüntü sağlar.</p>
-          </div>
-          <PlateCams />
-        </section>
-
-        <section className="sensor">
-          <div className="sensor-head">
-            <h2>Gelişmiş görüntü performansı</h2>
-            <p>GalaxyCore GC4653 sensör ve HDR ile farklı ışık koşullarında daha dengeli kayıt.</p>
-          </div>
-          <div className="sensor-body">
-            <SensorChip />
-            <dl className="sensor-stats">
-              <div><dt>4K</dt><dd>Ön kamera kaydı</dd></div>
-              <div><dt>HDR</dt><dd>Parlak ve karanlık alanlarda dengeli görüntü</dd></div>
-              <div><dt>SA230D</dt><dd>Görüntü işlemcisi</dd></div>
-            </dl>
-          </div>
-          <div className="sensor-scene">
-            <RoadScene mood="night" plate />
-            <span className="sensor-badge"><b className="vf-rec" />Ön <strong>4K</strong> HDR</span>
-            <small>Temsili görsel</small>
-          </div>
-        </section>
-
-        <section className="wifi">
-          <div className="wifi-copy">
-            <h2>Kayıtlarınıza telefonunuzdan ulaşın.</h2>
-            <p><strong>Viidure</strong> uygulaması ile Wi-Fi üzerinden kayıtları telefonunuzda izleyin. Dahili GPS ile rotanız da kayıtta.</p>
-            <h3 className="share-title">Kolay paylaşım</h3>
-            <p className="share-lead">Kayıtları galeriye kaydedin, WhatsApp, Instagram ve YouTube&apos;da kolayca paylaşın.</p>
-            <ShareRow />
-          </div>
-          <div className="wifi-phone">
-            <Image src="/media/viidure-phone.webp" alt="Viidure uygulamasında canlı kamera görüntüsü ve GPS rota kaydı" width={389} height={814} sizes="(max-width: 860px) 60vw, 320px" />
-          </div>
-        </section>
-
-        <section className="screen-feature">
-          <div className="screen-feature__copy">
-            <h2>3.2 inç IPS ekran</h2>
-            <p>Kaydı anında cihaz ekranından izleyin. Görüntü açısını kurulum sırasında ekrana bakarak kolayca ayarlayın.</p>
-          </div>
-          <LiveScreen />
-        </section>
-
-        <section className="capabilities">
-          <h2>Kayıt için gereken her şey içinde.</h2>
-          <ul className="cap-grid">
-            {capabilities.map(({ icon, title, text }) => (
-              <li key={title}>
-                <span className="cap-icon-wrap">{icon === null ? <GpsTileIcon /> : icon === "tr" ? <TurkishTileIcon /> : <Image className="cap-icon" src={icon} alt="" width={240} height={240} />}</span>
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        <section className="turkish">
-          <LiveScreen menu />
-          <div className="turkish__copy">
-            <span className="turkish__chip"><TurkishTileIcon /> Türkçe</span>
-            <h2>Türkçe dil desteği</h2>
-            <p>Ayarlar ve menüler Türkçe. Çözünürlükten park moduna kadar her seçeneği kolayca anlayıp ayarlayın.</p>
-          </div>
-        </section>
-
-        <section className="storage">
-          <div className="storage-copy">
-            <span className="storage-tag">Opsiyonel</span>
-            <h2>512 GB&apos;a kadar destek</h2>
-            <p>Döngüsel kayıt sayesinde kart dolduğunda kayıt kesintisiz devam eder. En iyi sonuç için yüksek dayanıklı microSD kart önerilir.</p>
-            <p className="storage-note">* microSD kart kutuya dahil değildir.</p>
-          </div>
-          <div className="storage-visual">
-            <div className="storage-product"><ProductMedia src="/products/v30-side-ports.webp" alt="TEKDEN V30 araç kamerası" label="Ürün fotoğrafı" /></div>
-            <div className="storage-cards">
-              {["64 GB", "128 GB", "256 GB", "512 GB"].map((size) => <div key={size}><strong>{size}</strong><MicroSD size={size.replace(" ", "")} /></div>)}
-            </div>
-            <div className="storage-bar" aria-hidden="true"><i /><i /><i /><i /></div>
-            <small>Desteklenen microSD kapasiteleri</small>
-          </div>
-        </section>
-
-        <section className="parking" id="obd">
-          <Image className="parking-bg" src="/media/park/arka-plan.webp" alt="" fill sizes="100vw" />
-          <div className="parking-inner">
-            <div className="parking-copy">
-              <h2>Park halindeyken de nöbette.</h2>
-              <p>OBD Type-C Park Kiti ile V30, aracınız kapalıyken 24 saat park modunda çalışır.</p>
-              <div className="parking-kit">
-                <SelectionThumb parts={["obd"]} />
-                <div><strong>OBD Park Kiti gerekir</strong><span>24 saat park modu ve kesintisiz güç için</span></div>
-              </div>
-              <div className="parking-actions">
-                <Link className="button button--light" href="/urun/obd-park-kiti">OBD Park Kitini incele</Link>
-                <span>Paket fiyatı {formatPrice(selections["v30-obd"].price)}</span>
-              </div>
-            </div>
-            <div className="parking-cards">
-              <article className="park-card">
-                <header><h3>G-Sensor modu</h3><p>Darbe algılandığında ilgili kaydın korunmasına yardımcı olur.</p></header>
-                <ImpactScene />
-              </article>
-              <article className="park-card">
-                <header><h3>Time-Lapse modu</h3><p>Park halinde uzun süreyi daha az alanla kaydeder.</p></header>
-                <TimelapseStrip />
-              </article>
-            </div>
-          </div>
-        </section>
+        <V30Showcase />
 
         <section className="buy-section" id="satinal">
           <div className="buy-section__media"><ProductMedia src={v30.images[0].src} alt={v30.images[0].alt} label="Ürün fotoğrafı" /></div>

@@ -3,13 +3,11 @@ import Link from "next/link";
 import { AddToCartPanel } from "@/components/add-to-cart";
 import { Faq } from "@/components/faq";
 import { ProductGallery } from "@/components/product-gallery";
-import { ProductMedia } from "@/components/product-media";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { StructuredData } from "@/components/structured-data";
-import { Viewfinder } from "@/components/viewfinder";
 import { CameraFrontIcon, CameraRearIcon, GpsIcon, HdrIcon, LanguageIcon, MicIcon, ScreenIcon, WifiIcon } from "@/components/icons";
-import { LiveScreen } from "@/components/feature-art";
+import { V30Showcase } from "@/components/v30-showcase";
 import { PriceTag } from "@/components/price-tag";
 import { SpecTable } from "@/components/spec-table";
 import { TrustBadges } from "@/components/trust-badges";
@@ -58,20 +56,7 @@ export default function V30ProductPage() {
             <p className="product-fineprint">microSD kart kutuya dahil değildir, 512 GB&apos;a kadar desteklenir.</p>
           </div>
         </section>
-        <section className="product-story">
-          <div><h2>Önde 4K. Arkada 1080P.</h2><p>Yolun önünü ve arkasını aynı anda kaydedin. GC4653 sensör ve HDR, ışık değiştiğinde görüntüyü dengeler.</p></div>
-          <div className="product-story__visuals">
-            <Viewfinder tone="dark" live={false} channel="ÖN 4K"><ProductMedia src="/products/v30-side-ports.webp" alt="TEKDEN V30 ön kamera" tone="dark" label="Ön kamera" /></Viewfinder>
-            <Viewfinder tone="dark" live={false} channel="ARKA 1080P"><ProductMedia src="/products/v30-rear.webp" alt="TEKDEN V30 1080P arka kamera" tone="dark" label="Arka kamera" /></Viewfinder>
-          </div>
-        </section>
-        <section className="screen-feature screen-feature--product">
-          <div className="screen-feature__copy">
-            <h2>3.2 inç IPS ekran</h2>
-            <p>Kaydı anında cihaz ekranından izleyin. Görüntü açısını kurulum sırasında ekrana bakarak kolayca ayarlayın.</p>
-          </div>
-          <LiveScreen />
-        </section>
+        <V30Showcase />
         <section className="product-specs"><h2 className="section-title">Teknik özellikler</h2><SpecTable rows={v30.specifications} /></section>
         <section className="faq-section"><h2 className="section-title">Sık sorulan sorular</h2><Faq items={faqs} /></section>
       </main>

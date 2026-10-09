@@ -88,5 +88,7 @@
 - Sitede emoji kullanılmaz; kurumsal görünüm (RedTiger düzeni, TEKDEN markası). Yazılar ve butonlar büyük ve okunur olmalı.
 - Görsellerde yollar Türkiye (İstanbul), plakalar gerçek Türk plakası (mavi TR şeridi). Gemini görselleri kullanıcı üretir; promptları biz yazarız.
 - Gece görüntüsü için "gece görüşü / ultra gece görüş" denmez (kızılötesi yok); "Gece de net görüntü" kullanılır.
-- Tamamlanan son tur: Revizyon 6 (gündüz/gece plaka bölümü, park kartları, gerçek ekran görüntüsü, görselli sipariş özeti).
+- Tamamlanan son tur: Revizyon 7 (indirim etiketi REC kırmızısı; tanıtım bölümleri components/v30-showcase.tsx içinde, ana sayfa ve /urun/v30 ortak kullanır; sıra: plaka → park modu → sade görüntü performansı → Viidure → hafıza (64/128/256/512 GB, yaklaşık 2,5/5/10/20 saat) → 3.2 inç ekran + Türkçe yan yana → 8 özellik).
+- Tur 6'dan bekleyen: 3.2 inç ekran görüntüsünde plakalar okunur olacak; kullanıcı Gemini'den yeni media/ekran-yol görseli üretecek.
+- Alan adı: kullanıcı tekdentech.com (veya tekdenteknoloji.com) alacak; alınca Vercel'e bağlanacak.
 - Bekleyen konular: CE belgesi (banner'dan CE/işaretler silindi), OBD fotoğrafında giriş Type-C değil micro-USB gibi görünüyor (Type-C fotoğraf istenecek), "Kutu içeriği" bölümü önerisi, canlıya alma onayı, PayTR bilgileri.
