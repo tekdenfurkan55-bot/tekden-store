@@ -83,14 +83,23 @@
 - Secret ve API anahtarları koda gömülmemelidir.
 
 ## Devam notları (yeni sohbet için)
-- Tasarım çalışması `tasarim-yenileme` dalında yapılır; her push Vercel önizlemesi üretir. `main` (canlı site) yalnızca kullanıcı "canlıya al" deyince güncellenir.
+- Ekim 2026: Revizyon 8 sonrası site canlıya alındı (main güncel). Yeni çalışmalar yine `tasarim-yenileme` dalında yapılır; her push Vercel önizlemesi üretir. `main` (canlı site) yalnızca kullanıcı "canlıya al" deyince güncellenir.
 - Çalışma düzeni: kullanıcı maddeleri tek tek yazar, her biri kısaca "X. madde not edildi" diye onaylanır ve listeye eklenir; kullanıcı "uygula" deyince hepsi birlikte yapılır, build + masaüstü/mobil kontrol + push, ardından önizleme linki verilir.
 - Sitede emoji kullanılmaz; kurumsal görünüm (RedTiger düzeni, TEKDEN markası). Yazılar ve butonlar büyük ve okunur olmalı.
 - Görsellerde yollar Türkiye (İstanbul), plakalar gerçek Türk plakası (mavi TR şeridi). Gemini görselleri kullanıcı üretir; promptları biz yazarız.
 - Gece görüntüsü için "gece görüşü / ultra gece görüş" denmez (kızılötesi yok); "Gece de net görüntü" kullanılır.
 - Tamamlanan son tur: Revizyon 7 (indirim etiketi REC kırmızısı; tanıtım bölümleri components/v30-showcase.tsx içinde, ana sayfa ve /urun/v30 ortak kullanır; sıra: plaka → park modu → sade görüntü performansı → Viidure → hafıza (64/128/256/512 GB, yaklaşık 2,5/5/10/20 saat) → 3.2 inç ekran + Türkçe yan yana → 8 özellik).
-- Revizyon 8: kısa hafıza bölümü, menü altında kayan duyuru şeridi (components/promo-ticker.tsx), alt kısım (sadece logo; Ürünler/Kurumsal/Yasal/İletişim; firma unvanı + vergi bilgisi; Visa/Mastercard/Troy), /bilgi/iletisim ve /bilgi/hakkimizda ayrı sayfalar, sözleşmeler content/legal/*.md (X30→V30 düzeltildi). Firma bilgileri lib/company.ts.
+- Revizyon 8: kısa hafıza bölümü, alt kısım (sadece logo; Ürünler/Kurumsal/Yasal/İletişim; firma unvanı + vergi bilgisi; Visa/Mastercard/Troy), /bilgi/iletisim ve /bilgi/hakkimizda ayrı sayfalar, sözleşmeler content/legal/*.md (X30→V30 düzeltildi). Firma bilgileri lib/company.ts.
 - Sözleşmelerde açık konu: iade gönderim süresi (iade metni 10 gün, mesafeli satış 14 gün) ve para iadesi başlangıcı farklı; kullanıcı kararı bekleniyor.
+- Revizyon 9 (canlıya alma): kayan şerit kaldırıldı; alt satırda yalnızca © 2026 TEKDEN Teknoloji; kullanılmayan kod, görsel ve CSS temizlendi.
 - Tur 6'dan bekleyen: 3.2 inç ekran görüntüsünde plakalar okunur olacak; kullanıcı Gemini'den yeni media/ekran-yol görseli üretecek.
 - Alan adı: kullanıcı GoDaddy'den tekdenteknoloji.com aldı; Vercel'e bağlanacak (DNS: A @ ve CNAME www). info@tekdenteknoloji.com için e-posta hizmeti henüz yok.
 - Bekleyen konular: CE belgesi (banner'dan CE/işaretler silindi), OBD fotoğrafında giriş Type-C değil micro-USB gibi görünüyor (Type-C fotoğraf istenecek), "Kutu içeriği" bölümü önerisi, canlıya alma onayı, PayTR bilgileri.
+
+## Teknik notlar
+- Önizleme linki: `gh api repos/tekdenfurkan55-bot/tekden-store/deployments?sha=<commit>` → statuses → environment_url.
+- Yerel test: `npm run build`, sonra `npx next start -p 3100`; yeniden build sonrası eski next-server kapatılır.
+- Kontrol: Playwright ile 1440 / 390 / 360 px ekran görüntüsü, yatay taşma, sepet → ödeme akışı. Sepet localStorage anahtarı: `tekden-cart-v2`.
+- CSS: `app/globals.css`; yeni değişiklikler en alta "Revizyon N" bloğu olarak eklenir.
+- Fontlar yerel paket (@fontsource-variable/archivo, jetbrains-mono).
+- Commit sonuna Co-Authored-By / Claude-Session satırları eklenir.

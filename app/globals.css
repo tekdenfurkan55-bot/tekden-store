@@ -70,21 +70,17 @@ h2 { font-size: clamp(36px, 5.2vw, 76px); }
 .is-open .menu-button span:first-child { transform: translateY(3.5px) rotate(45deg); }
 .is-open .menu-button span:last-child { transform: translateY(-3.5px) rotate(-45deg); }
 
-/* ---------- Logo ---------- */
-.model-mark { font-weight: 800; font-stretch: 100%; color: var(--ink); }
-
 /* ---------- Buttons & links ---------- */
 .button { min-height: 52px; padding: 0 26px; border: 1px solid transparent; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-size: 15px; font-weight: 600; cursor: pointer; white-space: nowrap; transition: background 0.15s, border-color 0.15s, color 0.15s; }
 .button--primary { background: var(--blue); color: var(--white); }
 .button--primary:hover { background: var(--blue-ink); }
-.button--outline, .button--ghost { background: transparent; border-color: var(--ink); color: var(--ink); }
-.button--outline:hover, .button--ghost:hover { background: var(--ink); color: var(--white); }
+.button--outline { background: transparent; border-color: var(--ink); color: var(--ink); }
+.button--outline:hover { background: var(--ink); color: var(--white); }
 .button--light { background: var(--white); color: var(--ink); }
 .button--light:hover { background: var(--paper); }
 .button--muted { background: var(--panel); color: var(--steel); cursor: not-allowed; }
 .text-link { display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600; color: var(--blue); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
 .text-link:hover { color: var(--blue-ink); }
-.text-link--light { color: var(--white); }
 .eyebrow { margin: 0 0 14px; font-size: 14px; font-weight: 600; color: var(--blue); }
 
 /* ---------- Product media ---------- */
@@ -101,41 +97,12 @@ h2 { font-size: clamp(36px, 5.2vw, 76px); }
 .product-media--dark .media-fallback { color: var(--on-dark); opacity: 0.22; }
 
 /* ---------- Viewfinder (imza öğe) ---------- */
-.viewfinder { position: relative; overflow: hidden; border-radius: 6px; isolation: isolate; display: flex; }
-.viewfinder__frame { position: relative; flex: 1; display: flex; min-width: 0; }
-.viewfinder__frame > * { flex: 1; }
-.viewfinder__frame > .product-media { min-height: 0; height: auto; }
-.viewfinder__osd { position: absolute; inset: 0; pointer-events: none; font-family: var(--mono); font-size: 12px; font-weight: 500; letter-spacing: 0.02em; color: var(--ink); z-index: 2; white-space: pre; }
-.viewfinder--dark .viewfinder__osd { color: var(--on-dark); }
-.vf-corner { position: absolute; width: 22px; height: 22px; border: 0 solid currentColor; opacity: 0.85; }
-.vf-corner--tl { top: 16px; left: 16px; border-top-width: 1.5px; border-left-width: 1.5px; }
-.vf-corner--tr { top: 16px; right: 16px; border-top-width: 1.5px; border-right-width: 1.5px; }
-.vf-corner--bl { bottom: 16px; left: 16px; border-bottom-width: 1.5px; border-left-width: 1.5px; }
-.vf-corner--br { bottom: 16px; right: 16px; border-bottom-width: 1.5px; border-right-width: 1.5px; }
-.vf-top-left, .vf-top-right, .vf-bottom-left, .vf-bottom-right { position: absolute; display: flex; align-items: center; gap: 8px; }
-.vf-top-left { top: 24px; left: 46px; }
-.vf-top-right { top: 24px; right: 46px; font-variant-numeric: tabular-nums; }
-.vf-bottom-left { bottom: 24px; left: 46px; }
-.vf-bottom-right { bottom: 24px; right: 46px; opacity: 0.7; }
 .vf-rec { width: 8px; height: 8px; border-radius: 50%; background: var(--rec); animation: rec-blink 1.6s steps(1) infinite; }
 @keyframes rec-blink { 50% { opacity: 0.15; } }
 
 /* ---------- Layout helpers ---------- */
 .home > section, .product-page > section { padding-left: var(--gutter); padding-right: var(--gutter); }
 .home > section > *, .product-page > section > * { max-width: var(--max); margin-left: auto; margin-right: auto; }
-
-/* ---------- Hero ---------- */
-.hero { display: grid; grid-template-columns: minmax(320px, 0.78fr) 1.22fr; gap: clamp(28px, 4vw, 64px); align-items: end; padding-top: clamp(28px, 4vw, 56px); padding-bottom: clamp(28px, 4vw, 56px); max-width: calc(var(--max) + 2 * var(--gutter)); margin: 0 auto; }
-.home > .hero > * { max-width: none; margin: 0; }
-.hero-copy { padding-bottom: 8px; }
-.hero-model { font-size: 18px; font-weight: 500; margin-bottom: 22px; }
-.hero h1 { font-size: clamp(54px, 7vw, 112px); font-stretch: 72%; font-weight: 750; letter-spacing: -0.02em; line-height: 0.92; }
-.hero-lead { margin-top: 24px; max-width: 30ch; font-size: clamp(18px, 1.5vw, 21px); line-height: 1.4; color: var(--ink-2); }
-.hero-buy { margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--line); display: grid; gap: 20px; }
-.hero-price strong { display: block; font-size: 34px; font-weight: 700; font-stretch: 88%; letter-spacing: -0.01em; line-height: 1; }
-.hero-price span { display: block; margin-top: 6px; font-size: 14px; color: var(--steel); }
-.hero-actions { display: flex; gap: 10px; flex-wrap: wrap; }
-.hero-visual { min-height: clamp(420px, 68vh, 760px); height: 100%; }
 
 /* ---------- Spec rail ---------- */
 .spec-rail { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
@@ -146,31 +113,10 @@ h2 { font-size: clamp(36px, 5.2vw, 76px); }
 .spec-rail dt { order: 1; font-size: 14px; color: var(--steel); }
 
 /* ---------- Chapters ---------- */
-.chapter { padding-top: clamp(80px, 11vw, 160px); padding-bottom: 0; }
-.chapter-copy { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(24px, 5vw, 80px); align-items: end; margin-bottom: clamp(32px, 4vw, 56px) !important; }
-.chapter-copy p { max-width: 44ch; font-size: 18px; line-height: 1.5; color: var(--ink-2); }
-
-.plate-visual { min-height: clamp(360px, 52vw, 640px); background: var(--asphalt); }
-.plate-scene { position: absolute; inset: 0; display: grid; place-items: center; background:
-  radial-gradient(ellipse at 50% 55%, #24272c 0%, #16181b 60%); }
-.plate-zoom { position: relative; padding: 26px 34px; border: 1px solid rgba(243,244,245,.55); }
-.plate-zoom::before, .plate-zoom::after { content: ""; position: absolute; width: 10px; height: 10px; border: 0 solid var(--on-dark); }
-.plate-zoom::before { top: -1px; left: -1px; border-top-width: 2px; border-left-width: 2px; }
-.plate-zoom::after { bottom: -1px; right: -1px; border-bottom-width: 2px; border-right-width: 2px; }
 .plate { display: inline-flex; align-items: stretch; background: #f7f7f5; color: #0a0a0a; border: 2px solid #0a0a0a; border-radius: 5px; font-size: clamp(28px, 4.4vw, 58px); font-weight: 700; font-stretch: 86%; letter-spacing: 0.04em; line-height: 1; overflow: hidden; }
 .plate b { display: grid; place-items: end center; padding: 6px 8px 7px; background: #1446a0; color: #fff; font-size: 0.32em; letter-spacing: 0.05em; }
 .plate { padding-right: 0.4em; }
 .plate b { margin-right: 0.4em; }
-.plate-scene small { position: absolute; bottom: 58px; font-size: 12px; color: var(--on-dark-muted); }
-.plate-zoom .plate { padding-top: 0.14em; padding-bottom: 0.1em; }
-.plate-zoom .plate b { margin-top: -0.14em; margin-bottom: -0.1em; }
-
-.dual-frames { display: grid; grid-template-columns: 1.35fr 1fr; gap: clamp(12px, 1.6vw, 20px); align-items: end; }
-.dual-frames figure { margin: 0; }
-.dual-frames .viewfinder { min-height: clamp(300px, 36vw, 520px); }
-.dual-frames figure:last-child .viewfinder { min-height: clamp(260px, 28vw, 420px); }
-.dual-frames figcaption { display: flex; justify-content: space-between; align-items: baseline; padding-top: 14px; font-size: 15px; }
-.dual-frames figcaption span { color: var(--steel); }
 
 /* ---------- Capabilities ---------- */
 .capabilities { padding-top: clamp(80px, 11vw, 160px); }
@@ -180,15 +126,6 @@ h2 { font-size: clamp(36px, 5.2vw, 76px); }
 .capabilities dl > div { padding: 22px 0 36px; border-top: 1px solid var(--ink); }
 .capabilities dt { font-size: 22px; font-weight: 700; font-stretch: 88%; }
 .capabilities dd { margin: 8px 0 0; max-width: 34ch; color: var(--ink-2); }
-
-/* timeline (OBD sayfası) */
-.parking-timeline { list-style: none; margin: 0; padding: 0; position: relative; }
-.parking-timeline li { position: relative; padding: 0 0 34px 34px; }
-.parking-timeline li::before { content: ""; position: absolute; left: 4px; top: 7px; width: 9px; height: 9px; border-radius: 50%; border: 1.5px solid var(--on-dark); background: var(--asphalt); z-index: 1; }
-.parking-timeline li:last-child::before { background: var(--rec); border-color: var(--rec); }
-.parking-timeline li:not(:last-child)::after { content: ""; position: absolute; left: 8.5px; top: 14px; bottom: -6px; width: 1px; background: var(--asphalt-line); }
-.parking-timeline span { display: block; font-size: 22px; font-weight: 650; font-stretch: 88%; }
-.parking-timeline p { margin-top: 6px; color: var(--on-dark-muted); }
 /* ---------- Buy section ---------- */
 .buy-section { padding-top: clamp(80px, 10vw, 150px); display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(28px, 5vw, 80px); align-items: start; }
 .home > .buy-section > * { max-width: none; margin: 0; }
@@ -240,7 +177,7 @@ h2 { font-size: clamp(36px, 5.2vw, 76px); }
 .product-page > .product-main > * { max-width: none; margin: 0; }
 .product-gallery { position: sticky; top: calc(var(--header) + 20px); display: grid; gap: 12px; }
 .gallery-primary { position: relative; display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; text-align: left; }
-.gallery-primary .viewfinder, .gallery-primary > .product-media { min-height: clamp(380px, 48vw, 640px); }
+.gallery-primary > .product-media { min-height: clamp(380px, 48vw, 640px); }
 .gallery-thumbs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
 .gallery-thumbs button { padding: 0; border: 1px solid transparent; border-radius: 6px; overflow: hidden; background: none; cursor: pointer; }
 .gallery-thumbs button.is-active { border-color: var(--blue); box-shadow: inset 0 0 0 1px var(--blue); }
@@ -249,17 +186,6 @@ h2 { font-size: clamp(36px, 5.2vw, 76px); }
 .product-category { margin-top: 10px; font-size: 19px; color: var(--ink-2); }
 .product-price { display: block; margin-top: 24px; font-size: 34px; font-weight: 700; font-stretch: 88%; }
 .product-lead { margin-top: 14px; max-width: 42ch; color: var(--ink-2); }
-.advantage-list { list-style: none; margin: 22px 0 30px; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
-.advantage-list li { padding: 6px 12px; font-size: 13px; font-weight: 600; background: var(--paper); border-radius: 999px; }
-.trust-row { margin-top: 26px; padding-top: 20px; border-top: 1px solid var(--line); display: grid; gap: 8px; font-size: 14px; color: var(--ink-2); }
-.trust-row span::before { content: ""; display: inline-block; width: 6px; height: 6px; margin-right: 10px; border-radius: 50%; background: var(--blue); vertical-align: 2px; }
-.product-story { margin-top: clamp(80px, 10vw, 150px); padding-top: clamp(72px, 9vw, 130px); padding-bottom: clamp(72px, 9vw, 130px); background: var(--asphalt); color: var(--on-dark); }
-.product-story > div:first-child { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(24px, 5vw, 80px); align-items: end; margin-bottom: 48px; }
-.product-story h2 { font-size: clamp(42px, 6vw, 92px); }
-.product-story > div:first-child p { max-width: 40ch; font-size: 18px; color: var(--on-dark-muted); }
-.product-story__visuals { display: grid; grid-template-columns: 1.35fr 1fr; gap: 16px; align-items: end; }
-.product-story__visuals .viewfinder { min-height: clamp(280px, 34vw, 500px); }
-.product-story__visuals .viewfinder + .viewfinder { min-height: clamp(240px, 26vw, 400px); }
 .mobile-buy-bar { display: none; }
 
 /* OBD */
@@ -267,11 +193,6 @@ h2 { font-size: clamp(36px, 5.2vw, 76px); }
 .obd-facts > div { padding: 16px 16px 0 0; }
 .obd-facts dt { font-size: 13px; color: var(--steel); }
 .obd-facts dd { margin: 4px 0 0; font-weight: 600; }
-.obd-explainer { margin-top: clamp(80px, 10vw, 150px); padding-top: clamp(72px, 9vw, 130px); padding-bottom: clamp(72px, 9vw, 130px); background: var(--asphalt); color: var(--on-dark); }
-.obd-explainer > div { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 96px); align-items: start; }
-.obd-explainer .parking-timeline { margin-top: 6px; }
-.obd-explainer h2 { font-size: clamp(38px, 5vw, 76px); }
-.obd-explainer small { display: block; margin-top: 24px; max-width: 46ch; font-size: 14px; color: var(--on-dark-muted); }
 
 /* ---------- Inner pages: cart, checkout, legal ---------- */
 .inner-page { max-width: calc(var(--max) + 2 * var(--gutter)); margin: 0 auto; padding: clamp(40px, 6vw, 80px) var(--gutter) clamp(80px, 10vw, 140px); min-height: 60vh; }
@@ -297,8 +218,7 @@ h2 { font-size: clamp(36px, 5.2vw, 76px); }
 .cart-upsell small { color: var(--steel); }
 .order-summary, .checkout-summary { position: sticky; top: calc(var(--header) + 24px); padding: 28px; background: var(--paper); border-radius: 10px; display: grid; gap: 14px; }
 .order-summary .eyebrow, .checkout-summary .eyebrow { margin: 0 0 4px; color: var(--ink); font-size: 18px; font-weight: 650; }
-.order-summary > div, .checkout-item { display: flex; justify-content: space-between; gap: 16px; font-size: 15px; }
-.checkout-item small { color: var(--steel); }
+.order-summary > div { display: flex; justify-content: space-between; gap: 16px; font-size: 15px; }
 .summary-total { padding-top: 14px; border-top: 1px solid var(--line); font-size: 18px !important; }
 .summary-total strong { font-size: 24px; font-weight: 700; }
 .order-summary small, .checkout-summary > small { font-size: 13px; color: var(--steel); }
@@ -313,8 +233,7 @@ h2 { font-size: clamp(36px, 5.2vw, 76px); }
 .form-grid input:focus { outline: 2px solid var(--blue); outline-offset: -1px; border-color: transparent; }
 .form-actions { display: flex; gap: 10px; flex-wrap: wrap; }
 .checkout-review h1 { margin-bottom: 28px; }
-.review-line, .review-total { display: flex; justify-content: space-between; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--line); }
-.review-line span small { display: block; margin-top: 4px; color: var(--steel); }
+.review-total { display: flex; justify-content: space-between; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--line); }
 .review-total { margin-bottom: 28px; font-size: 20px; border-bottom: 0; }
 .payment-blocked p { margin: 16px 0 24px; max-width: 48ch; color: var(--ink-2); }
 .payment-status { margin-bottom: 24px; padding: 18px; display: flex; justify-content: space-between; border: 1px dashed var(--line); border-radius: 8px; font-size: 14px; }
@@ -344,39 +263,12 @@ h2 { font-size: clamp(36px, 5.2vw, 76px); }
   .is-open .nav { visibility: visible; opacity: 1; }
   .header-actions { margin-left: auto; }
 
-  .hero { grid-template-columns: 1fr; padding-top: 24px; gap: 24px; }
-  .hero-visual { order: -1; min-height: 72vw; }
-  .hero h1 { font-size: clamp(46px, 13.5vw, 72px); }
-  .hero-model { margin-bottom: 14px; }
-  .hero-lead { margin-top: 16px; }
-  .hero-buy { margin-top: 26px; }
-  .hero-actions .button { flex: 1; }
-
-  .viewfinder__osd { font-size: 10px; }
-  .vf-corner { width: 14px; height: 14px; }
-  .vf-corner--tl, .vf-corner--tr { top: 10px; }
-  .vf-corner--bl, .vf-corner--br { bottom: 10px; }
-  .vf-corner--tl, .vf-corner--bl { left: 10px; }
-  .vf-corner--tr, .vf-corner--br { right: 10px; }
-  .vf-top-left, .vf-top-right { top: 15px; }
-  .vf-bottom-left, .vf-bottom-right { bottom: 15px; }
-  .vf-top-left, .vf-bottom-left { left: 30px; }
-  .vf-top-right, .vf-bottom-right { right: 30px; }
-  .vf-bottom-right { display: none; }
-
   .spec-rail dl { grid-template-columns: 1fr 1fr; }
   .spec-rail dl > div, .spec-rail dl > div + div { padding: 20px 0 18px; border-left: 0; border-top: 1px solid var(--line); }
   .spec-rail dl > div:nth-child(-n + 2) { border-top: 0; }
   .spec-rail dl > div:nth-child(even) { padding-left: 18px; border-left: 1px solid var(--line); }
   .spec-rail dl > div:last-child { grid-column: 1 / -1; padding-left: 0; border-left: 0; }
-
-  .chapter-copy, .night-inner, .product-story > div:first-child, .obd-explainer > div { grid-template-columns: 1fr; gap: 16px; }
-  .chapter-copy p, .night-inner > p, .parking-copy p { font-size: 17px; }
-  .plate-visual { min-height: 72vw; }
-  .plate-zoom { padding: 16px 20px; }
-  .plate-scene small { bottom: 40px; }
-  .dual-frames, .product-story__visuals { grid-template-columns: 1fr; }
-  .dual-frames .viewfinder, .dual-frames figure:last-child .viewfinder, .product-story__visuals .viewfinder, .product-story__visuals .viewfinder + .viewfinder { min-height: 64vw; }
+  .parking-copy p { font-size: 17px; }
   .capabilities dl { grid-template-columns: 1fr; }
   .capabilities dl > div { padding-bottom: 24px; }
   .buy-section, .product-main, .cart-layout, .checkout-layout { grid-template-columns: 1fr; }
@@ -385,7 +277,7 @@ h2 { font-size: clamp(36px, 5.2vw, 76px); }
   .footer-top { grid-template-columns: 1fr; }
   .footer-columns { grid-template-columns: 1fr 1fr; row-gap: 36px; }
 
-  .gallery-primary .viewfinder, .gallery-primary > .product-media { min-height: 86vw; }
+  .gallery-primary > .product-media { min-height: 86vw; }
   .product-page { padding-bottom: 76px; }
   .mobile-buy-bar { position: fixed; z-index: 40; left: 0; right: 0; bottom: 0; padding: 10px var(--gutter) calc(10px + env(safe-area-inset-bottom)); display: flex; justify-content: space-between; align-items: center; gap: 16px; background: rgba(255, 255, 255, 0.96); border-top: 1px solid var(--line); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
   .mobile-buy-bar div { display: grid; }
@@ -408,18 +300,11 @@ h2 { font-size: clamp(36px, 5.2vw, 76px); }
 }
 .obd-page .gallery-primary { cursor: default; }
 
-/* =====================================================================
-   Revizyon 2 — kullanıcı notları (1–10)
-   ===================================================================== */
-
 /* Logo görselleri */
 .brand-logo { display: inline-flex; flex-shrink: 0; line-height: 0; }
 .brand-logo img { width: 128px; height: auto; }
 .site-footer .brand-logo img { width: 148px; }
 .v30-mark { width: 74px; height: auto; display: inline-block; }
-.hero-model { display: flex; align-items: center; gap: 12px; }
-.hero-model span { font-size: 18px; font-weight: 600; letter-spacing: 0.08em; }
-.hero-model .v30-mark { width: 82px; transform: translateY(1px); }
 
 /* Ortalanmış bölüm başlığı (SSS, teknik, kurulum) */
 .section-title { text-align: center; font-size: clamp(28px, 3vw, 40px) !important; font-stretch: 84%; letter-spacing: -0.01em; }
@@ -450,18 +335,12 @@ h2 { font-size: clamp(36px, 5.2vw, 76px); }
 .install { padding-top: clamp(80px, 10vw, 140px); }
 .install ol { list-style: none; margin-top: 32px; margin-bottom: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(12px, 1.6vw, 20px); }
 .install-card { position: relative; aspect-ratio: 4 / 4.4; border-radius: 14px; overflow: hidden; background: var(--asphalt); color: var(--on-dark); display: flex; }
-.install-scene { position: absolute; inset: 6% 8% 34%; width: 84%; height: 60%; }
 .install-card__text { position: relative; margin-top: auto; width: 100%; padding: 28px 26px 26px; background: linear-gradient(180deg, rgba(22, 24, 27, 0) 0%, rgba(22, 24, 27, 0.92) 38%); display: grid; gap: 6px; }
 .install-card__text span { width: 30px; height: 30px; display: grid; place-items: center; border-radius: 50%; background: var(--blue); font-size: 14px; font-weight: 700; }
 .install-card__text strong { margin-top: 6px; font-size: 22px; font-weight: 650; font-stretch: 88%; }
 .install-card__text p { font-size: 15px; color: var(--on-dark-muted); max-width: 32ch; }
 
 /* 7 — Sensör bölümü */
-.sensor { padding-top: clamp(80px, 10vw, 140px); }
-.sensor-head { text-align: center; }
-.sensor-head h2 { font-size: clamp(36px, 4.6vw, 64px); }
-.sensor-head p { margin: 16px auto 0; max-width: 52ch; font-size: 18px; color: var(--ink-2); }
-.sensor-body { margin-top: clamp(36px, 5vw, 64px) !important; display: grid; grid-template-columns: auto 1fr; gap: clamp(32px, 6vw, 96px); align-items: center; max-width: 980px !important; }
 .chip { width: clamp(200px, 24vw, 300px); aspect-ratio: 1; padding: 9%; background: #121417; border-radius: 6px; box-shadow: inset 0 0 0 3px #2b2f36; position: relative; }
 .chip::before { content: ""; position: absolute; inset: 3.5%; background:
   repeating-linear-gradient(90deg, #8d939c 0 2px, transparent 2px 7px) top / 100% 4px no-repeat,
@@ -472,16 +351,7 @@ h2 { font-size: clamp(36px, 5.2vw, 76px); }
   linear-gradient(135deg, #e04a7c 0%, #7b4ce0 26%, #2b8de8 50%, #2ec7a6 72%, #f2c84b 100%); box-shadow: inset 0 0 0 1px rgba(255,255,255,.35), inset 0 0 40px rgba(0,0,0,.25); }
 .chip__die small { font-size: clamp(13px, 1.4vw, 17px); font-weight: 600; font-style: italic; opacity: 0.95; }
 .chip__die strong { font-size: clamp(34px, 4vw, 52px); font-weight: 800; font-stretch: 80%; line-height: 1; text-shadow: 0 2px 10px rgba(0,0,0,.25); }
-.sensor-stats { margin: 0; display: grid; gap: 22px; }
-.sensor-stats > div { display: grid; grid-template-columns: minmax(150px, auto) 1fr; gap: 20px; align-items: baseline; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
-.sensor-stats > div:last-child { border-bottom: 0; padding-bottom: 0; }
-.sensor-stats dt { font-size: clamp(40px, 5vw, 68px); font-weight: 750; font-stretch: 78%; line-height: 0.9; }
-.sensor-stats dd { margin: 0; font-size: 17px; color: var(--steel); }
-.sensor-scene { margin-top: clamp(36px, 5vw, 64px) !important; position: relative; aspect-ratio: 16 / 7; border-radius: 16px; overflow: hidden; background: var(--asphalt); }
-.sensor-scene svg { position: absolute; inset: 0; width: 100%; height: 100%; }
-.sensor-badge { position: absolute; top: 20px; left: 20px; display: flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; background: rgba(255,255,255,.94); font-size: 15px; font-weight: 600; }
-.sensor-badge strong { color: var(--blue); }
-.sensor-scene small, .wifi small { position: absolute; right: 18px; bottom: 14px; font-size: 12px; color: rgba(255,255,255,.6); }
+.wifi small { position: absolute; right: 18px; bottom: 14px; font-size: 12px; color: rgba(255,255,255,.6); }
 
 /* 1 — Wi-Fi + telefon */
 .wifi { padding-top: clamp(80px, 10vw, 140px); overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 96px); align-items: center; max-width: calc(var(--max) + 2 * var(--gutter)); margin: 0 auto; }
@@ -489,37 +359,7 @@ h2 { font-size: clamp(36px, 5.2vw, 76px); }
 .wifi-copy h2 { font-size: clamp(38px, 5vw, 72px); }
 .wifi-copy p { margin-top: 20px; max-width: 40ch; font-size: 18px; color: var(--ink-2); }
 .phone { margin: 0; justify-self: center; width: min(360px, 100%); }
-.phone__body { position: relative; padding: 12px; background: #0a0a0a; border-radius: 48px; box-shadow: 0 30px 60px -30px rgba(0,0,0,.45); }
-.phone__notch { position: absolute; z-index: 3; top: 22px; left: 50%; translate: -50% 0; width: 92px; height: 26px; border-radius: 999px; background: #0a0a0a; }
-.phone__screen { border-radius: 37px; overflow: hidden; background: var(--white); aspect-ratio: 9 / 18.5; display: grid; grid-template-rows: 1fr auto 1fr; }
-.phone__top, .phone__map { position: relative; overflow: hidden; }
-.phone__top svg, .phone__map svg { position: absolute; inset: 0; width: 100%; height: 100%; }
-.phone__osd { position: absolute; z-index: 2; display: flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: 11px; font-weight: 600; color: var(--white); text-shadow: 0 1px 4px rgba(0,0,0,.5); }
-.phone__osd--tl { left: 18px; bottom: 14px; }
-.phone__osd--tr { right: 18px; bottom: 14px; }
-.phone__bar { display: flex; justify-content: space-between; align-items: baseline; padding: 12px 18px; border-bottom: 1px solid var(--line); font-size: 13px; }
-.phone__bar span { color: var(--steel); }
-.phone__chip { position: absolute; left: 14px; bottom: 16px; padding: 7px 12px; border-radius: 999px; background: var(--white); box-shadow: 0 4px 14px rgba(0,0,0,.12); font-size: 12px; font-weight: 600; }
 .phone figcaption { margin-top: 12px; text-align: center; font-size: 12px; color: var(--steel); }
-
-/* 8 — microSD */
-.storage { margin-top: clamp(80px, 10vw, 140px); padding-top: clamp(64px, 8vw, 110px); padding-bottom: clamp(64px, 8vw, 110px); background: linear-gradient(180deg, #eef4fb 0%, #f7fafd 100%); display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(32px, 5vw, 80px); align-items: center; }
-.home > .storage > * { max-width: calc(var(--max) * 0.55); margin: 0; }
-.home > .storage > :first-child { justify-self: end; width: 100%; }
-.storage-tag { display: inline-block; padding: 6px 14px; border: 1.5px solid var(--blue); border-radius: 8px; color: var(--blue); font-size: 15px; font-weight: 700; font-style: italic; }
-.storage-copy h2 { margin-top: 18px; font-size: clamp(38px, 4.8vw, 68px); }
-.storage-copy p { margin-top: 18px; max-width: 40ch; font-size: 18px; color: var(--ink-2); }
-.storage-copy .storage-note { margin-top: 26px; font-size: 16px; font-weight: 600; color: var(--blue); }
-.storage-visual { display: grid; gap: 10px; }
-.storage-product { height: clamp(220px, 24vw, 320px); }
-.storage-product .product-media { min-height: 0; background: transparent; }
-.storage-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; text-align: center; }
-.storage-cards div { display: grid; justify-items: center; gap: 6px; }
-.storage-cards strong { font-size: clamp(16px, 1.6vw, 22px); font-weight: 750; font-stretch: 88%; color: var(--blue); }
-.microsd { width: clamp(44px, 4.6vw, 62px); height: auto; }
-.storage-bar { display: grid; grid-template-columns: repeat(4, 1fr); height: 14px; border-radius: 999px; overflow: hidden; }
-.storage-bar i:nth-child(1) { background: #b9d2f2; } .storage-bar i:nth-child(2) { background: #7fadea; } .storage-bar i:nth-child(3) { background: #3f86dd; } .storage-bar i:nth-child(4) { background: var(--blue); }
-.storage-visual small { font-size: 13px; color: var(--steel); }
 
 /* 6 — Park modu */
 .parking { position: relative; margin-top: 0; padding-top: clamp(72px, 9vw, 130px); padding-bottom: clamp(72px, 9vw, 130px); background: var(--asphalt); color: var(--on-dark); overflow: hidden; isolation: isolate; }
@@ -547,8 +387,6 @@ h2 { font-size: clamp(36px, 5.2vw, 76px); }
 .impact__player i { height: 3px; background: rgba(255,255,255,.25); border-radius: 2px; }
 .impact__player b { display: block; width: 12%; height: 100%; background: var(--white); border-radius: 2px; }
 .timelapse { display: grid; gap: 10px; }
-.timelapse__ruler { display: flex; justify-content: space-between; padding-bottom: 6px; border-bottom: 1px dashed rgba(255,255,255,.25); font-family: var(--mono); font-size: 11px; color: var(--on-dark-muted); }
-.timelapse__ruler span:first-child::before { content: ""; display: inline-block; width: 6px; height: 6px; margin-right: 6px; border-radius: 50%; background: var(--rec); vertical-align: 1px; }
 .timelapse__frames { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
 .timelapse__frames svg { width: 100%; aspect-ratio: 1 / 1.1; border-radius: 4px; display: block; }
 .timelapse__bar { margin-top: 6px; display: grid; gap: 8px; font-size: 13px; }
@@ -585,8 +423,6 @@ h2 { font-size: clamp(36px, 5.2vw, 76px); }
 
 @media (max-width: 1080px) {
   .parking-inner { grid-template-columns: 1fr; }
-  .storage { grid-template-columns: 1fr; }
-  .home > .storage > * { max-width: none; justify-self: stretch !important; }
 }
 @media (max-width: 860px) {
   .faq-list { padding: 4px 18px; border-radius: 12px; }
@@ -596,14 +432,9 @@ h2 { font-size: clamp(36px, 5.2vw, 76px); }
   .spec-grid .spec-table + .spec-table tr:first-child th, .spec-grid .spec-table + .spec-table tr:first-child td { border-top: 0; }
   .install ol { grid-template-columns: 1fr; }
   .install-card { aspect-ratio: 4 / 3.4; }
-  .sensor-body { grid-template-columns: 1fr; justify-items: center; }
-  .sensor-stats { width: 100%; }
-  .sensor-stats > div { grid-template-columns: 1fr; gap: 4px; }
-  .sensor-scene { aspect-ratio: 4 / 3; }
   .wifi { grid-template-columns: 1fr; }
   .phone { width: min(300px, 86%); }
   .parking-cards { grid-template-columns: 1fr; }
-  .storage-cards { gap: 6px; }
   .key-features li { font-size: 14px; }
   .trust-badges li { font-size: 12px; }
   .selection-thumb__item { width: 52px; height: 52px; }
@@ -698,10 +529,6 @@ h2 { font-size: clamp(36px, 5.2vw, 76px); }
 .wifi-phone figcaption { margin-top: 10px; text-align: center; font-size: 12px; color: var(--steel); }
 
 /* 14 — Ekran bölümü */
-.screen-feature { padding-top: clamp(80px, 10vw, 140px); display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(32px, 5vw, 80px); align-items: center; max-width: calc(var(--max) + 2 * var(--gutter)); margin: 0 auto; }
-.home > .screen-feature > *, .product-page > .screen-feature > * { max-width: none; margin: 0; }
-.screen-feature h2 { font-size: clamp(38px, 4.8vw, 68px); }
-.screen-feature p { margin-top: 18px; max-width: 38ch; font-size: 18px; color: var(--ink-2); }
 .live-screen { position: relative; }
 .live-screen img { display: block; width: 100%; height: auto; }
 .live-screen__display { position: absolute; left: 6.9%; top: 54.6%; width: 80.6%; height: 34.4%; border-radius: 1.6% / 4.6%; overflow: hidden; background: #000; }
@@ -716,15 +543,6 @@ h2 { font-size: clamp(36px, 5.2vw, 76px); }
 .device-menu li { display: flex; justify-content: space-between; align-items: center; padding: 0 4%; border-bottom: 1px solid rgba(255,255,255,.08); }
 .device-menu li.is-active { background: rgba(21,70,216,.35); }
 .device-menu li b { color: #9fb6ff; font-weight: 700; }
-
-/* 9 — Türkçe */
-.turkish { margin-top: clamp(80px, 10vw, 140px); padding-top: clamp(56px, 7vw, 96px); padding-bottom: clamp(56px, 7vw, 96px); background: var(--paper); display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(32px, 5vw, 80px); align-items: center; }
-.home > .turkish > * { max-width: calc(var(--max) * 0.56); margin: 0; }
-.home > .turkish > :first-child { justify-self: end; width: 100%; }
-.turkish__chip { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px 6px 6px; border-radius: 999px; background: #fff; font-size: 14px; font-weight: 700; color: var(--blue-ink); }
-.turkish__chip .cap-icon { width: 30px; height: 30px; }
-.turkish h2 { margin-top: 18px; font-size: clamp(36px, 4.4vw, 62px); }
-.turkish p { margin-top: 16px; max-width: 38ch; font-size: 18px; color: var(--ink-2); }
 
 /* 2 — Galeri okları + lightbox */
 .gallery-stage { position: relative; border-radius: 10px; overflow: hidden; background: #fff; border: 1px solid var(--line); }
@@ -818,9 +636,6 @@ h2 { font-size: clamp(36px, 5.2vw, 76px); }
   .cap-grid li { padding: 18px 14px; }
   .cap-grid h3 { font-size: 16px; }
   .cap-grid p { font-size: 13px; }
-  .screen-feature, .turkish { grid-template-columns: 1fr; }
-  .home > .turkish > * { max-width: none; }
-  .turkish .live-screen { order: 1; }
   .wifi-phone { width: min(300px, 76%); }
   .gallery-thumbs button { flex-basis: calc((100% - 30px) / 4); }
   .gallery-nav { width: 38px; height: 38px; }
@@ -834,13 +649,9 @@ h2 { font-size: clamp(36px, 5.2vw, 76px); }
 }
 .install-card__text { height: 46%; min-height: 0; align-content: start; padding-top: 34px; }
 
-/* =====================================================================
-   Revizyon 4 — tur 3 notları
-   ===================================================================== */
-
 /* 2 — Okunurluk: yazı ve rakamlar bir kademe büyük */
 body { font-size: 17px; }
-.chapter-copy p, .wifi-copy p, .screen-feature p, .turkish p, .storage-copy p, .parking-copy > p, .sensor-head p, .product-lead, .obd-intro p { font-size: 18.5px; line-height: 1.55; }
+.wifi-copy p, .parking-copy > p, .product-lead, .obd-intro p { font-size: 18.5px; line-height: 1.55; }
 .share-lead { font-size: 16px !important; }
 .share-row li { font-size: 15px; }
 .bundle-fieldset legend { font-size: 16px; }
@@ -872,7 +683,7 @@ body { font-size: 17px; }
 .obd-benefits p, .obd-steps p { font-size: 16px; }
 .obd-facts dt { font-size: 14px; } .obd-facts dd { font-size: 16px; }
 .cart-line-info p, .cart-line-info span { font-size: 16px; }
-.order-summary > div, .checkout-item { font-size: 16px; }
+.order-summary > div { font-size: 16px; }
 .form-grid label { font-size: 15px; }
 .footer-columns div { font-size: 15px; }
 .breadcrumbs { font-size: 15px; }
@@ -882,9 +693,7 @@ body { font-size: 17px; }
 /* 4 — Hero banner (tam görsel + tıklanabilir alan) */
 .banner__media { position: relative; display: block; background: #07090d; }
 .banner__media img { display: block; width: 100%; max-width: 1920px; margin: 0 auto; height: auto; }
-.banner__hotspot { position: absolute; left: 5.8%; top: 81.3%; width: 20.7%; height: 9.5%; border-radius: 12px; }
 .banner__media:focus-visible { outline: none; }
-.banner__media:focus-visible .banner__hotspot { outline: 3px solid #fff; outline-offset: 3px; }
 .banner__slogan { font-size: 26px; font-weight: 800; font-stretch: 84%; line-height: 1.1; }
 .banner__slogan span { color: #4f86ff; }
 .banner__chips { list-style: none; margin: 6px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; width: 100%; }
@@ -927,8 +736,7 @@ body { font-size: 17px; }
 }
 @media (max-width: 860px) {
   body { font-size: 16px; }
-  .chapter-copy p, .wifi-copy p, .screen-feature p, .turkish p, .storage-copy p, .parking-copy > p, .sensor-head p, .product-lead, .obd-intro p { font-size: 17px; }
-  .banner__hotspot { display: none; }
+  .wifi-copy p, .parking-copy > p, .product-lead, .obd-intro p { font-size: 17px; }
   .banner__mobile-copy { gap: 8px; padding-bottom: 18px; }
   .banner__claim { font-size: 26px; }
   .banner__sub { font-size: 15px; }
@@ -980,16 +788,11 @@ body { font-size: 17px; }
 }
 @media (max-width: 860px) {
   .install-card { aspect-ratio: auto; min-height: 300px; flex-direction: column; }
-  .install-scene { position: relative; inset: auto; width: 100%; height: 170px; margin-top: 16px; }
   .install-card__text { height: auto; margin-top: 0; padding: 12px 22px 24px; background: none; }
 }
-
-/* =====================================================================
-   Revizyon 5 — tur 4 notları
-   ===================================================================== */
 /* 1 — Buton yazıları büyük ve okunaklı */
 .button { min-height: 60px; padding: 0 30px; font-size: 18px; font-weight: 700; letter-spacing: 0.005em; }
-.button--light, .button--ghost, .button--ghost-light, .button--outline { font-size: 17px; }
+.button--light, .button--ghost-light, .button--outline { font-size: 17px; }
 .gallery-zoom-hint, .lightbox__count { font-size: 15px; }
 .bundle-callout__text strong { font-size: 18px; }
 .mobile-buy-bar .button { min-height: 52px; font-size: 17px; padding: 0 26px; }
@@ -1027,8 +830,6 @@ body { font-size: 17px; }
 .install-card { aspect-ratio: auto; min-height: 500px; }
 .install-card__text { padding-bottom: 28px; }
 @media (max-width: 860px) { .install-card { min-height: 0; aspect-ratio: 10 / 11.5; } }
-
-/* ============ Revizyon 6 ============ */
 
 /* 6.1 — Ön/arka kamera plaka bölümü (özellik şeridinin hemen altında, dar üst boşluk) */
 .cams { padding-top: clamp(40px, 4.5vw, 64px); }
@@ -1086,17 +887,6 @@ body { font-size: 17px; }
 
 /* 6.3 — Kamera ekranında gerçek yol görüntüsü */
 .live-screen__shot { object-fit: cover; }
-
-/* 6.4 — 512 GB: yazılar büyük ve üstten başlar */
-.storage { align-items: start; }
-.storage-tag { padding: 8px 18px; font-size: 18px; border-width: 2px; }
-.storage-copy h2 { margin-top: 22px; font-size: clamp(44px, 5.4vw, 80px); }
-.storage-copy p { margin-top: 22px; max-width: 34ch; font-size: clamp(19px, 1.6vw, 22px) !important; line-height: 1.5; }
-.storage-copy .storage-note { margin-top: 28px; font-size: clamp(17px, 1.4vw, 20px) !important; font-weight: 700; }
-@media (max-width: 860px) {
-  .storage-tag { font-size: 16px; padding: 6px 14px; }
-  .storage-copy h2 { font-size: 40px; }
-}
 
 /* 6.5 — Viidure: daha büyük telefon */
 .wifi { align-items: center; }
@@ -1162,8 +952,6 @@ body { font-size: 17px; }
   .day-night { padding: 3px; }
   .day-night button { min-height: 38px; padding: 0 12px; font-size: 13.5px; gap: 5px; }
 }
-
-/* ============ Revizyon 7 ============ */
 
 /* 7.1 — İndirim etiketi: REC kırmızısı, beyaz yazı */
 .price-tag__badge { background: var(--rec); color: #fff; }
@@ -1262,8 +1050,6 @@ body { font-size: 17px; }
   .display-duo .device-menu ul { padding: 0; }
 }
 
-/* ============ Revizyon 8 ============ */
-
 /* 8.1 — Hafıza bölümü kısa: tek ekrana sığar */
 .memory { padding-top: clamp(36px, 4vw, 56px); padding-bottom: clamp(32px, 3.6vw, 48px); }
 .memory__top { grid-template-columns: 1.15fr 0.85fr; gap: clamp(20px, 3vw, 48px); }
@@ -1291,20 +1077,6 @@ body { font-size: 17px; }
 }
 
 /* 8.2 — Kayan duyuru şeridi */
-.ticker { background: var(--blue-ink); color: #fff; overflow: hidden; border-bottom: 1px solid rgba(255,255,255,.08); }
-.ticker__track { display: flex; width: max-content; animation: ticker-scroll 42s linear infinite; }
-.ticker:hover .ticker__track { animation-play-state: paused; }
-.ticker__row { list-style: none; margin: 0; padding: 0; display: flex; flex: none; }
-.ticker__row li { display: inline-flex; align-items: center; gap: 10px; padding: 11px 36px; font-size: 14.5px; font-weight: 750; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
-.ticker__row li::after { content: ""; width: 5px; height: 5px; margin-left: 36px; border-radius: 50%; background: rgba(255,255,255,.45); }
-.ticker__row li svg { flex: none; opacity: .95; }
-@keyframes ticker-scroll { from { transform: translateX(0); } to { transform: translateX(-25%); } }
-@media (prefers-reduced-motion: reduce) { .ticker__track { animation: none; } }
-@media (max-width: 860px) {
-  .ticker__row li { padding: 9px 22px; font-size: 13px; gap: 8px; }
-  .ticker__row li::after { margin-left: 22px; }
-  .ticker__track { animation-duration: 34s; }
-}
 
 /* 8.3 — Alt kısım: logo, İletişim sütunu, firma bilgisi, kart logoları */
 .footer-columns { grid-template-columns: 0.8fr 1fr 1.1fr 1.3fr; }
@@ -1312,8 +1084,6 @@ body { font-size: 17px; }
 .footer-contact p + p { margin-top: 6px; }
 .footer-contact svg { flex: none; margin-top: 1px; color: #7fa6ff; }
 .footer-bottom { align-items: center; gap: 20px 40px; flex-wrap: wrap; }
-.footer-legal { display: grid; gap: 4px; }
-.footer-legal span:last-child { font-size: 12.5px; opacity: .85; }
 .footer-pay { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
 .footer-pay__secure { display: inline-flex; align-items: center; gap: 7px; font-size: 13.5px; font-weight: 600; color: var(--on-dark); }
 .pay-marks { list-style: none; margin: 0; padding: 0; display: flex; gap: 8px; }
